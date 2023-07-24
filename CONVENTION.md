@@ -37,7 +37,7 @@ int[] masks = new int[] {0, 1, 1};
 ## 7. 줄바꿈 후 추가 들여쓰기
 ```
 List<Product> list = 
-	repository.selectAll(startRow, endRow);
+		repository.selectAll(startRow, endRow);
 ```
 ## 8. 제어문 키워드와 여는 소괄호 사이에 공백 삽입
 ```
