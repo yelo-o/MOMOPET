@@ -26,7 +26,7 @@ public class ProductService {
 	}
 }
 
-##6. 대괄호 뒤에 공백 삽입
+## 6. 대괄호 뒤에 공백 삽입
 int[] masks = new int[] {0, 1, 1};
 
 ## 7. 줄바꿈 후 추가 들여쓰기
@@ -38,10 +38,10 @@ if (maxLine > LIMTED) {
 	return false;
 }
 
-##9. 타입 캐스팅에 쓰이는 소괄호 내부 공백 미삽입
+## 9. 타입 캐스팅에 쓰이는 소괄호 내부 공백 미삽입
 String message = (String)rawLine;
 
-##10. 콤마/구분자 세미콜론의 뒤에만 공백 삽입
+## 10. 콤마/구분자 세미콜론의 뒤에만 공백 삽입
 for (int i = 0; i < length; i++) {
 	display(i, z);
 }
