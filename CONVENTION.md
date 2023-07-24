@@ -4,11 +4,13 @@
 UTF-8 로 통일
 
 ## 2 패키지 이름 소문자로 구성
+```
 package com.momo.customer.control
-
+```
 ## 3. 클래스/인터페이스 이름에 대문자 카멜 표기법 적용
+```
 public class ProductService
-
+```
 ## 4. 한 줄에 한 문장
 ```
 int number = 0;
@@ -20,7 +22,7 @@ public class ProductService {
 	try {
 		System.out.println("트라이");
 	} catch(Exception e) {
-			System.out.println("캐치");
+		System.out.println("캐치");
 	} finally {
 		if(session != null) {
 		    session.close();
