@@ -1,4 +1,4 @@
-<%@page import="com.momo.customer.dto.History" %>
+<%@page import="com.momo.customer.dto.History"%>
 <%@page import="com.momo.customer.dto.Histories" %>
 <%@page import="java.util.List" %>
 <%@page import="java.util.ArrayList" %>
