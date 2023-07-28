@@ -37,14 +37,19 @@
 					value="${useremail }"></td>
 			</tr>
 			<tr>
+				<td>생년월일</td>
+				<td><input type="text" name="birth" readonly="readonly"
+					value="${userbirth }"></td>
+			</tr>
+			<tr>
 				<td>주소</td>
 				<td><input type="text" name="address" readonly="readonly"
 					value="${useraddress }"></td>
 			</tr>
 			<tr>
-				<td>생년월일</td>
-				<td><input type="text" name="birth" readonly="readonly"
-					value="${userbirth }"></td>
+				<td>자기소개</td>
+				<td><input type="text" name="introduct" readonly="readonly"
+					value="${useraddress }"></td>
 			</tr>
 
 		</table>
