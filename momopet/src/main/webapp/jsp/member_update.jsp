@@ -7,8 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet"
-	href="http://127.0.0.1:5500/webproject/personal_information.html">
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="../jsp/member_updatejq.js"></script>
@@ -49,12 +48,10 @@
 				<td><input type="text" name="birth"></td>
 			</tr>
 
-			<tr>
+
+		</table>
 				<button class="buttonupdate">수정하기</button>
 				<button class="buttonback">뒤로가기</button>
-
-			</tr>
-		</table>
 	</form>
 </body>
 </html>
