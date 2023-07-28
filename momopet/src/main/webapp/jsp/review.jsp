@@ -15,11 +15,11 @@
 		<input type="hidden" name="userName" value="인성">
 		<textarea name="review" placeholder="리뷰를 입력하세요" required></textarea>
 		<div class="star-rating">
-			<img src="<c:out value="${contextPath}/images/star.png" />" data-rating="1" alt="1점"> 
-			<img src="<c:out value="${contextPath}/images/star.png" />" data-rating="2" alt="2점"> 
-			<img src="<c:out value="${contextPath}/images/star.png" />" data-rating="3" alt="3점"> 
-			<img src="<c:out value="${contextPath}/images/star.png" />" data-rating="4" alt="4점"> 
-			<img src="<c:out value="${contextPath}/images/star.png" />" data-rating="5" alt="5점"> 
+			<img src="<c:out value="${contextPath}/images/star.png" />" data-rating="1" alt="1점" style="width: 30px; height: 30px;">
+			<img src="<c:out value="${contextPath}/images/star.png" />" data-rating="2" alt="2점" style="width: 30px; height: 30px;">
+			<img src="<c:out value="${contextPath}/images/star.png" />" data-rating="3" alt="3점" style="width: 30px; height: 30px;">
+			<img src="<c:out value="${contextPath}/images/star.png" />" data-rating="4" alt="4점" style="width: 30px; height: 30px;">
+			<img src="<c:out value="${contextPath}/images/star.png" />" data-rating="5" alt="5점" style="width: 30px; height: 30px;">
 		</div>
 		<input type="hidden" name="starRating" value="0" required>
 		<button type="submit">리뷰 등록</button>
