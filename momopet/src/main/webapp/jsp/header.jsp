@@ -23,6 +23,7 @@
             <li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">히스토리</a></li>
             <li><a href="<c:out value="${contextPath}"/>/jsp/review.jsp">리뷰</a></li>
             <li><a href="<c:out value="${contextPath}"/>/jsp/informationcheck.jsp">내정보확인</a></li>
+            <li><a href="<c:out value="${contextPath}"/>/jsp/member_update.jsp">내정보수정</a></li>
         </ul>
     </nav>
 </header>
