@@ -13,16 +13,13 @@ public class BoardService {
 	public BoardService() {
 		repository = new BoardRepository();
 	}
-	
 	public static BoardService getInstance() {
 		return service;
 	}
 
-	/*
-	public Board findByProdNo(String prodNo) throws FindException{
-		return repository.SelectByProdNo(prodNo);
+	public Board findByBoardNo(String boardNo) throws FindException{
+		return repository.SelectByBoardNo(boardNo);
 	}
-	*/
 	/**
 	 * 상품목록을 검색한다. 한 페이지당 최대4개의 상품을 검색한다
 	 * @param currentPage 검색할 페이지
