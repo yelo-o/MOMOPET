@@ -30,7 +30,7 @@
             <div class="checkbox">
             <input type="checkbox" checked>아이디저장
             </div>
-            <input type="submit" value="Login">
+            <button>Login</button> 
             <div class="find">
                 <span class="pass"><a href="../jsp/findid.jsp">아이디찾기</a></span>
                 <span class="findpwd"><a href="../jsp/findpwd.jsp">비밀번호찾기</a></span>
