@@ -118,3 +118,6 @@ footer>span {
     /* margin: 0 auto; */
     width: 80%;
 }
+.contact-favorite-wrap fixed-contact-button {
+	display: block;
+}
