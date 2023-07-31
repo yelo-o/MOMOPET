@@ -77,7 +77,7 @@
     </div>
 </div>
       <div class="bt_wrap">
-        <a href="boardWrite.jsp" class="on">등록</a>
+        <a href="boardwrite.jsp" class="on">등록</a>
       </div>
     </div>
   </div>
