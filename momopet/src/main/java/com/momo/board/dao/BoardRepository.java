@@ -27,18 +27,17 @@ public class BoardRepository {
 			e.printStackTrace();
 		}
 	}
-	/*
-	public Product SelectByProdNo(String prodNo) throws FindException {
+	public Board SelectByBoardNo(String boardNo) throws FindException {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			Product p = session.selectOne("com.my.customer.mapper.ProductMapper.selectByProdNo", prodNo);
-			if(p == null) {
-				throw new FindException("상품이 없습니다");
+			Board b = session.selectOne("com.momo.board.mapper.BoardMapper.SelectByBoardNo", boardNo);
+			if(b == null) {
+				throw new FindException("해당하는 게시물이 없습니다");
 			}else {
-				System.out.println("productrepository selectByProdNo() p.prodNo=" + p.getProdNo()
-				+ ", p.prodName=" + p.getProdName() + ", p.prodPrice=" + p.getProdPrice());
-				return p;
+				System.out.println("Boardrepository selectByBoardNo() b.boardNo=" + b.getBoardNo()
+				+ ", b.boardId=" + b.getBoardId() + ", b.title=" + b.getBoardTitle());
+				return b;
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -48,7 +47,8 @@ public class BoardRepository {
 				session.close();
 			}
 		}
-		*/
+	}
+	
 	public int count() throws FindException{
 		SqlSession session = null;
 		try {

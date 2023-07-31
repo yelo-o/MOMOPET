@@ -46,10 +46,11 @@
           <c:forEach items="${list}" var="b">
           <div class>
             <div class="num"><c:out value="${b.boardNo}" /></div>
-            <div class="title"><c:out value="${b.title}" /></div>
+            <div class="title"><c:out value="${b.boardTitle}" /></div>
             <div class="writer"><c:out value="${b.boardId}" /></div>
-            <div class="date">작성일</div>
             <div class="count"><c:out value="${b.postingDate}" /></div>
+            <div class="date">조회수</div>
+            
           </div>
           </c:forEach>
         </div> 
@@ -57,25 +58,23 @@
     </div>
 
     <div class="pagegroup">
-    <c:set var="currentPage" value="${pb.currentPage}" />
-    <c:set var="totalPage" value="${pb.totalPage}" />
-    <c:set var="startPage" value="${pb.startPage}" />
-    <c:set var="endPage" value="${pb.endPage}" />
-    <c:if test="${startPage > 1 }">
-      <span class="page<c:out value=" ${startPage-1}" />">PREV</span>&nbsp;&nbsp;
-    </c:if>
-    <c:forEach begin="${startPage}" end="${endPage}" var="i">
-      <span class="page<c:out value=" ${i}" />">
-      [
-      <c:out value="${i}" />]</span>&nbsp;&nbsp;
-    </c:forEach>
-    <c:if test="${totalPage > endPage}">
-      <span class="page<c:out value=" ${endPage+1}" />">NEXT</span>
-    </c:if>
-  </div>
+	    <c:set var="currentPage" value="${pb.currentPage}" />
+	    <c:set var="totalPage" value="${pb.totalPage}" />
+	    <c:set var="startPage" value="${pb.startPage}" />
+	    <c:set var="endPage" value="${pb.endPage}" />
+	    <c:if test="${startPage > 1 }">
+	      <span class="page<c:out value=" ${startPage-1}" />">PREV</span>&nbsp;&nbsp;
+	    </c:if>
+	      <c:forEach begin="${startPage}" end="${endPage}" var="i">
+	        <span class="page<c:out value=" ${i}" />">[<c:out value="${i}" />]</span>&nbsp;&nbsp;
+	      </c:forEach>
+	    <c:if test="${totalPage > endPage}">
+	      <span class="page<c:out value=" ${endPage+1}" />">NEXT</span>
+	    </c:if>
+    </div>
     </c:otherwise>
-  </c:choose>
-  </div>
+    </c:choose>
+    </div>
 </div>
       <div class="bt_wrap">
         <a href="boardWrite.jsp" class="on">등록</a>

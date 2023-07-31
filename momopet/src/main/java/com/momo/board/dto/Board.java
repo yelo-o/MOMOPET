@@ -12,7 +12,7 @@ public class Board {
 	private int boardNo;
 	private String boardId;
 	private int userType;
-	private String title;
-	private String content;
+	private String boardTitle;
+	private String boardContent;
 	private Date postingDate;
 }
