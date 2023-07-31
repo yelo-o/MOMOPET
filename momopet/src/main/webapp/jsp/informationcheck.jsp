@@ -17,11 +17,6 @@
 	<form class="my">
 		<table>
 			<tr>
-				<td>이름</td>
-				<td><input type="text" name="name" readonly="readonly"
-					value="${username}"></td>
-			</tr>
-			<tr>
 				<td>아이디</td>
 				<td><input type="text" name="userid" readonly="readonly"
 					value="${userid }"></td>
@@ -32,14 +27,19 @@
 					value="${userpwd }"></td>
 			</tr>
 			<tr>
+				<td>이름</td>
+				<td><input type="text" name="name" readonly="readonly"
+					value="${username}"></td>
+			</tr>
+			<tr>
 				<td>이메일</td>
 				<td><input type="email" name="email" readonly="readonly"
 					value="${useremail }"></td>
 			</tr>
 			<tr>
-				<td>생년월일</td>
-				<td><input type="text" name="birth" readonly="readonly"
-					value="${userbirth }"></td>
+				<td>전화번호</td>
+				<td><input type="text" name="phone_number" readonly="readonly"
+					value="${useraddress }"></td>
 			</tr>
 			<tr>
 				<td>주소</td>
@@ -47,14 +47,23 @@
 					value="${useraddress }"></td>
 			</tr>
 			<tr>
+				<td>생년월일</td>
+				<td><input type="text" name="birth" readonly="readonly"
+					value="${userbirth }"></td>
+			</tr>
+			<tr>
 				<td>자기소개</td>
 				<td><input type="text" name="introduct" readonly="readonly"
 					value="${useraddress }"></td>
+			</tr>
+			<tr>
+				<td>시급</td>
+				<td><input type="text" name="introduct" readonly="readonly"
+					value="${userpay }"></td>
 			</tr>
 
 		</table>
 		<button class="button">회원수정하기</button>
 	</form>
-
 </body>
 </html>
