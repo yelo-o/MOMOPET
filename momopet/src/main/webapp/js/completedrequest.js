@@ -1,0 +1,9 @@
+$(()=>{
+	backURL='/momopet'
+	$('button.backtomain').click((e)=>{
+		location.href=`${backURL}/layout`
+	})
+	$('button.backtomain').click((e)=>{
+		location.href=`${backURL}/findsitter`
+	})
+})

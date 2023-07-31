@@ -13,37 +13,43 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="<c:out value="${contextPath}"/>/js/findjq.js"></script>
 </head>
-<body>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="#" id="idinquiry" class="blind">아이디찾기</a></li>
-				<li><a href="#" id="idinquiry" class="blind">비밀번호찾기</a></li>
-			</ul>
-		</nav>
-		</h1>
-	</header>
-	<section>
-	<div>
-		<h3 class="title">아이디찾기</h3>
-		<div class="info">
-			<label for="name">이름</label><input name="name" id="name"> <br>
-			<label for="email">이메일</label><input name="email" id="email">
-			<p>질문으로 아이디 찾기</p>
-			<div class="question">
-				<select class="type">
-					<option value="">선택하세요</option>
-					<option value="q1">졸업한 초등학교는 어디입니까?</option>
-					<option value="q2">어머니 성함은?</option>
-					<option value="q3">아버지 성함은?</option>
-					<option value="q4">기억에 남는 여행지는?</option>
-				</select> <br> <label for="answer">답변</label><input name="answer"
-					id="answer">
-			</div>
+ <body>
+    <section class="container">
+      <header>아이디 찾기</header>
+      <form action="#" class="form">
+      <div class="input-box">
+          <label>이름</label>
+          <input type="text" placeholder="이름을 입력하세요" required />
+        </div>
+        <div class="input-box">
+          <label>이메일</label>
+          <input type="text" placeholder="이메일을 입력하세요" required />
+        </div>
 
-		</div>
-	</div>
-	<button>아이디 찾기</button>
-	</section>
-</body>
+        <div class="column">
+          <div class="input-box">
+            <label>전화번호</label>
+            <input type="text" placeholder="전화번호를 입력하세요" required />
+          </div>
+          </div>
+
+        <div class="question">
+            <label>질문지</label><br>
+            <select class="select-box">
+                <option value="">선택하세요</option>
+                <option value="q1">좋아하는 색은?</option>
+                <option value="q2">좋아하는 노래는?</option>
+                <option value="q3">좋아하는 음식은?</option>
+                <option vlaue="q4">좋아하는 도시는?</option>
+            </select><br>
+        </div>
+    
+        <div class="input-box">
+            <label for="answer">답변</label><br>
+            <input type="text"name="answer" id="answer">
+        </div>
+        <button>Submit</button>
+      </form>
+    </section>
+  </body>
 </html>
