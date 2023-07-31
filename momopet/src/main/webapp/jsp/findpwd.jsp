@@ -8,15 +8,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
-	href="<c:out value="${contextPath}"/>/css/findid.css">
+	href="<c:out value="${contextPath}"/>/css/findpwd.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="<c:out value="${contextPath}"/>/js/findjq.js"></script>
+<script src="<c:out value="${contextPath}"/>/js/findpwdjq.js"></script>
 </head>
  <body>
     <section class="container">
       <header>비밀번호 찾기</header>
-      <form action="#" class="form">
+      <form class="findpwd">
         <div class="input-box">
             <label>아이디</label>
             <input type="text" placeholder="아이디를 입력하세요" required />
@@ -38,22 +38,16 @@
           </div>
           </div>
 
-        <div class="question">
-            <label>질문지</label><br>
-            <select class="select-box">
-                <option value="">선택하세요</option>
-                <option value="q1">좋아하는 색은?</option>
-                <option value="q2">좋아하는 노래는?</option>
-                <option value="q3">좋아하는 음식은?</option>
-                <option value="q4">좋아하는 도시는?</option>
-            </select><br>
+         <div class="input-box">
+            <label for="answercolor">좋아하는 색은?</label><br>
+            <input type="text" placeholder="답변을 입력하세요" name="answercolor" id="answercolor">
         </div>
-    
+        
         <div class="input-box">
-            <label for="answer">답변</label><br>
-            <input type="text"name="answer" id="answer">
+            <label for="answercity">좋아하는 도시는?</label><br>
+            <input type="text" placeholder="답변을 입력하세요" name="answercity" id="answercity">
         </div>
-        <button><a href="../jsp/afterfindid/">Submit</a></button>
+        <button><a href="../jsp/afterfindid.jsp">Submit</a></button>
       </form>
     </section>
   </body>

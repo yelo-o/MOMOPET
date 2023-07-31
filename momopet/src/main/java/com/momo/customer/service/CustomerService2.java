@@ -19,6 +19,19 @@ public class CustomerService2 {
 	}
 	
 	/**
+	 * @return customer객체
+	 */
+	public Customer login(String id, String pwd)
+			throws FindException{
+		Customer c = repository.selectById(id);
+		if(pwd.equals(c.getPwd())) {
+			return c;
+		}else {
+			throw new FindException("로그인실패");
+		}
+	}
+	
+	/**
 	 * DB 연결 전 dto 직접 연결 테스트
 	 * @return Histories 객체
 	 */
@@ -33,6 +46,7 @@ public class CustomerService2 {
 		
 		return new Histories();
 	}
+	
 	
 	
 }

@@ -11,12 +11,12 @@
 	href="<c:out value="${contextPath}"/>/css/findid.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="<c:out value="${contextPath}"/>/js/findjq.js"></script>
+<script src="<c:out value="${contextPath}"/>/js/findidjq.js"></script>
 </head>
  <body>
     <section class="container">
       <header>아이디 찾기</header>
-      <form action="#" class="form">
+      <form class="findid">
       <div class="input-box">
           <label>이름</label>
           <input type="text" placeholder="이름을 입력하세요" required />
@@ -32,21 +32,15 @@
             <input type="text" placeholder="전화번호를 입력하세요" required />
           </div>
           </div>
-
-        <div class="question">
-            <label>질문지</label><br>
-            <select class="select-box">
-                <option value="">선택하세요</option>
-                <option value="q1">좋아하는 색은?</option>
-                <option value="q2">좋아하는 노래는?</option>
-                <option value="q3">좋아하는 음식은?</option>
-                <option vlaue="q4">좋아하는 도시는?</option>
-            </select><br>
-        </div>
     
         <div class="input-box">
-            <label for="answer">답변</label><br>
-            <input type="text"name="answer" id="answer">
+            <label for="answercolor">좋아하는 색은?</label><br>
+            <input type="text" placeholder="답변을 입력하세요" name="answercolor" id="answercolor">
+        </div>
+        
+        <div class="input-box">
+            <label for="answercity">좋아하는 도시는?</label><br>
+            <input type="text" placeholder="답변을 입력하세요" name="answercity" id="answercity">
         </div>
         <button>Submit</button>
       </form>

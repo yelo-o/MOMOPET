@@ -29,17 +29,17 @@ body {
   font-weight: 500;
   text-align: center;
 }
-.container .form {
+.container .findpwd {
   margin-top: 30px;
 }
-.form .input-box {
+.findpwd .input-box {
   width: 100%;
   margin-top: 20px;
 }
 .input-box label {
   color: #333;
 }
-.form :where(.input-box input, .select-box) {
+.findpwd :where(.input-box input, .select-box) {
   position: relative;
   height: 50px;
   width: 100%;
@@ -54,11 +54,11 @@ body {
 .input-box input:focus {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
-.form .column {
+.findpwd .column {
   display: flex;
   column-gap: 15px;
 }
-.form button {
+.findpwd button {
   display: inline-block;
   height: 55px;
   width: 100%;
@@ -71,15 +71,20 @@ body {
   transition: all 0.2s ease;
   background: rgb(130, 106, 251);
 }
-.form button:hover {
+.findpwd button:hover {
   background: rgb(88, 56, 250);
+}
+
+.findpwd button a {
+	text-decoration : none;
+	color : #fff;
 }
 /*Responsive*/
 @media screen and (max-width: 500px) {
-  .form .column {
+  .findpwd .column {
     flex-wrap: wrap;
   }
-  .form :where(.gender-option, .gender) {
+  .findpwd :where(.gender-option, .gender) {
     row-gap: 15px;
   }
 }

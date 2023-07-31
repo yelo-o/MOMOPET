@@ -26,4 +26,28 @@ public class CustomerRepository2 {
 			e.printStackTrace();
 		}
 	}
+	public Customer selectById(String id) throws FindException{
+
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();//Connection과 같은 뜻
+			Customer c = 
+					session.selectOne(
+							"com.my.customer.mapper.CustomerMapper.selectById",
+							id);
+			//session.selectList()
+			if(c == null) {
+				throw new FindException("고객이 없습니다");
+			}
+			System.out.println("c.id=" + c.getId() + ", c.pwd=" + c.getPwd() + ",c.name="+c.getName());
+			return c;
+		}catch(Exception e) {
+			e.printStackTrace();
+			throw new FindException(e.getMessage());			
+		}finally {
+			if(session != null) {
+				session.close(); //DBCP에게 Connection돌려줌
+			}
+		}
+	}
 }
