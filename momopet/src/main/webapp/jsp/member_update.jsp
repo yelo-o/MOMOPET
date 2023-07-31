@@ -10,18 +10,13 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="../jsp/member_updatejq.js"></script>
+<script src="../js/member_updatejq.js"></script>
 </head>
 
 <body>
-	<form>
-		<h3>회원 정보 수정</h3>
+	<h3>회원 정보 수정</h3>
+	<form class="modify">
 		<table>
-			<tr>
-				<td>이름</td>
-				<td><input type="text" name="name" readonly="readonly"
-					value="${user.name }"></td>
-			</tr>
 			<tr>
 				<td>아이디</td>
 				<td><input type="text" name="userid" readonly="readonly"
@@ -36,8 +31,18 @@
 				<td><input type="password" name="pwdpwd"></td>
 			</tr>
 			<tr>
+				<td>이름</td>
+				<td><input type="text" name="name" readonly="readonly"
+					value="${user.name }"></td>
+			</tr>
+			<tr>
 				<td>이메일</td>
 				<td><input type="email" name="email"></td>
+			</tr>
+			<tr>
+				<td>전화번호</td>
+				<td><input type="text" name="phone_number" readonly="readonly"
+					value="${useraddress }"></td>
 			</tr>
 			<tr>
 				<td>주소</td>
@@ -48,10 +53,18 @@
 				<td><input type="text" name="birth"></td>
 			</tr>
 
+			<tr>
+				<td>자기소개</td>
+				<td><input type="text" name="introduct"></td>
+			</tr>
+			<tr>
+				<td>시급</td>
+				<td><input type="text" name="introduct"></td>
+			</tr>
 
 		</table>
-				<button class="buttonupdate">수정하기</button>
-				<button class="buttonback">뒤로가기</button>
+		<button class="buttonupdate">수정하기</button>
+		<button class="buttonback">뒤로가기</button>
 	</form>
 </body>
 </html>

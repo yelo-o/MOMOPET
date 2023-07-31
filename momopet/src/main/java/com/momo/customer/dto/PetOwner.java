@@ -6,12 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor
-public class Customer {
-	private String id;
-	private String pwd;
-	private String name;
-	private String email;
-	private String phone_number;
-	private String address;
+public class PetOwner {
+	private String pet_id;
+	private String pet_type;
+	private String pet_name;
+	private String pet_sex;
+	private String pet_breed;
+	private String pet_remarks;
 
 }

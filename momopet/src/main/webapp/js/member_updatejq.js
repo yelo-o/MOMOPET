@@ -1,4 +1,31 @@
+const backURL = '/momopet'
+const formObj = $('form.modify')
+
 $(() => {
+
+	$(function() {
+
+		$(".buttonupdate").bind('click', function() {
+			window.location.href = '/momopet/jsp/member_update.jsp';
+			alert("진짜작동되네?");
+
+		});
+	});
+	
+	
+	$(function() {
+
+		$(".buttonback").bind('click', function() {
+			window.location.href = '/momopet/jsp/informationcheck.jsp';
+			alert("이게작동되네?");
+
+		});
+	});
+});
+
+
+
+/*$(() => {
 	$(document).ready(function() {
 		$("button").on("click", function(event) {
 			event.preventDefault();
@@ -18,4 +45,4 @@ $(() => {
 			});
 		});
 	});
-})
+})*/
