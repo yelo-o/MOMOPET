@@ -14,32 +14,32 @@ import com.momo.customer.dto.Customer;
 import com.momo.customer.service.CustomerService1;
 import com.momo.exception.FindException;
 
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+/**
+ * Servlet implementation class FindIdServlet
+ */
+@WebServlet("/searchid")
+public class SerachIdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CustomerService1 service;
-	public LoginServlet() {
+	public SerachIdServlet() {
 		//service = new CustomerService();
 		service = CustomerService1.getInstance();
 	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//요청전달데이터 얻기
-		String id = request.getParameter("id");
-		String pwd = request.getParameter("pwd");
-		
-		//세션얻기
-		HttpSession session = request.getSession();
-		session.removeAttribute("loginedId");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		System.out.println(name + email);
 		int status = 0;
 		try {
-			Customer c = service.login(id, pwd);
+			Customer c = service.findId(name, email);
 			status = 1;
-			session.setAttribute("loginedId", id);
 		}catch(FindException e) {
-			
+			System.out.println("서블릿에서 막힘");
+			e.printStackTrace();
 		}
-		String path = "/jsp/loginresult.jsp";
+		String path = "/jsp/findidresult.jsp";
 		RequestDispatcher rd = 
 				request.getRequestDispatcher(path);
 		request.setAttribute("status", status);

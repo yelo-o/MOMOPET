@@ -18,12 +18,12 @@
         <h1>로그인</h1>
         <form class="login">
             <div class="txt_field">
-                <input type="text" required>
+                <input type="text" name="id" required>
                 <span></span>
                 <label>아이디</label>
             </div>
             <div class="txt_field">
-                <input type="password" required>
+                <input type="password" name="pwd" required>
                 <span></span>
                 <label>비밀번호</label>
             </div>
