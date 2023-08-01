@@ -36,8 +36,8 @@ public class CustomerRepository {
 			session = sessionFactory.openSession();//Connection과 같은 뜻
 			Customer c = 
 					session.selectOne(
-							"com.momo.customer.mapper.CustomerMapper.selectById"
-							);
+							"com.momo.customer.mapper.CustomerMapper.selectById", 
+							id);
 			//session.selectList()
 			if(c == null) {
 				throw new FindException("고객이 없습니다");
