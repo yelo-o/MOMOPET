@@ -1,3 +1,5 @@
+<%@page import="com.momo.customer.dto.Customer"%>
+
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -19,47 +21,47 @@
 			<tr>
 				<td>아이디</td>
 				<td><input type="text" name="userid" readonly="readonly"
-					value="${userid }"></td>
+					value="${user_id}"></td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>
 				<td><input type="password" name="pwd" readonly="readonly"
-					value="${userpwd }"></td>
+					value="${pwd}"></td>
 			</tr>
 			<tr>
 				<td>이름</td>
 				<td><input type="text" name="name" readonly="readonly"
-					value="${username}"></td>
+					value="${name}"></td>
 			</tr>
 			<tr>
 				<td>이메일</td>
 				<td><input type="email" name="email" readonly="readonly"
-					value="${useremail }"></td>
+					value="${email}"></td>
 			</tr>
 			<tr>
 				<td>전화번호</td>
 				<td><input type="text" name="phone_number" readonly="readonly"
-					value="${useraddress }"></td>
+					value="${phone_number}"></td>
 			</tr>
 			<tr>
 				<td>주소</td>
 				<td><input type="text" name="address" readonly="readonly"
-					value="${useraddress }"></td>
+					value="${address}"></td>
 			</tr>
 			<tr>
 				<td>생년월일</td>
 				<td><input type="text" name="birth" readonly="readonly"
-					value="${userbirth }"></td>
+					value="${birth_date}"></td>
 			</tr>
 			<tr>
 				<td>자기소개</td>
 				<td><input type="text" name="introduct" readonly="readonly"
-					value="${useraddress }"></td>
+					value="${introduce}"></td>
 			</tr>
 			<tr>
 				<td>시급</td>
 				<td><input type="text" name="introduct" readonly="readonly"
-					value="${userpay }"></td>
+					value="${pay}"></td>
 			</tr>
 
 		</table>
