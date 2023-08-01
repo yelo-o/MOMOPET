@@ -7,11 +7,9 @@ import lombok.Setter;
 
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class Customer {
-	private String id;
-	private String pwd;
+	private String userId;
 	private String name;
+	private String pwd;
 	private String email;
-	private String phone_number;
-	private String address;
-
+	private String phoneNumber;
 }
