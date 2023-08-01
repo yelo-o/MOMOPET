@@ -45,5 +45,4 @@ public class LoginServlet extends HttpServlet {
 		request.setAttribute("status", status);
 		rd.forward(request, response);
 	}
-
 }
