@@ -16,7 +16,7 @@ $(() => {
         }
         
     
-        const backURL = '/momo'
+        const backURL = '/momopet'
 
         $.ajax({
             url: `${backURL}/login`,
@@ -30,6 +30,7 @@ $(() => {
 				location.href='layout.jsp'
 				console.log("로그인성공")
 				}
+				
 			},
 			error:(xhr)=>{
 				alert("에러 : "+xhr.status)
