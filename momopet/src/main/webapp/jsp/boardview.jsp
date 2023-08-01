@@ -20,7 +20,8 @@
      <h3>상품조회 실패:<c:out value="${msg}" /></h3>
    </c:when>
    <c:otherwise>
-    <c:set var="b" value="${requestScope.board}"/>
+    <c:set var="b" value="${requestScope.Board}"/>
+    <%-- <c:out value="${b}"/> --%>
     <div class="board_wrap">
         <div class="board_title">
             <strong>자랑하기</strong>
@@ -31,7 +32,7 @@
             <div class="board_view">
                 <div class="title">
                     글 제목이 들어갑니다.
-                    <c:out value="${b.title}"/>
+                    <c:out value="${b.boardTitle}"/>
                 </div>
                 <div class="info">
                     <dl>
@@ -59,7 +60,7 @@
             </div>
             
             <div class="bt_wrap">
-                <a href="board.jsp" class="on">목록</a>
+                <a href="<c:out value="${contextPath}"/>/boardlist" class="on">목록</a>
                 <a href="boardedit.jsp">수정</a>
                 <a href="#">삭제</a>
             </div>

@@ -44,18 +44,17 @@
           </div>
           
           <c:forEach items="${list}" var="b">
-          <div class>
-            <div class="num"><c:out value="${b.boardNo}" /></div>
-            <div class="title"><c:out value="${b.boardTitle}" /></div>
-            <div class="writer"><c:out value="${b.boardId}" /></div>
-            <div class="count"><c:out value="${b.postingDate}" /></div>
-            <div class="date">조회수</div>
-            
-          </div>
+	        <div class="board <c:out value="${b.boardNo}"/>">
+	          <div class="num"><c:out value="${b.boardNo}"/></div>
+	          <div class="title"><c:out value="${b.boardTitle}"/></div>
+	          <div class="writer"><c:out value="${b.boardId}"/></div>
+	          <div class="count"><c:out value="${b.postingDate}"/></div>
+	          <div class="date">조회수</div>
+	        </div>
           </c:forEach>
         </div> 
       </div>
-    </div>
+  
 
     <div class="pagegroup">
 	    <c:set var="currentPage" value="${pb.currentPage}" />
@@ -63,24 +62,23 @@
 	    <c:set var="startPage" value="${pb.startPage}" />
 	    <c:set var="endPage" value="${pb.endPage}" />
 	    <c:if test="${startPage > 1 }">
-	      <span class="page<c:out value=" ${startPage-1}" />">PREV</span>&nbsp;&nbsp;
+	      <span class="page<c:out value=" ${startPage-1}" />"><</span>
 	    </c:if>
 	      <c:forEach begin="${startPage}" end="${endPage}" var="i">
-	        <span class="page<c:out value=" ${i}" />">[<c:out value="${i}" />]</span>&nbsp;&nbsp;
+	        <span class="page<c:out value=" ${i}" />"><c:out value="${i}" /></span>
 	      </c:forEach>
 	    <c:if test="${totalPage > endPage}">
-	      <span class="page<c:out value=" ${endPage+1}" />">NEXT</span>
+	      <span class="page<c:out value=" ${endPage+1}" />">></span>
 	    </c:if>
     </div>
-    </c:otherwise>
-    </c:choose>
-    </div>
-</div>
+    
       <div class="bt_wrap">
         <a href="boardwrite.jsp" class="on">등록</a>
       </div>
+    </c:otherwise>
+    </c:choose>
     </div>
-  </div>
+      </div>
 </body>
 
 </html>
