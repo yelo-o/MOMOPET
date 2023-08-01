@@ -18,6 +18,6 @@ public class LogoutServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.removeAttribute("loginedId");
 		session.invalidate();
+		response.sendRedirect("/momopet/jsp/layout.jsp"); //레이아웃 페이지로 리다이렉트
 	}
-
 }
