@@ -14,6 +14,7 @@
 <script src="<c:out value="${contextPath}"/>/js/loginjq.js"></script>
 </head>
 <body>
+
     <div class="center">
         <h1>로그인</h1>
         <form class="login">
@@ -32,13 +33,14 @@
             </div>
             <button>Login</button> 
             <div class="find">
-                <span class="pass"><a href="../jsp/findid.jsp">아이디찾기</a></span>
-                <span class="findpwd"><a href="../jsp/findpwd.jsp">비밀번호찾기</a></span>
+                <span class="pass"><a href="../jsp/searchid.jsp">아이디찾기</a></span>
+                <span class="findpwd"><a href="../jsp/searchpwd.jsp">비밀번호찾기</a></span>
             </div>
             <div class="signup_link">
             아직 회원이 아니신가요? <a href="${contextPath}/jsp/signup.jsp">signup</a>
             </div>
         </form>
     </div>
+ 
 </body>
 </html>

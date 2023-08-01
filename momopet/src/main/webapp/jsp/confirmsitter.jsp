@@ -2,6 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -20,8 +21,8 @@
                     <div>
                         돌보미정보
                     </div>
-                    <button>예</button>
-                    <button>아니오</button>
+                    <button class="yes">예</button>
+                    <button class="no">아니오</button>
                 </form>
 
             </section>

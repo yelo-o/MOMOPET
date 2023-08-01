@@ -7,8 +7,9 @@
     <setting name="mapUnderscoreToCamelCase" value="true"/>
   </settings>
   <typeAliases>
-    <!-- <typeAlias type="com.momo.customer.dto.Customer" alias="Customer"/> -->
+    <typeAlias type="com.momo.customer.dto.Customer" alias="Customer"/>
     <typeAlias type="com.momo.board.dto.Board" alias="Board"/>
+    <!-- <typeAlias type="com.momo.customer.dto.history" alias="History"/> -->
   </typeAliases>
   <environments default="development">
     <environment id="development">
@@ -22,7 +23,8 @@
     </environment>
   </environments>
   <mappers>
-    <!-- <mapper resource="/mybatisconfig/CustomerMapper.xml"/> -->
+    <mapper resource="/mybatisconfig/CustomerMapper.xml"/>
     <mapper resource="/mybatisconfig/BoardMapper.xml"/>
+   <!--  <mapper resource="/mabatisconfig/HistoryMapper.xml"/> -->
   </mappers>
 </configuration>
