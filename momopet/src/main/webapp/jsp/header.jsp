@@ -15,10 +15,10 @@
             	<li><a href="<c:out value="${contextPath}"/>/jsp/signup.jsp">회원가입</a></li>
         	</c:when>
         	<c:otherwise>
-        		<li><a href="logout">로그아웃</a></li>
+        		<li><a href="<c:out value="${contextPath}"/>/logout">로그아웃</a></li>
         	</c:otherwise>
         </c:choose>
-            <li><a href="searchSitters">시터찾기</a></li>
+            <li><a href="<c:out value="${contextPath}"/>/jsp/searchsitter.jsp">시터찾기</a></li>
             <li><a href="<c:out value="${contextPath}"/>/boardlist">자랑하기</a></li>
             <li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">히스토리</a></li>
             <li><a href="<c:out value="${contextPath}"/>/jsp/review.jsp">리뷰</a></li>
