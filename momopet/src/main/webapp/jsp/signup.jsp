@@ -13,15 +13,13 @@
     </head>
     <body>
         <form class="signup">
-        	<button type="button" class="testClick" >testClick</button>
-        	<button type="button" class="testShow" >testShow</button>
-        	<table class="singupInfo">
-        		<tr class="signupId">
+        	<table>
+        		<tr>
         			<td>아이디</td>
         			<td><input name="id" 
 	                   		   id="id"
 	                   		   placeholder="아이디를 입력하세요"></td>
-	                <td class="signUpDupchk"><button id="btIdDupchk" type="button" class="btIdDupchk" >아이디중복확인</button></td>
+	                <td><button id="btIdDupchk" type="button" class="btIdDupchk" >아이디중복확인</button></td>
         		</tr>
         		<tr>
         			<td>비밀번호</td>
@@ -80,7 +78,7 @@
     					</select></td>
         		</tr>
         	</table>
-        <button type="submit" class="signup">회원가입</button>
+        <button type="submit" id="signup" class="signup">회원가입</button>
         </form>
     </body>
 </html>

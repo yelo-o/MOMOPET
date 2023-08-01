@@ -14,29 +14,31 @@
 <script src="<c:out value="${contextPath}"/>/js/loginjq.js"></script>
 </head>
 <body>
-
-	<form class="login">
-		<h3 class="title">로그인하기</h3>
-		<div class="logo">MOMOPET</div>
-		<div class="id">
-			<label for="id">아이디</label> <input name="id" id="id"
-				placeholder="아이디를 입력하세요"> <span><input
-				type="checkbox" checked> 아이디 저장</span>
-		</div>
-
-		<div class="pwd">
-			<label for="pwd">비밀번호</label> <input name="pwd" id="pwd"
-				type="password">
-		</div>
-		<div>
-		<button class="bt_login">로그인</button>
-		</div>
-		<ul>
-			<li><a target="_blank" href="${contextPath}/jsp/findid.jsp">아이디찾기</a></li>
-			<li><a target="_blank" href="${contextPath}/jsp/findpwd.jsp">비밀번호찾기</a></li>
-			<li><a target="_blank" href="${contextPath}/jsp/signup.jsp">회원가입</a></li>
-		</ul>
-
-	</form>
+    <div class="center">
+        <h1>로그인</h1>
+        <form class="login">
+            <div class="txt_field">
+                <input type="text" required>
+                <span></span>
+                <label>아이디</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" required>
+                <span></span>
+                <label>비밀번호</label>
+            </div>
+            <div class="checkbox">
+            <input type="checkbox" checked>아이디저장
+            </div>
+            <button>Login</button> 
+            <div class="find">
+                <span class="pass"><a href="../jsp/findid.jsp">아이디찾기</a></span>
+                <span class="findpwd"><a href="../jsp/findpwd.jsp">비밀번호찾기</a></span>
+            </div>
+            <div class="signup_link">
+            아직 회원이 아니신가요? <a href="${contextPath}/jsp/signup.jsp">signup</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

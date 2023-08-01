@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+}
+
+form.signup {
+    width: 40%;
+    margin: auto;
+    /* background-color: #FF5733; */
+    padding: 10px;
+}
+
+form.signup>input[name=id], form.signup>input[name=pwd], form.signup>input[name=pwd1], form.signup>input[name=name] {
+    width: 100%;
+}
+
+form.signup>button {
+    display: block;
+    width: 20%;
+    background-color: #FF964F;
+    color: white;
+    margin: 0 auto;
+}
+
+/* form.signup>label {
+    display: block;
+}
+ */
+
+
+/* @media screen and (max-width: 640px) {
+    form.signup>span{
+        display: block; 
+    }
+} */
+
+form.signup>button.signup{
+    display: none;
+} 
