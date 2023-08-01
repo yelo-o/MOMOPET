@@ -23,6 +23,7 @@ public class BoardServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			String s = request.getParameter("boardNo");
+			System.out.println("s의 값은 : "+ s);
 			Board b = service.findByBoardNo(s);
 			request.setAttribute("Board", b);
 		} catch (FindException e) {

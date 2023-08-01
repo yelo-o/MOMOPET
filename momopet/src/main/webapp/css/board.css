@@ -67,11 +67,15 @@ a {
 .board_list > div {
     border-bottom: 1px solid #ddd;
     font-size: 0;
+    
 }
 
 /* 바로 위랑 같은 듯? */
 .board_list > div.top {
     border-bottom: 1px solid #999;
+}
+.board_list > div[class^="board"] {
+	cursor: pointer;
 }
 .board_list > div:last-child {
     border-bottom: 1px solid #000;
@@ -86,6 +90,7 @@ a {
 
 .board_list > div.top > div {
     font-weight: 600;
+    
 }
 
 .board_list .num {
@@ -113,43 +118,47 @@ a {
     width: 10%;
 }
 
-.board_page {
+.pagegroup {
     margin-top: 30px;
     text-align: center;
-    font-size: 0;
+    font-size: 1.2rem;
+    height:40px;
 }
 
-.board_page a {
+.pagegroup span {
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     box-sizing: border-box;
     vertical-align: middle;
     border: 1px solid #ddd;
     border-left: 0;
-    line-height: 100%;
+    line-height: 40px;
+    border : 1px solid #ddd;
+    text-align: center;
+    cursor : pointer;
 }
 
-.board_page a.bt {
+/* .pagegroup span.bt {
     padding-top: 10px;
     font-size: 1.2rem;
     letter-spacing: -1px;
-}
+} */
 
-.board_page a.num {
+/*.pagegroup span.num { 
     padding-top: 9px;
     font-size: 1.4rem;
-}
+} */
 
-.board_page a.num.on {
+/* .pagegroup span.num.on {
     border-color: #000;
     background: #000;
     color: #fff;
-}
+} */
 
-.board_page a:first-child {
+/* .pagegroup span:first-child {
     border-left: 1px solid #ddd;
-}
+} */
 
 .board_view {
     width: 100%;

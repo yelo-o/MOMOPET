@@ -4,14 +4,14 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.momo.board.mapper.BoardMapper">
 
-<select id="SelectByBoardNo" parameterType="int" resultType="Board">
+<select id="SelectByBoardNo" parameterType="string" resultType="Board">
 SELECT * FROM board WHERE board_no= #{boardNo}
 </select>
 
 <select id="selectAll" parameterType="map" resultType="Board">
 SELECT * FROM 
 (SELECT rownum rn, a.* 
-FROM (SELECT * FROM board ORDER BY board_no ASC) a)
+FROM (SELECT * FROM board ORDER BY posting_date DESC) a)
 WHERE rn BETWEEN #{startRow} AND #{endRow}
 </select>
 <select id="count" resultType="int">
