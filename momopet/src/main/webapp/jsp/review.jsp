@@ -6,14 +6,16 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>리뷰조회</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="<c:out value="${contextPath}"/>/css/review.css">
+  <title>리뷰조회</title>
 </head>
 <body>
   <h2>리뷰 쓰기</h2>
   <form id="writeForm">
-    <input type="hidden" name="userName" value="인성">
-    <textarea name="review" placeholder="리뷰를 입력하세요" required></textarea>
+<!--<input type="hidden" name="reviewNo" value="시퀀스">
+    <input type="hidden" name="loginedId" value="세션 아이디"> -->
+    <textarea name="reviewContent" placeholder="리뷰를 입력하세요" required></textarea>
     <div class="star-rating">
       <img src="<c:out value="${contextPath}/images/star.png" />" data-rating="1" alt="1점">
       <img src="<c:out value="${contextPath}/images/star.png" />" data-rating="2" alt="2점">
@@ -22,7 +24,8 @@
       <img src="<c:out value="${contextPath}/images/star.png" />" data-rating="5" alt="5점">
     </div>	
 
-    <input type="hidden" name="starRating" value="0" required>
+    <input type="hidden" name="reviewRating" value="0" required>
+    
     <button type="submit">리뷰 등록</button>
   </form>
 
