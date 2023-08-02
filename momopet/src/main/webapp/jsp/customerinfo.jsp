@@ -14,17 +14,17 @@
 </head>
 
 <body>
-    <c:set var="customer" value="${requestScope.customer}" />
+    <c:set var="c" value="${requestScope.customer}" />
     <h3>내 정보 확인</h3>
     <form>
         <table>
             <tr>
                 <td>이름 : </td>
-                <td><c:out value="${customer.name}"/></td>
+                <td><c:out value="${c.name}"/></td>
             </tr>
             <tr>
                 <td>아이디 : </td>
-                <td><input type="text" name="userid" readonly="readonly" value="${userid}"></td>
+                <td><c:out value="${c.userId}"/></td>
             </tr>
             <tr>
                 <td>비밀번호 : </td>
