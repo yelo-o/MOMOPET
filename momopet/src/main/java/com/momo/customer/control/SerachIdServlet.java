@@ -27,19 +27,23 @@ public class SerachIdServlet extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		response.setContentType("text/html; charset=utf-8")
+		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
 		//String id = request.getParameter("id");
+		
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		System.out.println(name + email);
 		int status = 0;
 		try {
-			Customer c = service.findId(name, email);
+			Customer c = service.SearchId(name, email);
 			status = 1;
 		}catch(FindException e) {
 			System.out.println("서블릿에서 막힘");
 			e.printStackTrace();
 		}
-		String path = "/jsp/findidresult.jsp";
+		String path = "/jsp/searchidresult.jsp";
 		RequestDispatcher rd = 
 				request.getRequestDispatcher(path);
 		request.setAttribute("status", status);

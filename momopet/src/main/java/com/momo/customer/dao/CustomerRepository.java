@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.momo.customer.dto.Customer;
+import com.momo.customer.dto.History;
 import com.momo.exception.AddException;
 import com.momo.exception.FindException;
 
@@ -55,17 +56,19 @@ public class CustomerRepository {
 	}
 	public Customer selectByName(String name, String email) throws FindException{
 		SqlSession session = null;
+		Map<String, Object> param =new HashMap<>();
+		param.put("name", name);
+		param.put("email", email);
 		try {
-			session = sessionFactory.openSession();//Connection과 같은 뜻
-			Map<String, Object> map= new HashMap<>();
-			map.put("i", c.getUserId());
-			map.put("n", c.getName());
-			map.put("e", c.getEmail());
-			session.insert("com.momo.customer.mapper.CustomerMapper.selectByName", map);
+			session = sessionFactory.openSession(true);//Connection과 같은 뜻
+			System.out.println("마이바티스 연결 직전");
+			Customer c = 
+					session.selectOne("com.momo.customer.mapper.CustomerMapper.selectByName", param);
 			if(c == null) {
 				throw new FindException("고객이 없습니다");
 			}
 			System.out.println("c.id=" + c.getUserId() + ", c.name=" + c.getName() + ",c.email="+c.getEmail());
+			return c;
 		}catch(Exception e) {
 			e.printStackTrace();
 			throw new FindException(e.getMessage());			
@@ -74,5 +77,14 @@ public class CustomerRepository {
 				session.close(); //DBCP에게 Connection돌려줌
 			}
 		}
+	}
+	public void insertrequest(SqlSession session, History h) throws AddException{
+		try {
+			session.insert("com.momo.customer.mapper.HistoryMapper.inserthistory");
+		}catch(Exception e) {
+			e.printStackTrace();
+			throw new AddException(e.getMessage());
+		}
+		
 	}
 }

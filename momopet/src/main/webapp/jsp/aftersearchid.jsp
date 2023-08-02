@@ -18,7 +18,8 @@
                 <header> 고객님의 아이디는 아래와 같습니다</header>
                 <form>
                     <div>
-                        아이디 : 
+                        아이디 :
+                       
                     </div>
                     <button><a href="${contextPath}/jsp/login.jsp">로그인하기</a></button>
                     <button><a href="${contextPath}/jsp/findpwd.jsp">비밀번호 찾기</a></button>

@@ -29,17 +29,17 @@ body {
   font-weight: 500;
   text-align: center;
 }
-.container .findid {
+.container .seid {
   margin-top: 30px;
 }
-.findid .input-box {
+.searchid .input-box {
   width: 100%;
   margin-top: 20px;
 }
 .input-box label {
   color: #333;
 }
-.findid :where(.input-box input, .select-box) {
+.searchid :where(.input-box input, .select-box) {
   position: relative;
   height: 50px;
   width: 100%;
@@ -54,11 +54,11 @@ body {
 .input-box input:focus {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
-.findid .column {
+.searchid .column {
   display: flex;
   column-gap: 15px;
 }
-.findid button {
+.searchid button {
   display: inline-block;
   height: 55px;
   width: 100%;
@@ -71,20 +71,20 @@ body {
   transition: all 0.2s ease;
   background: rgb(130, 106, 251);
 }
-.findid button:hover {
+.searchid button:hover {
   background: rgb(88, 56, 250);
 }
 
-.findid button a {
+.searchid button a {
 	text-decoration : none;
 	color : #fff;
 }
 /*Responsive*/
 @media screen and (max-width: 500px) {
-  .findid .column {
+  .searchid .column {
     flex-wrap: wrap;
   }
-  .findid :where(.gender-option, .gender) {
+  .searchid :where(.gender-option, .gender) {
     row-gap: 15px;
   }
 }
