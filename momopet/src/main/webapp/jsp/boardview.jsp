@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<c:out value=" ${contextPath}" />/css/layout.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="<c:out value=" ${contextPath}" />/js/boardjq.js"></script>
+    <script src="<c:out value=" ${contextPath}" />/js/boarddeletejq.js"></script>
 </head>
 
 <body>
@@ -62,9 +63,12 @@
             </div>
             
             <div class="bt_wrap">
-                <a href="<c:out value="${contextPath}"/>/boardlist" class="on">목록</a>
-                <a href="boardedit.jsp">수정</a>
-                <a href="#">삭제</a>
+           		<button class="on" type="button" onclick="location.href='<c:out value="${contextPath}"/>/boardlist'" >목록</button>
+                <button>수정</button>
+                <button class="delete">삭제</button>
+                <%-- <button></button><a href="<c:out value="${contextPath}"/>/boardlist" class="on">목록</a> --%>
+                <!-- <a href="#">수정</a>
+                <a class="delete" >삭제</a> -->
             </div>
         </div>
     </div>

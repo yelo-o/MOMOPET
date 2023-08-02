@@ -14,6 +14,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.momo.exception.AddException;
 import com.momo.exception.FindException;
+import com.momo.exception.RemoveException;
 import com.momo.board.dto.Board;
 
 public class BoardRepository {
@@ -110,6 +111,31 @@ public class BoardRepository {
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new AddException(e.getMessage());
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+	}
+	
+	public void delete(String boardNo, String boardId) throws RemoveException {
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+//			session.insert("com.my.customer.mapper.CustomerMapper.insert", c);
+//			if(title == null || title.equals("") || content == null || content.equals("")) {
+//				throw new Exception("제목이나 내용이 비어있습니다.");
+//			}
+			
+			Map<String, Object> map = new HashMap<>();
+			map.put("boardNo", boardNo);
+			map.put("boardId", boardId);
+			
+			session.delete("com.momo.board.mapper.BoardMapper.delete", map);
+			session.commit();
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new RemoveException(e.getMessage());
 		} finally {
 			if(session != null) {
 				session.close();
