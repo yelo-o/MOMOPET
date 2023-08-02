@@ -6,7 +6,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class CustomerRepository3 {
-	private CustomerRepository3{
+	private CustomerRepository3(){
 	}
 	
 	private static CustomerRepository3 instance = new CustomerRepository3();
