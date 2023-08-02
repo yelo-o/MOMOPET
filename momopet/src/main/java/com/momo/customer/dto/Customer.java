@@ -11,11 +11,11 @@ public class Customer {
 	private String userId;
 	private String name;
 	private String pwd;
-	private String email;
 	private String phoneNumber;
+	private String email;
 	private String address;
-	private String birthDate;
-	private String introduce;
+	private String birth;
 	private String pay;
+	private String introduce;
 	
 }

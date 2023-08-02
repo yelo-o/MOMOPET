@@ -15,4 +15,6 @@
   <insert id="insert" parameterType="map">
   	INSERT INTO customer(user_id, pwd, name) VALUES ( #{i}, #{p}, #{n})
   </insert>
+
+  
 </mapper>
