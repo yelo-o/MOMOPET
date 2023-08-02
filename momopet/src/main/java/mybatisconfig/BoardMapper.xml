@@ -11,10 +11,16 @@ SELECT * FROM board WHERE board_no= #{boardNo}
 <select id="selectAll" parameterType="map" resultType="Board">
 SELECT * FROM 
 (SELECT rownum rn, a.* 
-FROM (SELECT * FROM board ORDER BY posting_date DESC) a)
+FROM (SELECT * FROM board ORDER BY board_no DESC) a)
 WHERE rn BETWEEN #{startRow} AND #{endRow}
 </select>
+
 <select id="count" resultType="int">
 SELECT COUNT(*) FROM board
 </select>
+<insert id="insert" parameterType="map">
+INSERT INTO board
+VALUES(board_seq.NEXTVAL, #{id}, #{userType}, #{title}, #{content}, SYSDATE)
+</insert>
+
 </mapper>

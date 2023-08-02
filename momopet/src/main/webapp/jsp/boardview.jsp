@@ -21,6 +21,9 @@
    </c:when>
    <c:otherwise>
     <c:set var="b" value="${requestScope.Board}"/>
+    <%-- <c:set var="date" value="${b.postingDate}" /> --%>
+	<%-- <fmt:formatDate value="${b.postingDate}" pattern="yyyy-MM-dd" var="formattedDate" /> --%>
+    
     <%-- <c:out value="${b}"/> --%>
     <div class="board_wrap">
         <div class="board_title">
@@ -31,7 +34,6 @@
         <div class="board_view_wrap">
             <div class="board_view">
                 <div class="title">
-                    글 제목이 들어갑니다.
                     <c:out value="${b.boardTitle}"/>
                 </div>
                 <div class="info">

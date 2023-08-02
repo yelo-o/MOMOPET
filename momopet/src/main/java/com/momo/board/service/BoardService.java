@@ -1,9 +1,12 @@
 package com.momo.board.service;
 
+import java.util.Date;
 import java.util.List;
+import java.text.SimpleDateFormat;
 
 import com.momo.board.dao.BoardRepository;
 import com.momo.board.dto.Board;
+import com.momo.exception.AddException;
 import com.momo.exception.FindException;
 import com.momo.util.PageBean;
 
@@ -20,10 +23,15 @@ public class BoardService {
 	public Board findByBoardNo(String boardNo) throws FindException{
 		return repository.SelectByBoardNo(boardNo);
 	}
+	
+	public void add(String loginedId, String title, String content) throws AddException {
+		repository.insert(loginedId, title, content);
+	}
+	
 	/**
-	 * 상품목록을 검색한다. 한 페이지당 최대4개의 상품을 검색한다
+	 * 게시판 목록을 검색한다. 한 페이지당 최대 5개의 게시판을 검색한다
 	 * @param currentPage 검색할 페이지
-	 * @return 페이지에 해당하는 상품목록
+	 * @return 페이지에 해당하는 게시판 목록
 	 * @throws FindException
 	 */
 	public com.momo.util.PageBean<Board> findAll(int currentPage) throws FindException{
