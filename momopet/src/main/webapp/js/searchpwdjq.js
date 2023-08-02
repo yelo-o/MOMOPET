@@ -1,19 +1,23 @@
 $(() => {
-    const findidObj = $('form.findpwd')
+    const searhpwdObj = $('form.searchpwd')
 
-    findidObj.submit((e) => {
+    searhpwdObj.submit((e) => {
 
         const backURL = '/momopet'
+        const userId=$('input[name=userid]').val()
+        const name=$('input[name=name]').val()
+        const email=$('input[name=email]').val()
 
         $.ajax({
-            url: `${backURL}/findpwd`,
-            method: 'post',
-            data: findidObj.serialize(),
+            url: `${backURL}/searchpwd`,
+            method: 'get',
+            //data: findidObj.serialize(),
+            data: `userId=${userId}&name=${name}&email=${email}`,
             success: (responseData) => {
 				if(responseData==0){
 					alert('정보가 없습니다')
 				}else{ //비밀번호찾기 정보가 일치한 경우
-				location.href='afterfindpwd.jsp'
+				location.href=`${backURL}/resultpwd`
 				console.log("비밀번호정보찾기 성공")
 				}
 			},
