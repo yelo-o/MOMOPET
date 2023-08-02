@@ -1,5 +1,8 @@
+<%-- <%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%> --%>
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
@@ -44,12 +47,14 @@
           </div>
           
           <c:forEach items="${list}" var="b">
+          
 	        <div class="board <c:out value="${b.boardNo}"/>">
 	          <div class="num"><c:out value="${b.boardNo}"/></div>
 	          <div class="title"><c:out value="${b.boardTitle}"/></div>
 	          <div class="writer"><c:out value="${b.boardId}"/></div>
-	          <div class="count"><c:out value="${b.postingDate}"/></div>
-	          <div class="date">조회수</div>
+              <fmt:formatDate var="formattedDate" value="${b.postingDate}" pattern="yyyy-MM-dd" />
+	          <div class="date"><c:out value="${formattedDate}" /></div>
+	          <div class="count">조회수</div>
 	        </div>
           </c:forEach>
         </div> 
@@ -73,7 +78,7 @@
     </div>
     
       <div class="bt_wrap">
-        <a href="boardwrite.jsp" class="on">등록</a>
+        <a href="<c:out value="${contextPath}"/>/jsp/boardwrite.jsp" class="on">등록</a>
       </div>
     </c:otherwise>
     </c:choose>

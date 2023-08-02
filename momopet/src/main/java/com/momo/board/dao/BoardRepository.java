@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.momo.exception.AddException;
 import com.momo.exception.FindException;
 import com.momo.board.dto.Board;
 
@@ -85,6 +86,32 @@ public class BoardRepository {
 			throw new FindException("게시글 검색 실패 : " + e.getMessage());
 		} finally {
 			if(session!=null) {
+				session.close();
+			}
+		}
+	}
+	public void insert(String loginedId, String title, String content) throws AddException {
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+//			session.insert("com.my.customer.mapper.CustomerMapper.insert", c);
+			if(title == null || title.equals("") || content == null || content.equals("")) {
+				throw new Exception("제목이나 내용이 비어있습니다.");
+			}
+			
+			Map<String, Object> map = new HashMap<>();
+			
+			map.put("id", loginedId);
+			map.put("userType", 1);
+			map.put("title", title);
+			map.put("content", content);
+			session.insert("com.momo.board.mapper.BoardMapper.insert", map);
+			session.commit();
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new AddException(e.getMessage());
+		} finally {
+			if(session != null) {
 				session.close();
 			}
 		}
