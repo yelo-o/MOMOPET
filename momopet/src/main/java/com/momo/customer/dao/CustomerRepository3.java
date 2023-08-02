@@ -39,7 +39,7 @@ public class CustomerRepository3 {
 			if(c == null) {
 				throw new FindException("고객이 없습니다");
 			}
-			System.out.println("c.id=" + c.getId() + ", c.pwd=" + c.getPwd() + ",c.name="+c.getName());
+			System.out.println("c.id=" + c.getUserId() + ", c.pwd=" + c.getPwd() + ",c.name="+c.getName());
 			return c;
 		}catch(Exception e) {
 			e.printStackTrace();
