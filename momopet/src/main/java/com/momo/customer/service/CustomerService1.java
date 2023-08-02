@@ -40,6 +40,15 @@ public class CustomerService1 {
 			throw new FindException("정보가 없습니다.");
 		}
 	}
+	public Customer SearchPwd(String userid, String name, String email) throws FindException{
+		Customer c = repository.searchPwd(userid, name, email);
+		if(email.equals(c.getEmail())){
+			System.out.println("서비스에서 SearchPWD() 메서드 실행");
+			return c;
+		}else {
+			throw new FindException("정보가 없습니다.");
+		}		
+	}
 	public void add(String loginedId, Map<String, Integer>history) throws AddException{
 		History h = new History();
 		h.setHistoryNo(0);

@@ -7,30 +7,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
-	href="<c:out value="${contextPath}"/>/css/afterfindpwd.css">
+	href="<c:out value="${contextPath}"/>/css/aftersearchpwd.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="<c:out value="${contextPath}"/>/js/findjq.js"></script>
-<title>비밀번호 변경</title>
+<script src="<c:out value="${contextPath}"/>/js/searchpwdjq.js"></script>
+<title>비밀번호확인</title>
 </head>
 <body>
-            <section class="container">
-                <header> 새로운 비밀번호를 설정해주세요</header>
-                <form>
-                    <div class="txt_field">
-                        <label>비밀번호 : </label>
-                        <input type="password" required>
-                        <span></span>
-                    </div>
-                    <div class="txt_field">
-                        <label>비밀번호 확인 : </label>
-                        <input type="password" required>
-                        <span></span>
-                    </div>
-                    <button><a href="${contextPath}/jsp/login.jsp">로그인하기</a></button>
-                    <button><a href="${contextPath}/jsp/layout.jsp">메인페이지로 돌아가기</a></button>
-                </form>
-
-            </section>
-        </body>
+	<c:set var="pwd" value="${requestScope.pwd}" />
+	<section class="container">
+		<header> 고객님의 비밀번호는 아래와 같습니다</header>
+		<form>
+			<div>
+				비밀번호 :
+				<c:out value="${pwd}" />
+			</div>
+			<button>
+				<a href="${contextPath}/jsp/login.jsp">로그인하기</a>
+			</button>
+			<button>
+				<a href="${contextPath}/jsp/findpwd.jsp">비밀번호 설정하기</a>
+			</button>
+		</form>
+	</section>
+</body>
 </html>

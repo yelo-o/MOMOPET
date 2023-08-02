@@ -18,36 +18,50 @@ import com.momo.exception.FindException;
  * Servlet implementation class FindIdServlet
  */
 @WebServlet("/searchid")
-public class SerachIdServlet extends HttpServlet {
+public class SearchIdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CustomerService1 service;
-	public SerachIdServlet() {
-		//service = new CustomerService();
+
+	public SearchIdServlet() {
+		// service = new CustomerService();
 		service = CustomerService1.getInstance();
 	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.setContentType("text/html; charset=utf-8")
-		response.setCharacterEncoding("utf-8");
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setContentType("text/html; charset=utf-8");
 		request.setCharacterEncoding("utf-8");
-		//String id = request.getParameter("id");
-		
+		// String id = request.getParameter("id");
+
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
+		String userId = "";
 		System.out.println(name + email);
+
+		/*
+		 * HttpSession session = request.getSession(); String
+		 * searchId=request.getParameter("searchId"); session.getAttribute("searchId");
+		 */
+
 		int status = 0;
 		try {
 			Customer c = service.SearchId(name, email);
 			status = 1;
-		}catch(FindException e) {
+			System.out.println("서블릿에서 불러온 c.getUserId() : " + c.getUserId());
+			userId = c.getUserId();
+			HttpSession session = request.getSession();
+			session.setAttribute("userId", userId);
+		} catch (FindException e) {
 			System.out.println("서블릿에서 막힘");
 			e.printStackTrace();
 		}
-		String path = "/jsp/searchidresult.jsp";
-		RequestDispatcher rd = 
-				request.getRequestDispatcher(path);
-		request.setAttribute("status", status);
+
+
+		String path = "/jsp/searchidresult.jsp"; 
+		RequestDispatcher rd =request.getRequestDispatcher(path);
+		request.setAttribute("status", status); 
 		rd.forward(request, response);
+
 	}
 
 }

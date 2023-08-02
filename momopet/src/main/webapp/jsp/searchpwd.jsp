@@ -16,22 +16,23 @@
  <body>
     <section class="container">
       <header>비밀번호 찾기</header>
-      <form class="findpwd">
+      <form class="searchpwd">
         <div class="input-box">
             <label>아이디</label>
-            <input type="text" placeholder="아이디를 입력하세요" required />
+            <input type="text" placeholder="아이디를 입력하세요" name="userid" required />
+            
           </div>
         <div class="input-box">
           <label>이름</label>
-          <input type="text" placeholder="이름을 입력하세요" required />
+          <input type="text" placeholder="이름을 입력하세요" name="name" required />
         </div>
 
         <div class="input-box">
           <label>이메일</label>
-          <input type="text" placeholder="이메일을 입력하세요" required />
+          <input type="text" placeholder="이메일을 입력하세요" name="email" required />
         </div>
 
-        <button><a href="../jsp/afterfindid.jsp">Submit</a></button>
+        <button>Submit</button>
       </form>
     </section>
   </body>

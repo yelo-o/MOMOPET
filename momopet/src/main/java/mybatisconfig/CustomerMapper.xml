@@ -9,6 +9,9 @@
   <select id="selectByName" resultType="Customer" parameterType="map">
    SELECT * FROM customer WHERE name=#{name} and email=#{email}
   </select>
+  <select id="searchPwd" resultType="Customer" parameterType="map">
+  SELECT * FROM customer WHERE user_id=#{id} and name=#{name} and email=#{email}
+  </select>
   <!-- <insert id="insert" parameterType="Customer">
   INSERT INTO customer(id,pwd,name) VALUES(#{id},#{pwd},#{name})
   </insert> -->

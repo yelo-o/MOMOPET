@@ -57,6 +57,7 @@ public class CustomerRepository {
 	public Customer selectByName(String name, String email) throws FindException{
 		SqlSession session = null;
 		Map<String, Object> param =new HashMap<>();
+		System.out.println("map까지 왔다" + name+ ":" + email);
 		param.put("name", name);
 		param.put("email", email);
 		try {
@@ -64,6 +65,32 @@ public class CustomerRepository {
 			System.out.println("마이바티스 연결 직전");
 			Customer c = 
 					session.selectOne("com.momo.customer.mapper.CustomerMapper.selectByName", param);
+			if(c == null) {
+				throw new FindException("고객이 없습니다");
+			}
+			System.out.println("c.id=" + c.getUserId() + ", c.name=" + c.getName() + ",c.email="+c.getEmail());
+			return c;
+		}catch(Exception e) {
+			e.printStackTrace();
+			throw new FindException(e.getMessage());			
+		}finally {
+			if(session != null) {
+				session.close(); //DBCP에게 Connection돌려줌
+			}
+		}
+	}
+	public Customer searchPwd(String userid, String name, String email) throws FindException{
+		SqlSession session = null;
+		Map<String, Object> param = new HashMap<>();
+		System.out.println("Map에 왔다." +userid +email);
+		param.put("id", userid);
+		param.put("name", name);
+		param.put("email", email);
+		try {
+			session = sessionFactory.openSession(true);//Connection과 같은 뜻
+			System.out.println("마이바티스 연결 직전");
+			Customer c = 
+					session.selectOne("com.momo.customer.mapper.CustomerMapper.searchPwd", param);
 			if(c == null) {
 				throw new FindException("고객이 없습니다");
 			}
