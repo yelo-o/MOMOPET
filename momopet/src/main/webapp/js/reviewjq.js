@@ -21,13 +21,14 @@ $(() => {
         $(this).addClass("full");
       }
     });
-    $("#writeForm input[name=starRating]").val(selectedRating);
+    $("#writeForm input[name=reviewRating]").val(selectedRating);
   });
+
 
   $("#writeForm").submit(function (e) {
     e.preventDefault();
-    const userName = this.userName.value;
-    const reviewText = this.review.value;
+    const userName = this.loginedId.value;
+    const reviewText = this.reviewContent.value; // 수정된 부분: review -> reviewContent
     const starRating = selectedRating; // 변수에서 선택한 별점을 가져옴
 
     const reviewContainer = $("<div>").addClass("review-container");

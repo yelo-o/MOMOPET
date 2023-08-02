@@ -8,6 +8,7 @@ import com.momo.board.dao.BoardRepository;
 import com.momo.board.dto.Board;
 import com.momo.exception.AddException;
 import com.momo.exception.FindException;
+import com.momo.exception.RemoveException;
 import com.momo.util.PageBean;
 
 public class BoardService {
@@ -26,6 +27,10 @@ public class BoardService {
 	
 	public void add(String loginedId, String title, String content) throws AddException {
 		repository.insert(loginedId, title, content);
+	}
+	
+	public void remove(String boardNo, String boardId) throws RemoveException {
+		repository.delete(boardNo, boardId);
 	}
 	
 	/**

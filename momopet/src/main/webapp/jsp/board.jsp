@@ -3,6 +3,7 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
@@ -30,6 +31,7 @@
     <c:set var="msg" value="${requestScope.msg}" />
     <c:set var="pb" value="${requestScope.pagebean}" />
     <c:set var="list" value="${pb.list}" />
+    <%-- <c:out value="${fn:length(list)}" /> --%>
     <c:set var="totalCnt" value="${pb.totalCnt}" />
     <c:choose>
       <c:when test="${!empty msg}">
@@ -46,10 +48,10 @@
             <div class="count">조회</div>
           </div>
           
-          <c:forEach items="${list}" var="b">
+          <c:forEach items="${list}" var="b" varStatus="status">
           
 	        <div class="board <c:out value="${b.boardNo}"/>">
-	          <div class="num"><c:out value="${b.boardNo}"/></div>
+	          <div class="num"><c:out value="${fn:length(list)-status.index}"/></div>
 	          <div class="title"><c:out value="${b.boardTitle}"/></div>
 	          <div class="writer"><c:out value="${b.boardId}"/></div>
               <fmt:formatDate var="formattedDate" value="${b.postingDate}" pattern="yyyy-MM-dd" />
