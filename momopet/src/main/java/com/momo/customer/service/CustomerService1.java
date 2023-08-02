@@ -57,4 +57,12 @@ public class CustomerService1 {
 		repository.insertrequest(null, h);
 		
 	}
+	public Customer findAll(String loginedId) throws FindException {
+		if(loginedId == null || loginedId.equals("")) {
+			throw new FindException("서비스에서 로그인아이디를 못받았습니다.");
+		} else {
+			Customer c = repository.selectById(loginedId);
+			return c;
+		}
+	}
 }
