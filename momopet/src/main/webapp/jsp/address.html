@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>주소찾기</title>
+</head>
+<body>
+<form id="fsearch" name="fsearch" method="post" onsubmit="return false;">
+	<input type="text" name="keyword" style="ime-mode:active;" onchange="GetAddr();" onkeydown="enterSearch(); GetAddr();" id="fsearch_addr" placeholder="지번, 도로명, 지하철역 검색"/>
+	<button type="button" id="btn_search" onclick="GetAddr();"><img src="/public/images/btn_mapsearch.png" /></button>
+	<input type="hidden" name="currentPage" value="1"/>
+	<input type="hidden" name="countPerPage" value="10"/>
+	<input type="hidden" name="resultType" value="json"/> 
+	<input type="hidden" name="confmKey" value="도로명주소API KEY"/>
+</form>
+</body>
+</html>
+
+<script>
+function checkSearchedWord(obj){
+	if(obj.value.length >0){
+		//특수문자 제거
+		var expText = /[%=><]/ ;
+		if(expText.test(obj.value) == true){
+			alert("특수문자를 입력 할수 없습니다.") ;
+			obj.value = obj.value.split(expText).join(""); 
+			return false;
+		}
+
+		//특정문자열(sql예약어의 앞뒤공백포함) 제거
+		var sqlArray = new Array(
+		//sql 예약어
+		"OR", "SELECT", "INSERT", "DELETE", "UPDATE", "CREATE", "DROP", "EXEC",
+		"UNION",  "FETCH", "DECLARE", "TRUNCATE" 
+		);
+
+		var regex;
+		for(var i=0; i<sqlArray.length; i++){
+			regex = new RegExp( sqlArray[i] ,"gi") ;
+
+			if (regex.test(obj.value) ) {
+				alert("\"" + sqlArray[i]+"\"와(과) 같은 특정문자로 검색할 수 없습니다.");
+				obj.value =obj.value.replace(regex, "");
+				return false;
+			}
+		}
+	}
+	return true ;
+}
+</script>
+
+<script>
+function GetAddr()
+{
+    // 도로명주소API 검색어 필터링 검사
+    if(checkSearchedWord(document.fsearch.keyword) == false)
+    {
+        $("#fsearch_addr").val("");
+        return false;
+    }
+    
+    var txt = $("#fsearch_addr").val();
+    
+    if(txt.length >= 2)
+    {
+        $.ajax({
+            url :"https://www.juso.go.kr/addrlink/addrLinkApiJsonp.do",
+            type:"post",
+            data:$("#fsearch").serialize(),
+            dataType:"jsonp",
+            crossDomain:true,
+            success:function(r){
+                console.log(r);
+            },
+            fail:function(r)
+            {
+                alert('알 수 없는 오류로 인해 실패하였습니다.');
+                return false;
+            }
+        });
+    }
+}
+</script>
+

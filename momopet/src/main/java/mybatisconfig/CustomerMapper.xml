@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.momo.customer.mapper.CustomerMapper">
+  <select id="selectById" resultType="Customer" parameterType="string">
+  	SELECT * FROM customer WHERE user_id=#{i}
+  </select>
+  <!-- <insert id="insert" parameterType="Customer">
+  	INSERT INTO customer(id, pwd, name) VALUES (#{id}, #{pwd}, #{name})
+  </insert> -->
+  <insert id="insert" parameterType="map">
+  	INSERT INTO customer(user_id, pwd, name, email, phone_number, address, user_sex, user_type, birth_date, date_created, status) VALUES (#{i}, #{p}, #{n}, #{e}, #{pn}, #{a}, #{s}, #{r}, #{b}, #{d}, #{u})
+  </insert>
+  <select id="selectSitters" resultType="map" parameterType="int">
+  	SELECT * FROM customer WHERE user_type=#{i}
+  </select>
+</mapper>
