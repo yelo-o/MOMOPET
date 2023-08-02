@@ -1,31 +1,30 @@
 package com.momo.customer.control;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.momo.customer.service.CustomerService3;
 
-@WebServlet("/reviewWriting")
-public class ProfilesendServlet extends HttpServlet {
-
-
+@WebServlet("/profilesend")
+public class ProfileSendServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private CustomerService3 service;
+	public ProfileSendServlet() {
+		service = CustomerService3.getInstance();
+	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		
-		String review_no = request.getParameter("review_no");
-		String review_rating = request.getParameter("review_rating");
-		String review_content = request.getParameter("review_content");
-		String review_writer = request.getParameter("review_writer");
-		String review_receiver = request.getParameter("review_no");
-		String review_date = request.getParameter("review_no");
+		HttpSession session = request.getSession();
+		String loginedId = (String) session.getAttribute("loginedId");
+		System.out.println("로그인된 아이디 : " + loginedId);
 	}
+		
+		
 
 }
