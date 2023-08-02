@@ -1,53 +1,26 @@
 package com.momo.customer.dao;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
-import com.momo.customer.dto.Customer;
-import com.momo.exception.AddException;
-import com.momo.exception.FindException;
+import java.sql.Connection;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 public class CustomerRepository3 {
-	private SqlSessionFactory sessionFactory;
-	public CustomerRepository3() {
-		String resource = "/mybatisconfig/mybatis-config.xml";
-		InputStream inputStream;
-		try {
-			inputStream = Resources.getResourceAsStream(resource);
-			sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	private CustomerRepository3(){
 	}
-	public Customer selectById(String id) throws FindException{
-
-		SqlSession session = null;
-		try {
-			session = sessionFactory.openSession();//Connection과 같은 뜻
-			Customer c = 
-					session.selectOne(
-							"com.my.customer.mapper.CustomerMapper.selectById",
-							id);
-			//session.selectList()
-			if(c == null) {
-				throw new FindException("고객이 없습니다");
-			}
-			System.out.println("c.id=" + c.getUserId() + ", c.pwd=" + c.getPwd() + ",c.name="+c.getName());
-			return c;
-		}catch(Exception e) {
-			e.printStackTrace();
-			throw new FindException(e.getMessage());			
-		}finally {
-			if(session != null) {
-				session.close(); //DBCP에게 Connection돌려줌
-			}
-		}
+	
+	private static CustomerRepository3 instance = new CustomerRepository3();
+	
+	private static CustomerRepository3 getInstance() {
+		return instance;
 	}
+	
+	public Connection getConnection() throws Exception {
+		Connection conn = null;
+		Context initContext = new InitialContext();
+		Context envContent = (Context)initContext.lookup("java:/comp/env");
+		DataSource ds = (DataSource)envContent.lookup("jdbc/myoracle");
+		conn = ds.getConnection();
+		return conn;
+		}
 }
