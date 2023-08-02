@@ -39,7 +39,6 @@ public class CustomerRepository {
 					session.selectOne(
 							"com.momo.customer.mapper.CustomerMapper.selectById", 
 							id);
-			//session.selectList()
 			if(c == null) {
 				throw new FindException("고객이 없습니다");
 			}
