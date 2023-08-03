@@ -31,8 +31,9 @@
     <c:set var="msg" value="${requestScope.msg}" />
     <c:set var="pb" value="${requestScope.pagebean}" />
     <c:set var="list" value="${pb.list}" />
-    <%-- <c:out value="${fn:length(list)}" /> --%>
-    <c:set var="totalCnt" value="${pb.totalCnt}" />
+    
+    <%-- <c:out value="${fn:length(list)}"/>
+    <c:out value="${pb.totalCnt}"/> --%>
     <c:choose>
       <c:when test="${!empty msg}">
         <h3>게시판 목록 검색 실패:<c:out value="${msg}" /></h3>
@@ -48,10 +49,11 @@
             <div class="count">조회</div>
           </div>
           
+            
           <c:forEach items="${list}" var="b" varStatus="status">
-          
 	        <div class="board <c:out value="${b.boardNo}"/>">
-	          <div class="num"><c:out value="${fn:length(list)-status.index}"/></div>
+	          <div class="num"><c:out value="${pb.totalCnt - b.rn + 1}"/></div>
+	          <%-- <div class="num"><c:out value="${b.rn}"/></div> --%>
 	          <div class="title"><c:out value="${b.boardTitle}"/></div>
 	          <div class="writer"><c:out value="${b.boardId}"/></div>
               <fmt:formatDate var="formattedDate" value="${b.postingDate}" pattern="yyyy-MM-dd" />
