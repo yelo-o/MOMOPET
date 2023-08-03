@@ -18,9 +18,12 @@ WHERE rn BETWEEN #{startRow} AND #{endRow}
 <select id="count" resultType="int">
 SELECT COUNT(*) FROM board
 </select>
+
 <insert id="insert" parameterType="map">
 INSERT INTO board
-VALUES(board_seq.NEXTVAL, #{id}, #{userType}, #{title}, #{content}, SYSDATE)
+VALUES(board_seq.NEXTVAL, #{id}, 
+(SELECT user_type FROM customer WHERE customer.user_id=#{id}),
+#{title}, #{content}, SYSDATE)
 </insert>
 
 <delete id="delete" parameterType="map"> 

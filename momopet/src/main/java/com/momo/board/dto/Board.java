@@ -9,6 +9,7 @@ import lombok.Setter;
 
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class Board {
+	private String rn;
 	private String boardNo;
 	private String boardId;
 	private int userType;
