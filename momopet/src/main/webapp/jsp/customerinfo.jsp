@@ -26,34 +26,34 @@
                 <td>아이디 : </td>
                 <td><c:out value="${c.userId}"/></td>
             </tr>
-            <tr>
+<%--             <tr>
                 <td>비밀번호 : </td>
-                <td><input type="password" name="pwd" readonly="readonly" value="${userpwd}"></td>
-            </tr>
+                <td><c:out value="${c.pwd}"/></td>
+            </tr> --%>
             <tr>
 				<td>휴대폰번호 : </td>
-				<td><input type="email" name="email" readonly="readonly" value="${phoneNumber}"></td>
+				<td><c:out value="${c.phoneNumber}"/></td>
 			</tr>
             <tr>
                 <td>이메일 : </td>
-                <td><input type="email" name="email" readonly="readonly" value="${useremail}"></td>
+                <td><c:out value="${c.email}"/></td>
             </tr>
             <tr>
                 <td>주소 : </td>
-                <td><input type="text" name="address" readonly="readonly" value="${useraddress}"></td>
+                <td><c:out value="${c.address}"/></td>
             </tr>
             <tr>
                 <td>생년월일 : </td>
-                <td><input type="text" name="birth" readonly="readonly" value="${userbirth}"></td>
+                <td><c:out value="${c.birth}"/></td>
             </tr>
-            <tr>
+<%--             <tr>
                 <td>시급 : </td>
-                <td><input type="text" name="birth" readonly="readonly" value="${userpay}"></td>
+                <td><c:out value="${c.pay}"/></td>
             </tr>
             <tr>
                 <td>자기소개 : </td>
-                <td><input type="text" name="birth" readonly="readonly" value="${userintroduce}"></td>
-            </tr>
+                <td><c:out value="${c.introduce}"/></td>
+            </tr> --%>
 
             <tr>
                 <td><input class="button" type="submit" value="회원수정하기" onclick="return joinCheck()"></td>
