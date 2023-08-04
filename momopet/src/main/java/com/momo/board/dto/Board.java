@@ -9,6 +9,8 @@ import lombok.Setter;
 
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class Board {
+
+	private int rn;
 	private String boardNo;
 	private String boardId;
 	private int userType;
@@ -16,3 +18,4 @@ public class Board {
 	private String boardContent;
 	private Date postingDate;
 }
+

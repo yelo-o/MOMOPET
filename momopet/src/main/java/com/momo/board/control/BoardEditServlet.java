@@ -13,12 +13,13 @@ import com.momo.board.dto.Board;
 import com.momo.board.service.BoardService;
 import com.momo.exception.FindException;
 
-@WebServlet("/board")
-public class BoardServlet extends HttpServlet {
+@WebServlet("/boardeditpage")
+public class BoardEditServlet extends HttpServlet {
 	private BoardService service;
-	public BoardServlet() {
+	public BoardEditServlet() {
 		service = BoardService.getInstance();
 	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			String s = request.getParameter("boardNo");
@@ -29,7 +30,7 @@ public class BoardServlet extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("msg", e.getMessage());
 		}
-		String path = "/jsp/boardview.jsp";
+		String path = "/jsp/boardedit.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
 	}

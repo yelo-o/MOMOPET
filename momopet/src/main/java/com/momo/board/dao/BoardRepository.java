@@ -82,6 +82,7 @@ public class BoardRepository {
 			map.put("startRow", startRow);
 			map.put("endRow", endRow);
 			list = session.selectList("com.momo.board.mapper.BoardMapper.selectAll", map);
+			//System.out.println("1번 게시물 인덱스 불러오기 : " + list.get(0).getRn());
 			return list;
 		} catch(Exception e) {
 			throw new FindException("게시글 검색 실패 : " + e.getMessage());
@@ -99,11 +100,9 @@ public class BoardRepository {
 			if(title == null || title.equals("") || content == null || content.equals("")) {
 				throw new Exception("제목이나 내용이 비어있습니다.");
 			}
-			
+			//sql문에 입력할 HashMap 파라미터 선언
 			Map<String, Object> map = new HashMap<>();
-			
 			map.put("id", loginedId);
-			map.put("userType", 1);
 			map.put("title", title);
 			map.put("content", content);
 			session.insert("com.momo.board.mapper.BoardMapper.insert", map);
@@ -136,6 +135,33 @@ public class BoardRepository {
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new RemoveException(e.getMessage());
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+	}
+	public void update(String loginedId, String boardNo, String title, String content) throws AddException {
+		System.out.println("리포지토리에서 loginedId : "+ loginedId + ", boardNo : " + boardNo + ", title: " + title + ", content : " + content);
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+			
+			Map<String, Object> map = new HashMap<>();
+			map.put("id", loginedId);
+			map.put("boardNo", boardNo);
+			map.put("title", title);
+			map.put("content", content);
+			
+			int n = session.update("com.momo.board.mapper.BoardMapper.update", map);
+			if(n == 0) {
+				throw new AddException("업데이트 실패했습니다");
+			} else {
+				session.commit();
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new AddException(e.getMessage());
 		} finally {
 			if(session != null) {
 				session.close();

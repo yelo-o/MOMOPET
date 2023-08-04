@@ -105,8 +105,6 @@ public class CustomerRepository {
 				session.close(); //DBCP에게 Connection돌려줌
 			}
 		}
-<<<<<<< Updated upstream
-=======
 	}
 	public void insertrequest(SqlSession session, History h) throws AddException{
 		try {
