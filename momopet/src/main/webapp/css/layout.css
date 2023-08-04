@@ -33,22 +33,41 @@ header>h1>a.logo {
 
 header>nav {
     float: right;
-    width: 70%;
+    width: 95%;
 }
 
-header>nav>ul {
+header>nav>ul:first-child {
     padding-left: 0px;
     list-style-type: none;
+    width: 50%;
+    float: left;
+}
+
+header>nav>ul:first-child>li {
+    float: left;
+}
+
+header>nav>ul:last-child {
+    padding-left: 0px;
+    list-style-type: none;
+    width: 50%;
+    float: left;
+}
+
+
+header>nav>ul:last-child>li {
+    float: right;
 }
 
 header>nav>ul>li {
     display: inline-block;
     /* width: 120px; */
-    width: 12%;
+    width: 20%;
     padding: 5px;
     text-align: center;
     vertical-align: middle;
 }
+
 header>nav>ul>li>a {
     text-decoration: none;
 }
