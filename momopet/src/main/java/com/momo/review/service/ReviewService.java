@@ -8,14 +8,16 @@ public class ReviewService {
 	
 	private static ReviewService service = new ReviewService();
 	private ReviewRepository repository;
-
+    private ReviewService() {
+        repository = new ReviewRepository(); // ★ Initialize the repository
+    }
 	public static ReviewService getInstance() {
 		return service;
 	}
 	
-	public void add(Review reviewList) throws AddException {
+	public void add(String reviewNo, String reviewRating, String reviewContent, String reviewWriter, String userId) throws AddException {
 		try {
-			repository.insert(reviewList);
+			repository.insert(reviewNo, reviewRating, reviewContent, reviewWriter, userId);
 		} catch (AddException e) {
 			e.printStackTrace();
 		}

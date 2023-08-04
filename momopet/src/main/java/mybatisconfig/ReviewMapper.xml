@@ -4,7 +4,7 @@
    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.momo.review.mapper.ReviewMapper"> 
   <insert id="insert" parameterType="map">
-  	INSERT INTO review(review_no, review_rating, review_content, review_writer, user_id, review_date) VALUES ( #{reviewNo}, #{reviewRating}, #{reviewContent}, #{reviewWriter}, #{userId}, #{writingDate})
+  	INSERT INTO review(review_no, review_rating, review_content, review_writer, user_id, review_date) VALUES (review_seq.NEXTVAL, #{reviewRating}, #{reviewContent}, #{reviewWriter}, #{userId}, SYSDATE)
   </insert>
 </mapper>
    

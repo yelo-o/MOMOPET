@@ -27,34 +27,40 @@ public class ReviewServlet extends HttpServlet {
 	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		
-		int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
-		int reviewRating = Integer.parseInt(request.getParameter("reviewRating"));
+		String reviewNo = "1"; //임의의 값
+		//String reviewRating = request.getParameter("reviewRating");
+//		String reviewRating = "2";
+		String reviewRating = request.getParameter("reviewRating");
 		String reviewContent = request.getParameter("reviewContent");
 		
 		HttpSession session  =  request.getSession();
 		String reviewWriter = (String)session.getAttribute("loginedId");
+//		session.setAttribute("loginedId", "test1");
+//		String reviewWriter = (String)session.getAttribute("loginedId");
 		
-		String userId = request.getParameter(reviewWriter); // 결제완료 창에서 사용자 Id값을 아직 받지 못해서 임의로 값 넣음
+		String userId = "미스터조"; // 임의의 값, 결제완료 창에서 시터ID 받아야함
 		
-		LocalDate now = LocalDate.now();
-		String writingDate = now.toString();
+		//LocalDate now = LocalDate.now();
+		//String writingDate = now.toString();
 		
-		Review reviewList = new Review(reviewNo, reviewRating, reviewContent, reviewWriter, userId, writingDate);
+		//Review reviewList = new Review(reviewNo, reviewRating, reviewContent, reviewWriter, userId, writingDate);
+		System.out.println("자바스크립트로부터 내용 가져왔음" + reviewContent);
 		int status = 0;
 		try {
-			service.add(reviewList);
+			service.add(reviewNo, reviewRating, reviewContent, reviewWriter, userId);
 			status = 1; 
 		} catch (AddException e) {
 		}
 		
-		
 //	    // request 객체에 값을 설정하여 JSP 페이지로 전달
-//	    request.setAttribute("writingDate", writingDate);
+	  
 //	    request.setAttribute("reviewRating", reviewRating);
 //	    request.setAttribute("reviewContent", reviewContent);
-//		
-		String path = "/jsp/receivedreview.jsp";
+////		
+		String path = "/jsp/review.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		request.setAttribute("status", status);
 		rd.forward(request, response);
