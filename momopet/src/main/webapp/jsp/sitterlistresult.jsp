@@ -16,6 +16,7 @@
   <%-- <link rel="stylesheet" href="<c:out value="${contextPath}"/>/css/searchsitter.css"> --%>
   <link rel="stylesheet" href="<c:out value=" ${contextPath}" />/css/layout.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="<c:out value="${contextPath}"/>/js/sitterresultlistjq.js"></script>
 </head>
 
 <body>
@@ -35,24 +36,14 @@
 			</c:when>
 	
 			<c:otherwise>
-				<div class="sitter_list_wrap">
-					<div class="sitter_list">
-						<div class="top">
-							<div class="id">id</div>
-							<div class="name">이름</div>
-							<div class="gender">성별</div>
-							<div class="request">요청</div>
-						</div>
-					
-						<c:forEach items="${list}" var="s">
-							<div class="id"><c:out value="${s.userId}"/></div>
-							<div class="name"><c:out value="${s.name}"/></div>
-							<div class="gender"><c:out value="${s.userSex}"/></div>
-							<div class="request"><button>요청하기</button></div>
-						</c:forEach>
-					</div>
-				</div>
-				
+				<c:forEach items="${list}" var="s">
+				<form>
+					돌보미 아이디 : <span class="sitterId"><c:out value="${s.userId}"/></span><br>
+					돌보미 이름 : <span class="name"><c:out value="${s.name}"/></span><br>
+					돌보미 성별 : <span class="gender"><c:out value="${s.userSex}"/></span><br>
+					<div class="request"><input type=submit value="Request"></div>
+				</form>
+				</c:forEach>
 			</c:otherwise>
 		</c:choose>
 	</div>

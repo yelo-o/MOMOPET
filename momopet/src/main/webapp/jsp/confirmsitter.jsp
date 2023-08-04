@@ -19,7 +19,17 @@
                 <header> 아래의 돌보미님께 돌봄 신청을 하시겠습니까?</header>
                 <form>
                     <div>
-                        돌보미정보
+                    <c:set var="sitterId" value="${requestScope.sitterId}" />
+    				<c:set var="name" value="${requestScope.name}" />
+    				<c:set var="gender" value="${requestScope.gender}" />
+                        <h1>돌보미정보</h1>
+                        이름 : <span class="sittername"><c:out value="${name}"/></span>
+                        <br>
+                        아이디 : <span class="sitterId"><c:out value="${sitterId}"/></span>
+                        <br>
+                        성별 : <span class="sitterGender"><c:out value ="${gender}"/></span>
+                        <br>
+                        자기소개 : <br>
                     </div>
                     <div>
                     돌봄 시작날짜 : <input type = "date" name = "startDate" placeholder="시작일자를 클릭하세요">

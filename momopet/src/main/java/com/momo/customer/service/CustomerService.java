@@ -92,5 +92,9 @@ public class CustomerService {
 		}
 
 	}
+	public Customer recheckSitter(String id) throws FindException{
+		Customer c = repository.selectById(id);
+			return c;
+	}
 	
 }
