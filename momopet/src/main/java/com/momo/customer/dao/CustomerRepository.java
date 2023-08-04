@@ -2,7 +2,9 @@ package com.momo.customer.dao;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
@@ -103,6 +105,8 @@ public class CustomerRepository {
 				session.close(); //DBCP에게 Connection돌려줌
 			}
 		}
+<<<<<<< Updated upstream
+=======
 	}
 	public void insertrequest(SqlSession session, History h) throws AddException{
 		try {
