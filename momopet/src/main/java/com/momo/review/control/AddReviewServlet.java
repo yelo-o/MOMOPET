@@ -1,7 +1,5 @@
 package com.momo.review.control;
-
 import java.io.IOException;
-import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,17 +16,17 @@ import com.momo.review.service.ReviewService;
 
 
 @WebServlet("/review")
-public class ReviewServlet extends HttpServlet {
+public class AddReviewServlet extends HttpServlet {
 	
 	private ReviewService service;
-	public ReviewServlet() {
+	public AddReviewServlet() {
 		service = ReviewService.getInstance();
 	}
 	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		
 		String reviewNo = "1"; //임의의 값
 		//String reviewRating = request.getParameter("reviewRating");
@@ -46,11 +44,11 @@ public class ReviewServlet extends HttpServlet {
 		//LocalDate now = LocalDate.now();
 		//String writingDate = now.toString();
 		
-		//Review reviewList = new Review(reviewNo, reviewRating, reviewContent, reviewWriter, userId, writingDate);
-		System.out.println("자바스크립트로부터 내용 가져왔음" + reviewContent);
+		Review r = new Review(reviewNo, reviewRating, reviewContent, reviewWriter, userId);
+		System.out.println("jsp로부터 가져온 리뷰 내용: " + reviewContent);
 		int status = 0;
 		try {
-			service.add(reviewNo, reviewRating, reviewContent, reviewWriter, userId);
+			service.add(r);
 			status = 1; 
 		} catch (AddException e) {
 		}

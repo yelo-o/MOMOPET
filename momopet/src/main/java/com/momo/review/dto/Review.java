@@ -6,7 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-@Setter @Getter @NoArgsConstructor @AllArgsConstructor
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Review {
 
 	private String reviewNo;
@@ -14,6 +18,5 @@ public class Review {
 	private String reviewContent;
 	private String reviewWriter;
 	private String userId;
-	private String writingDate;
-	
+
 }

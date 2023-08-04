@@ -15,9 +15,9 @@ public class ReviewService {
 		return service;
 	}
 	
-	public void add(String reviewNo, String reviewRating, String reviewContent, String reviewWriter, String userId) throws AddException {
+	public void add(Review review) throws AddException {
 		try {
-			repository.insert(reviewNo, reviewRating, reviewContent, reviewWriter, userId);
+			repository.insert(review);
 		} catch (AddException e) {
 			e.printStackTrace();
 		}

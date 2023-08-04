@@ -8,10 +8,13 @@
 </head>
 <body>
 	<h1>내가 받은 리뷰</h1>
-		<div class="container">
-			<span>${requestScope.writingDate}</span>
-			<span>${requestScope.reviewRating}</span>
-			<div>${requestScope.reviewContent}</div>
-		</div>
+		<table>
+			<tr>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+			</tr>
+		</table>
 </body>
 </html>
