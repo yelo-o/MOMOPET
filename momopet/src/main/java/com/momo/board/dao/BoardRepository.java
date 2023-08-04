@@ -121,10 +121,6 @@ public class BoardRepository {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-//			session.insert("com.my.customer.mapper.CustomerMapper.insert", c);
-//			if(title == null || title.equals("") || content == null || content.equals("")) {
-//				throw new Exception("제목이나 내용이 비어있습니다.");
-//			}
 			
 			Map<String, Object> map = new HashMap<>();
 			map.put("boardNo", boardNo);
@@ -153,8 +149,8 @@ public class BoardRepository {
 			map.put("title", title);
 			map.put("content", content);
 			
-			int n = session.update("com.momo.board.mapper.BoardMapper.update", map);
-			if(n == 0) {
+			int n = session.update("com.momo.board.mapper.BoardMapper.update", map); //성공하면 n = 1로 받고, 실패하면 n = 0으로 받음 
+			if (n == 0) {
 				throw new AddException("업데이트 실패했습니다");
 			} else {
 				session.commit();

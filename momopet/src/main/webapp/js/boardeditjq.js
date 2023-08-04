@@ -1,47 +1,26 @@
 $(()=>{
-	//** 수정 버튼 클릭하여 업데이트하는 제이쿼리**
-	//const updatePageBtn = $('.updatepage')
-	const updateObj = $('#f1')
-
-	const boardNo = $('div.info > dl:first-child() dd').html() //게시판번호 가져옴
-	//const boardId = $('.info > dl:nth-child(2) dd').html() //게시판 작성자 가져옴
-	//const boardTitle =$('.board_view > .title').html() //게시판 제목 가져옴
-	//const boardContent =$('.board_view > .cont').html() //게시판 제목 가져옴
+	//** 수정버튼 눌렀을 때의 formObj **
+	const updateObj = $('#f1') //id 값이 "f1"
 	
-	/*
-	updateBtn.click((e)=>{
-		console.log(e.currentTarget)
-		console.log(boardTitle)
-		console.log(boardContent)
-	})
-	*/
 	//--수정 버튼 클릭 START--
-    updateObj.submit((e)=>{
+    updateObj.submit(()=>{
+		// post 방식으로 보낼 때 불러온 boardNo 값은 name 값으로 가져올 수 없어서 직접 serialize()에 붙여줌
 		let boardData = updateObj.serialize()
-		boardData += "&boardNo="+$("#btNo").html();
-		/*let boardData2 = "boardNo="+$("#btNo").html()+"&boardTitle="+boardTitle+"&boardContent="+boardContent
-		const boardTitle = $('#boardTitle').html();
-		const boardContent = $('#boardContent').html();
-		alert(boardTitle)
-		alert(boardContent)*/
-		//alert(boardData2)
+		boardData += "&boardNo="+$("#btNo").html(); //서블릿 통해 불러온 boardNo 같이 붙여서 보냄
 		//alert("e의 값은 : "+ e)
 		//alert("e.CurrentTarget의 값은 : "+ e.currentTarget)
 		$.ajax({
 			url: '/momopet/updateboard',
 			method: 'post',
             //data: updateObj.serialize(),
-            //data: boardData,
-            data: boardData,
-			//data: `boardNo=${boardNo}&boardTitle=${boardTitle}&boardContent=${boardContent}`,
-            //data: `boardTitle=${boardTitle}&boardContent=${boardContent}`,
+            data: boardData, 
             success: (responseData)=>{
 				//alert(responseData);
 				if(responseData == 0){
-					location.href=`/momopet/boardlist`;
+					location.href=`/momopet/boardlist`; //게시판 목록 페이지로 이동
 					alert('본인의 게시물만 수정할 수 있습니다!')
 				} else { // 게시물 수정 성공한 경우
-					location.href=`/momopet/boardlist`;
+					location.href=`/momopet/boardlist`; //게시판 목록 페이지로 이동
 					alert('게시물 수정 완료!');
 				}
             },
@@ -52,6 +31,5 @@ $(()=>{
 			
 		})
     //--수정 버튼 클릭 END--
-
     
 })
