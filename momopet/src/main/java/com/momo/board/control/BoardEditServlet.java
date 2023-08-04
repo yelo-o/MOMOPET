@@ -20,6 +20,7 @@ public class BoardEditServlet extends HttpServlet {
 		service = BoardService.getInstance();
 	}
 	
+	/* 게시판 선택 후에 수정버튼 클릭 시, 수정페이지로 이동(게시판의 번호를 이용해서 게시판 내용을 받아온 후에 boardedit.jsp로 불러온 Board 객체 전달) */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			String s = request.getParameter("boardNo");
