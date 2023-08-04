@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <%-- <jsp:include page="./header.jsp" /> --%>
+  <jsp:include page="./header.jsp" />
   <c:choose>
    <c:when test="${!empty msg}">
      <h3>게시물조회 실패:<c:out value="${msg}" /></h3>
@@ -36,7 +36,8 @@
                 <div class="title">
                     <dl>
                         <dt>제목</dt>
-                        <dd><input id="boardTitle" name="boardTitle" type="text" placeholder="${tit}"></dd>
+                        <%-- <dd><input id="boardTitle" name="boardTitle" type="text" placeholder="${tit}"></dd> --%> <!-- 값 대신 placeholder로 사용하고 싶을 때  -->
+                        <dd><input id="boardTitle" name="boardTitle" type="text" value="${tit}"></dd>
                     </dl>
                 </div>
                 <div class="info">
@@ -50,13 +51,13 @@
                     </dl>
                 </div>
                 <div class="cont">
-                    <textarea type="text" id="boardContent" name="boardContent" placeholder="${fn:replace(con, LF, '<br>')}"></textarea>
+                    <%-- <textarea type="text" id="boardContent" name="boardContent" placeholder="${fn:replace(con, LF, '<br>')}"></textarea> --%> <!-- 값 대신 placeholder로 사용하고 싶을 때  -->
+                    <textarea type="text" id="boardContent" name="boardContent" >${fn:replace(con, LF, '<br>')}</textarea>
                 </div>
             </div>
         </div>
             <div class="bt_wrap">
             	<button type="submit" id="updatebtn">수정</button>
-                <!-- <a href="board.jsp">취소</a> -->
                 <button class="on" type="button" onclick="location.href='<c:out value="${contextPath}"/>/boardlist'" >취소</button>
             </div>
     </form>
