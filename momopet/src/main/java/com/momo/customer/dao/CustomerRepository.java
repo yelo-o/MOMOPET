@@ -47,7 +47,7 @@ public class CustomerRepository {
 			System.out.println("c.id=" + c.getUserId() + ", c.pwd=" + c.getPwd() + ",c.name="+c.getName());
 			return c;
 		}catch(Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			throw new FindException(e.getMessage());			
 		}finally {
 			if(session != null) {

@@ -8,12 +8,11 @@ import lombok.Setter;
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class Pet {
 	private String userId;
-	private String petId;
-	private String petType;
+	private int petType;
 	private String petName;
+	private String petSex;
 	private String petBreed;
 	private String petBirth;
-	private String petSex;
 	private String petRemarks;
 
 }

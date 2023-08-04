@@ -13,146 +13,118 @@
 
     </head>
     <body>
-    	<jsp:include page="./header.jsp"/>
-        <form class="signup">
-        	<table>
-        		<tr>
-        			<td>아이디</td>
-        			<td><input name="id" 
-	                   		   id="id"
-	                   		   placeholder="아이디를 입력하세요"
-	                   		   required></td>
-	                <td><button id="btIdDupchk" type="button" class="btIdDupchk" >아이디중복확인</button></td>
-        		</tr>
-        		<tr>
-        			<td>비밀번호</td>
-        			<td><input name="pwd" 
-	                   		   id="pwd"
-	                  		   type="password"
-	                  		   required></td>
-        		</tr>
-        		<tr>
-        			<td>비밀번호재확인</td>
-        			<td><input name="pwd1" 
-	                   		   id="pwd1"
-	                   		   type="password"
-	                   		   required></td>
-        		</tr>
-        		<tr>
-        			<td>이름</td>
-        			<td><input name="name" 
-	                  		   id="name"
-	              		       type="text"
-	              		       required></td>
-        		</tr>
-        		<tr>
-        			<td>생년월일</td>
-        			<td><input name="birthdate" 
-	                  		   id="birthdate"
-	              		       type="date"></td>
-        		</tr>
-        		<tr>
-        			<td>성별</td>
-        			<td><select id="gender" name="gender">
+    	<%-- <jsp:include page="./header.jsp"/> --%>
+    	<div class="center">
+    		<h1>회원가입</h1>
+	        <form class="signup">
+	       		<div class="txt_field">
+	       			<input name="id" id="id" required>
+	       			<span></span>
+	       			<label>아이디</label>
+	            </div>
+	            <button id="btIdDupchk" type="button" class="btIdDupchk" >아이디중복확인</button>
+	            <div class="txt_field">
+	       			<input name="pwd" id="pwd" type="password" required>
+	       			<span></span>
+	       			<label>비밀번호</label>
+	       		</div>
+	       		<div class="txt_field">
+	       			<input name="pwd1" id="pwd1" type="password" required>
+	       			<span></span>
+	       			<label>비밀번호재확인</label>
+	       		</div>
+	       		<div class="txt_field">
+	       			<input name="name" id="name" type="text" required>
+	       			<span></span>
+	       			<label>이름</label>
+	       		</div>
+	       		<div class="txt_field">
+	       			<input name="birthdate" id="birthdate" type="date" required>
+	       			<span></span>
+	       			<label>생년월일</label>
+	       		</div>
+	       		<div class="txt_field">
+	       			<select id="gender" name="gender">
+	       				<option value="none">선택하세요</option>
+	       				<option value="0">남</option>
+	       				<option value="1">여</option>
+	   				</select>
+	       		</div>
+	       		<div class="txt_field">
+	       			<input name="email" id="email" type="text" required>
+	       			<span></span>
+	       			<label>이메일</label>
+	       		</div>
+	            <div class="txt_field">
+	            	<input name="phoneNumber" id="phoneNumber" type="text" required>
+	            	<span></span>
+	       			<label>전화번호</label>
+	       		</div>
+	       		<div class="txt_field">
+	            	<input name="address" id="address" type="text" required>
+	                <span></span>
+	       			<label>주소 예)서울시 강남구</label>
+	       		</div>
+	            <div class="txt_field">
+	       			<select id="role" name="role" required>
+	       					<option value="none">선택하세요</option>
+	       					<option value="0">돌보미</option>
+	       					<option value="1">보호자</option>
+	   				</select>
+	   				<span></span>
+	       			<label>역할선택</label>
+	       		</div>
+	       		<div class="petInfo" id="petInfo">
+	       			<h3>나의 펫 정보</h3>
+	       			<div class="txt_field">
+	                	<select id="petType" name="petType" required>
+        					<option value="none">선택하세요</option>
+        					<option value="0">개</option>
+        					<option value="1">고양이</option>
+    					</select>
+    					<span></span>
+	       				<label>동물종류</label>
+	       			</div>
+	       			<div class="txt_field">
+	       				<input name="petName" id="petName" type="text">
+	       				<span></span>
+	       				<label>이름</label>
+	       			</div>
+	       			<div class="txt_field">
+	                	<select id="petSex" name="petSex" required>
         					<option value="none">선택하세요</option>
         					<option value="0">남</option>
         					<option value="1">여</option>
-    					</select></td>
-        		</tr>
-        		<tr>
-        			<td>이메일</td>
-        			<td><input name="email" 
-	               		       id="email"
-	                  		   type="text"></td>
-	            </tr>
-	            <tr>
-	            	<td>전화번호</td>
-	            	<td><input name="phoneNumber" 
-	                		   id="phoneNumber"
-	                 		   type="text"></td>
-	            </tr>
-	            <tr>
-	            	<td>주소</td>
-	            	<td><input name="address" 
-	                 		   id="address"
-	                  		   type="text"
-	                  		   placeholder="예)서울시 강남구"
-	                  		   required></td>
-	            </tr>
-	           	<tr>
-	            	<td>상세 주소</td>
-	            	<td><input name="addressDetails" 
-	                 		   id="addressDetails"
-	                  		   type="text"></td>
-	            </tr>
-	            <tr>
-        			<td>역할 선택</td>
-        			<td><select id="role" name="role" required>
-        					<option value="none">선택하세요</option>
-        					<option value="0">돌보미</option>
-        					<option value="1">보호자</option>
-    					</select></td>
-        		</tr>
-        	</table>
-        	<br>
-        	<div class="petInfo" id="petInfo">
-        		<table>
-        			<th>내 반려동물 정보</th>
-        			<tr>
-        				<td>동물종류</td>
-        				<td><select>
-        						<option value="none">선택하세요</option>
-        						<option value="dog">개</option>
-        						<option value="cat">고양이</option>
-    						</select></td>
-        			</tr>
-	        		<tr>
-	        			<td>이름</td>
-	        			<td><input name="name" 
-		                  		   id="name"
-		              		       type="text"></td>
-	        		</tr>
-	        		<tr>
-	        			<td>종류</td>
-	        			<td><input name="breed" 
-		                  		   id="breed"
-		              		       type="text"></td>
-	        		</tr>
-	        		<tr>
-	        			<td>생년월일</td>
-	        			<td><input name="birthdate" 
-		                  		   id="birthdate"
-		              		       type="date"></td>
-	        		</tr>
-	        		<tr>
-	        			<td>성별</td>
-	        			<td><select>
-	        					<option value="none">선택하세요</option>
-	        					<option value="male">남</option>
-	        					<option value="female">여</option>
-	    					</select></td>
-	        		</tr>
-	        		<tr>
-        				<td>주의사항</td>
-        				<td><input name="petRemarks" 
-	                   		   	   id="petRemakrs"
-	                  		   	   type="text"></td>
-        			</tr>
-        			<!-- <tr>
-        				<td><button id="addPet" type="button">펫추가</button></td>
-        			</tr> -->
-        		</table>
-        	</div>
-        	<div class="terms" id="terms">
-        		<h1>필수약관</h1>
-		        <p>
-		            이 웹사이트의 서비스를 이용하시려면 아래의 약관에 동의해야 합니다.
+    					</select>
+    					<span></span>
+	       				<label>성별</label>
+	       			</div>
+	       			<div class="txt_field">
+	       				<input name="petBreed" id="petBreed" type="text">
+	       				<span></span>
+	       				<label>품종</label>
+	       			</div>
+	       			<div class="txt_field">
+	       				<input name="petBirth" id="petBirth" type="date">
+	       				<span></span>
+	       				<label>생년월일</label>
+	       			</div>
+	       			<div class="txt_field">
+	       				<input name="petRemarks" id="petRemarks" type="text">
+	       				<span></span>
+	       				<label>주의사항</label>
+	       			</div>
+	       			<button class="petsignup" id="petsignup" type="button">펫등록</button>
+	       			
+	       		</div>
+	       		
+	       		<div class="terms" id="terms">
+	       			<h3>필수약관</h3>
+	       			<p>이 웹사이트의 서비스를 이용하시려면 아래의 약관에 동의해야 합니다.
 		            <br>
-		            약관 내용 확인 후 동의해주세요.
-		        </p>
-		        <div class="terms-content">
-		            <!-- 약관 내용 -->
-		            <h2>시터로써 지켜야할 약속</h2>
+		            약관 내용 확인 후 동의해주세요.</p>
+		            <br>
+		       		<h4>시터로써 지켜야할 약속</h4>
 		            <p>1. 목줄 사용: 반드시 견종과 크기에 맞는 목줄을 사용해야 합니다. 목줄은 강아지를 통제하고 안전하게 산책하는 데 도움을 줍니다.</p>
 		            <p>2. 소통과 인사: 다른 강아지와 사람들을 만날 때, 안녕하는 것은 예의입니다. 
 		                강아지가 사람이나 다른 동물과 친근하게 만날 수 있도록 훈련하는 것이 좋습니다.</p>
@@ -166,12 +138,11 @@
 		                평범한 산책 길에도 강아지에게 위험할 수 있는 물건이 있을 수 있습니다.</p>
 		            <p>8. 보호 동물에 대한 주의: 일부 강아지는 보호 본능이 강해지므로 다른 동물과의 만남에 주의해야 합니다.</p>
 		            <p>9. 반려동물 보험: 산책 중에 사고가 발생할 수 있으므로 강아지에게 적절한 보험 가입을 고려해보는 것이 좋습니다.</p>
-		        		
-        			<span><input type="checkbox"> 위의 동의서를 읽고 동의합니다. </span>
+	    			<br>
+	    			<span><input name="termscheck" id="termscheck" type="checkbox"> 위의 필수약관을 읽고 동의합니다. </span>
         		</div>
-        	</div>
-        	<br>
         	<button type="submit" id="signup" class="signup">회원가입</button>
         </form>
+	    </div>
     </body>
 </html>
