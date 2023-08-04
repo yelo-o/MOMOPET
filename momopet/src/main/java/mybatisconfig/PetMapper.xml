@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.momo.pet.mapper.PetMapper"> 
+
+  <insert id="signup" parameterType="map">
+  	INSERT INTO pet(user_id, pet_type, pet_name, pet_sex, pet_breed, pet_birth, pet_remarks) VALUES (#{i}, #{t}, #{n}, #{s}, #{b}, #{bi}, #{r})
+  </insert>
+  
+</mapper>
