@@ -16,7 +16,7 @@
  <body>
     <section class="container">
       <header>돌보미 찾기</header>
-      <form action="#" class="form">
+      <form action="#" class="searchsitter">
         <div class="pet-box">
             <h3>돌봄이 필요한 친구는?</h3>
             <div class="pet-option">
@@ -50,18 +50,18 @@
 
           <div class="input-box">
             <label>돌봄이 필요한 날짜</label>
-            <input type="date" placeholder="시작날짜" required />
-            <input type="date" placeholder="종료날짜" required />
+            <input type="date" placeholder="시작날짜" />
+            <input type="date" placeholder="종료날짜" />
           </div>
         <div class="input-box address">
           <label>장소</label>
-          <input type="text" placeholder="주소를 입력하세요" required />
+          <input type="text" placeholder="주소를 입력하세요" />
         </div>
         <div class="pet-qty">
             <label>몇 마리 인가요?</label><br>
             <input type="number">
         </div>
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </section>
   </body>

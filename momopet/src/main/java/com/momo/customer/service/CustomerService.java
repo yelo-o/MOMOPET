@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.momo.board.dto.Board;
 import com.momo.customer.dao.CustomerRepository;
 import com.momo.customer.dto.Customer;
 import com.momo.customer.dto.Histories;
 import com.momo.customer.dto.History;
 import com.momo.exception.AddException;
 import com.momo.exception.FindException;
+import com.momo.util.PageBean;
 
 public class CustomerService {
 	private static CustomerService service = new CustomerService();
@@ -86,14 +88,26 @@ public class CustomerService {
 		} 
 	}
 	
-	public List<Map<String, Object>> findSitters() throws FindException {
-		List<Map<String, Object>> list = null;
+//	public List<Map<String, Object>> findSitters() throws FindException {
+//		List<Map<String, Object>> list = null;
+//		try {
+//			list = repository.selectSitters(0);
+//			return list;
+//		} catch (FindException e) {
+//			throw new FindException("시터가 없습니다");
+//		}
+//	}
+	
+	public List<Customer> findSitters() throws FindException {
+		List<Customer> list = null;
 		try {
-			list = repository.selectSitters(0);
+			list = repository.selectSitters();
+			//System.out.println("list.get(0).getName() : " + list.get(0).getName());
 			return list;
 		} catch (FindException e) {
-			throw new FindException("시터가 없습니다");
+			throw new FindException("시터조회 실패");
 		}
+
 	}
 	
 }

@@ -143,21 +143,54 @@ public class CustomerRepository {
 		}	
 	}
 	
-	public List<Map<String, Object>> selectSitters(int userType) throws FindException {
-		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+//	public List<Map<String, Object>> selectSitters(int userType) throws FindException {
+//		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+//		SqlSession session = null;
+//		try {
+//			session = sessionFactory.openSession();
+//			list = session.selectList("com.momo.customer.mapper.CustomerMapper.selectSitters",
+//                    userType);		
+//			return list;			
+//		} catch (Exception e) {
+//			throw new FindException("시터검색 실패:" + e.getMessage());
+//		} finally {
+//			if(session != null) {
+//				session.close();
+//			}
+//		}
+//	}
+	
+	public List<Customer> selectSitters() throws FindException {
+		List<Customer> list = new ArrayList<>();
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			list = session.selectList("com.momo.customer.mapper.CustomerMapper.selectSitters",
-                    userType);		
-			return list;			
+			list = session.selectList("com.momo.customer.mapper.CustomerMapper.selectSitters");		
+			//System.out.println("list.get(0).getName() : " + list.get(0).getName());
+			return list;
 		} catch (Exception e) {
-			throw new FindException("시터검색 실패:" + e.getMessage());
+			throw new FindException("시터 검색 실패:" + e.getMessage());
 		} finally {
 			if(session != null) {
 				session.close();
 			}
 		}
+	}
+	
+	public int countSitters() throws FindException{
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+			return session.selectOne("com.momo.customer.mapper.CustomerMapper.countSitters");
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new FindException(e.getMessage());
+		} finally {
+			if(session!=null) {
+				session.close();
+			}
+		}
+		
 	}
 	
 }
