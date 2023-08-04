@@ -20,26 +20,30 @@
         			<td>아이디</td>
         			<td><input name="id" 
 	                   		   id="id"
-	                   		   placeholder="아이디를 입력하세요"></td>
+	                   		   placeholder="아이디를 입력하세요"
+	                   		   required></td>
 	                <td><button id="btIdDupchk" type="button" class="btIdDupchk" >아이디중복확인</button></td>
         		</tr>
         		<tr>
         			<td>비밀번호</td>
         			<td><input name="pwd" 
 	                   		   id="pwd"
-	                  		   type="password"></td>
+	                  		   type="password"
+	                  		   required></td>
         		</tr>
         		<tr>
         			<td>비밀번호재확인</td>
         			<td><input name="pwd1" 
 	                   		   id="pwd1"
-	                   		   type="password"></td>
+	                   		   type="password"
+	                   		   required></td>
         		</tr>
         		<tr>
         			<td>이름</td>
         			<td><input name="name" 
 	                  		   id="name"
-	              		       type="text"></td>
+	              		       type="text"
+	              		       required></td>
         		</tr>
         		<tr>
         			<td>생년월일</td>
@@ -71,7 +75,9 @@
 	            	<td>주소</td>
 	            	<td><input name="address" 
 	                 		   id="address"
-	                  		   type="text"></td>
+	                  		   type="text"
+	                  		   placeholder="예)서울시 강남구"
+	                  		   required></td>
 	            </tr>
 	           	<tr>
 	            	<td>상세 주소</td>
@@ -81,16 +87,17 @@
 	            </tr>
 	            <tr>
         			<td>역할 선택</td>
-        			<td><select id="role" name="role">
+        			<td><select id="role" name="role" required>
         					<option value="none">선택하세요</option>
         					<option value="0">돌보미</option>
         					<option value="1">보호자</option>
     					</select></td>
         		</tr>
         	</table>
+        	<br>
         	<div class="petInfo" id="petInfo">
         		<table>
-        			<th>펫1</th>
+        			<th>내 반려동물 정보</th>
         			<tr>
         				<td>동물종류</td>
         				<td><select>
@@ -126,20 +133,14 @@
 	    					</select></td>
 	        		</tr>
 	        		<tr>
-	        			<td>몸무게(kg)</td>
-	        			<td><input name="weight" 
-		                  		   id="weight"
-		              		       type="text"></td>
-	        		</tr>
-	        		<tr>
         				<td>주의사항</td>
         				<td><input name="petRemarks" 
 	                   		   	   id="petRemakrs"
 	                  		   	   type="text"></td>
         			</tr>
-        			<tr>
+        			<!-- <tr>
         				<td><button id="addPet" type="button">펫추가</button></td>
-        			</tr>
+        			</tr> -->
         		</table>
         	</div>
         	<div class="terms" id="terms">
@@ -169,6 +170,7 @@
         			<span><input type="checkbox"> 위의 동의서를 읽고 동의합니다. </span>
         		</div>
         	</div>
+        	<br>
         	<button type="submit" id="signup" class="signup">회원가입</button>
         </form>
     </body>
