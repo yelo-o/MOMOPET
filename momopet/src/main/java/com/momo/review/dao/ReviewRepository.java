@@ -27,7 +27,7 @@ public class ReviewRepository {
 		}
 	}
 
-	public void insert(String reviewNo, String reviewRating, String reviewContent, String reviewWriter, String userId) throws AddException {
+	public void insert(Review r) throws AddException {
 		SqlSession session = null;
 		
 		try {
@@ -36,11 +36,11 @@ public class ReviewRepository {
 			Map<String, Object> map = new HashMap<>();
 			
 			//map.put("reviewNo", reviewNo);
-			map.put("reviewRating", reviewRating);
-			map.put("reviewContent", reviewContent);
-			map.put("reviewWriter", reviewWriter);
-			map.put("userId", userId); // 결제완료 창에서 사용자 Id값을 아직 받지 못해서 임의로 값 넣음
-			//map.put("writingDate", rl.getWritingDate());
+			map.put("reviewRating", r.getReviewRating());
+			map.put("reviewContent", r.getReviewContent());
+			map.put("reviewWriter", r.getReviewWriter());
+			map.put("userId", r.getUserId()); // 결제완료 창에서 사용자 Id값을 아직 받지 못해서 임의로 값 넣음
+			//map.put("writingDate", rl.getWritingDate()); //SQL SYSDATE로 대신함
 			
 			session.insert("com.momo.review.mapper.ReviewMapper.insert", map);
 			session.commit();
