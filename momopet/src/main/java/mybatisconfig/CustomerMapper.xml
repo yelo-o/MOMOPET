@@ -23,9 +23,13 @@
   <insert id="signup" parameterType="map">
   	INSERT INTO customer(user_id, pwd, name, email, phone_number, address, user_sex, user_type, birth_date, date_created, status) VALUES (#{i}, #{p}, #{n}, #{e}, #{pn}, #{a}, #{s}, #{r}, #{b}, #{d}, #{u})
   </insert>
+  
+  <select id="countSitters" resultType="int">
+	SELECT COUNT(*) FROM customer WHERE user_type=0
+  </select>
 
-  <select id="selectSitters" resultType="map" parameterType="int">
-  	SELECT * FROM customer WHERE user_type=#{i}
+  <select id="selectSitters" resultType="Customer">
+	SELECT * FROM customer WHERE user_type=0
   </select>
   
 </mapper>
