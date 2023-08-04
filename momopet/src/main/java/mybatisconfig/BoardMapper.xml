@@ -30,4 +30,12 @@ VALUES(board_seq.NEXTVAL, #{id},
 DELETE FROM board WHERE board_no = #{boardNo} AND board_id = #{boardId} 
 </delete>  
 
+<update id="update" parameterType="map" >
+UPDATE board
+SET board_title=#{title}, board_content=#{content}
+WHERE board_no=#{boardNo} AND board_id=#{id}
+</update>
+
+
+
 </mapper>

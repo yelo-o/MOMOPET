@@ -141,4 +141,31 @@ public class BoardRepository {
 			}
 		}
 	}
+	public void update(String loginedId, String boardNo, String title, String content) throws AddException {
+		System.out.println("리포지토리에서 loginedId : "+ loginedId + ", boardNo : " + boardNo + ", title: " + title + ", content : " + content);
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+			
+			Map<String, Object> map = new HashMap<>();
+			map.put("id", loginedId);
+			map.put("boardNo", boardNo);
+			map.put("title", title);
+			map.put("content", content);
+			
+			int n = session.update("com.momo.board.mapper.BoardMapper.update", map);
+			if(n == 0) {
+				throw new AddException("업데이트 실패했습니다");
+			} else {
+				session.commit();
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new AddException(e.getMessage());
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+	}
 }
