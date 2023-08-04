@@ -9,8 +9,8 @@ import lombok.Setter;
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class Review {
 
-	private int reviewNo;
-	private int reviewRating;
+	private String reviewNo;
+	private String reviewRating;
 	private String reviewContent;
 	private String reviewWriter;
 	private String userId;
