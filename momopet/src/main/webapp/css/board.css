@@ -244,6 +244,7 @@ a {
     border-bottom: 1px solid #000;
     line-height: 160%;
     font-size: 1.4rem;
+    white-space:pre;
 }
 
 .board_write {

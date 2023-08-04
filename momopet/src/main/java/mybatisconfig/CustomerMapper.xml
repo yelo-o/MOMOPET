@@ -11,17 +11,25 @@
   <select id="selectByName" resultType="Customer" parameterType="map">
    SELECT * FROM customer WHERE name=#{name} and email=#{email}
   </select>
+  
   <select id="searchPwd" resultType="Customer" parameterType="map">
   SELECT * FROM customer WHERE user_id=#{id} and name=#{name} and email=#{email}
   </select>
-
-  <!-- <insert id="insert" parameterType="Customer">
-  INSERT INTO customer(id,pwd,name) VALUES(#{id},#{pwd},#{name})
-  </insert> -->
   
   <insert id="insert" parameterType="map">
   	INSERT INTO customer(user_id, pwd, name) VALUES ( #{i}, #{p}, #{n})
   </insert>
+  
+  <insert id="signup" parameterType="map">
+  	INSERT INTO customer(user_id, pwd, name, email, phone_number, address, user_sex, user_type, birth_date, date_created, status) VALUES (#{i}, #{p}, #{n}, #{e}, #{pn}, #{a}, #{s}, #{r}, #{b}, #{d}, #{u})
+  </insert>
+  
+  <select id="countSitters" resultType="int">
+	SELECT COUNT(*) FROM customer WHERE user_type=0
+  </select>
 
+  <select id="selectSitters" resultType="Customer">
+	SELECT * FROM customer WHERE user_type=0
+  </select>
   
 </mapper>

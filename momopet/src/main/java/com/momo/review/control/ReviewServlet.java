@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import com.momo.exception.AddException;
 import com.momo.review.dto.Review;
 import com.momo.review.service.ReviewService;
-import com.momo.exception.AddException;
 
 
 
@@ -42,7 +41,12 @@ public class ReviewServlet extends HttpServlet {
 		String writingDate = now.toString();
 		
 		Review reviewList = new Review(reviewNo, reviewRating, reviewContent, reviewWriter, userId, writingDate);
-		service.add(reviewList);
+		int status = 0;
+		try {
+			service.add(reviewList);
+			status = 1; 
+		} catch (AddException e) {
+		}
 		
 		
 //	    // request 객체에 값을 설정하여 JSP 페이지로 전달
@@ -50,9 +54,10 @@ public class ReviewServlet extends HttpServlet {
 //	    request.setAttribute("reviewRating", reviewRating);
 //	    request.setAttribute("reviewContent", reviewContent);
 //		
-//		String path = "/jsp/receivedreview.jsp";
-//		RequestDispatcher rd = request.getRequestDispatcher(path);
-//		rd.forward(request, response);
+		String path = "/jsp/receivedreview.jsp";
+		RequestDispatcher rd = request.getRequestDispatcher(path);
+		request.setAttribute("status", status);
+		rd.forward(request, response);
 	}
 
 }

@@ -21,7 +21,7 @@ public class BoardService {
 		return service;
 	}
 
-	public Board findByBoardNo(String boardNo) throws FindException{
+	public Board findByBoardNo(String boardNo) throws FindException {
 		return repository.SelectByBoardNo(boardNo);
 	}
 	
@@ -31,6 +31,10 @@ public class BoardService {
 	
 	public void remove(String boardNo, String boardId) throws RemoveException {
 		repository.delete(boardNo, boardId);
+	}
+	
+	public void modify(String loginedId, String boardNo, String title, String content) throws AddException {
+		repository.update(loginedId, boardNo, title, content);
 	}
 	
 	/**

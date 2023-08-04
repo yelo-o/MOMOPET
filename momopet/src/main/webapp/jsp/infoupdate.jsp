@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="<c:out value=" ${contextPath}" />/css/info.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="<c:out value=" ${contextPath}" />/js/customerinfojq.js"></script>
+    <script src="<c:out value=" ${contextPath}" />/js/infoupdatejq.js"></script>
 </head>
 
 <body>
@@ -34,21 +34,21 @@
             </tr> --%>
             <tr>
 				<td>휴대폰번호 : </td>
-				<td><c:out value="${c.phoneNumber}"/></td>
+				<td><input type="text" <c:out value="${c.phoneNumber}"/>></td>
 			</tr>
             <tr>
                 <td>이메일 : </td>
-                <td><c:out value="${c.email}"/></td>
+                <td><input type="text" <c:out value="${c.email}"/>></td>
             </tr>
             <tr>
                 <td>주소 : </td>
-                <td><c:out value="${c.address}"/></td>
+                <td><input type="text" <c:out value="${c.address}"/>></td>
             </tr>
             <tr>
                 <td>생년월일 : </td>
-                <td><c:out value="${c.birth}"/></td>
+                <td><input type="text" <c:out value="${c.birth}"/>></td>
             </tr>
-<%--             <tr>
+		<%--<tr>
                 <td>시급 : </td>
                 <td><c:out value="${c.pay}"/></td>
             </tr>
@@ -58,7 +58,8 @@
             </tr> --%>
 
             <tr>
-                <td><input class="button" type="submit" value="회원수정하기" onclick="return joinCheck()"></td>
+                <td><input class="buttonupdate" type="submit" value="수정하기" onclick="return joinCheck()"></td>
+                <td><input class="buttonback" type="submit" value="뒤로가기" onclick="return joinCheck()"></td>
             </tr>
 
         </table>

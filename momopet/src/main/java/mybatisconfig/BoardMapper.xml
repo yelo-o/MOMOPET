@@ -18,13 +18,24 @@ WHERE rn BETWEEN #{startRow} AND #{endRow}
 <select id="count" resultType="int">
 SELECT COUNT(*) FROM board
 </select>
+
 <insert id="insert" parameterType="map">
 INSERT INTO board
-VALUES(board_seq.NEXTVAL, #{id}, #{userType}, #{title}, #{content}, SYSDATE)
+VALUES(board_seq.NEXTVAL, #{id}, 
+(SELECT user_type FROM customer WHERE customer.user_id=#{id}),
+#{title}, #{content}, SYSDATE)
 </insert>
 
 <delete id="delete" parameterType="map"> 
 DELETE FROM board WHERE board_no = #{boardNo} AND board_id = #{boardId} 
 </delete>  
+
+<update id="update" parameterType="map" >
+UPDATE board
+SET board_title=#{title}, board_content=#{content}
+WHERE board_no=#{boardNo} AND board_id=#{id}
+</update>
+
+
 
 </mapper>

@@ -13,7 +13,7 @@ public class ReviewService {
 		return service;
 	}
 	
-	public void add(Review reviewList) {
+	public void add(Review reviewList) throws AddException {
 		try {
 			repository.insert(reviewList);
 		} catch (AddException e) {
