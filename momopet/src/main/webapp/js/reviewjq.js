@@ -11,7 +11,6 @@ $(() => {
 			});
 		}
 	});
-
 	$(".star-rating img").click(function() {
 		selectedRating = $(this).data("rating"); // 클릭한 별에 해당하는 별점을 변수에 저장
 		$(".star-rating img").removeClass("full");
