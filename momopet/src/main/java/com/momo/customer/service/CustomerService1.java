@@ -49,23 +49,6 @@ public class CustomerService1 {
 			throw new FindException("정보가 없습니다.");
 		}		
 	}
-	public void add(String loginedId, Map<String, Integer>history) throws AddException{
-		History h = new History();
-		h.setHistoryNo(0);
-		
-		List<Histories> histories = new ArrayList<>();
-		Set<String>keys = history.keySet();
-		for(String historyNo : keys) {
-			Histories hs = new Histories();
-			hs.getH1();
-			hs.getH2();
-			histories.add(hs);
-		}
-		h.setHistoryNo(0);
-		
-		repository.insertrequest(null, h);
-		
-	}
 	public Customer findAll(String loginedId) throws FindException {
 		if(loginedId == null || loginedId.equals("")) {
 			throw new FindException("서비스에서 로그인아이디를 못받았습니다.");

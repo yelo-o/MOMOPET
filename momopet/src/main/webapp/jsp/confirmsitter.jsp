@@ -21,6 +21,10 @@
                     <div>
                         돌보미정보
                     </div>
+                    <div>
+                    돌봄 시작날짜 : <input type = "date" name = "startDate" placeholder="시작일자를 클릭하세요">
+                    돌봄 종료날짜 : <input type = "date" name = "finishDate" placeholder="종료일자를 클릭하세요"> 
+                    </div>
                     <button class="yes">예</button>
                     <button class="no">아니오</button>
                 </form>

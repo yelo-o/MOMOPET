@@ -104,13 +104,4 @@ public class CustomerRepository {
 			}
 		}
 	}
-	public void insertrequest(SqlSession session, History h) throws AddException{
-		try {
-			session.insert("com.momo.customer.mapper.HistoryMapper.inserthistory");
-		}catch(Exception e) {
-			e.printStackTrace();
-			throw new AddException(e.getMessage());
-		}
-		
-	}
 }
