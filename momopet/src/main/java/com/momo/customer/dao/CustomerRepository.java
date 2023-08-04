@@ -105,7 +105,6 @@ public class CustomerRepository {
 				session.close(); //DBCP에게 Connection돌려줌
 			}
 		}
-	}
 	public void insertrequest(SqlSession session, History h) throws AddException{
 		try {
 			session.insert("com.momo.customer.mapper.HistoryMapper.inserthistory");
@@ -192,5 +191,4 @@ public class CustomerRepository {
 		}
 		
 	}
-	
 }
