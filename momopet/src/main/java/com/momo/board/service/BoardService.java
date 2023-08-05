@@ -33,6 +33,10 @@ public class BoardService {
 		repository.delete(boardNo, boardId);
 	}
 	
+	public void modify(String boardNo) throws AddException {
+		repository.update(boardNo);
+	}
+	
 	public void modify(String loginedId, String boardNo, String title, String content) throws AddException {
 		repository.update(loginedId, boardNo, title, content);
 	}

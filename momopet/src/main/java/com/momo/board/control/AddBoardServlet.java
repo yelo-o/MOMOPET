@@ -17,6 +17,7 @@ import com.momo.exception.FindException;
 
 @WebServlet("/addboard")
 public class AddBoardServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	private BoardService service;
 	public AddBoardServlet() {
 		service = BoardService.getInstance();

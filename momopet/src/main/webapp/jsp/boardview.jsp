@@ -59,7 +59,7 @@
                     </dl>
                     <dl>
                         <dt>조회</dt>
-                        <dd>기능 구현 아직 못함</dd>
+                        <dd><c:out value="${b.views}" /></dd>
                     </dl>
                 </div>
 			    <!-- con으로 선언한 변수를 개행하기 위해 fn 사용  -->
