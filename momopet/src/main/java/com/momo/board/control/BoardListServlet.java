@@ -15,6 +15,7 @@ import com.momo.util.PageBean;
 
 @WebServlet("/boardlist")
 public class BoardListServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	private BoardService service;
 	public BoardListServlet() {
 		service = BoardService.getInstance();
