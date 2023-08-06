@@ -69,7 +69,7 @@ local.properties
 .sts4-cache/
 
 #JDT-specific
-.classpath
+#.classpath
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
 
