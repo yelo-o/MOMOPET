@@ -62,7 +62,11 @@ $(()=>{
 	            divTerms.hide()
 	            divPetInfo.show()
 	            btSignup.show()
-	        } 
+	        } else {
+				divTerms.hide()
+				divPetInfo.hide()
+				btSignup.hide()
+			}
 	    })		
 	})
 	//--역할 선택시 할 일 END--
