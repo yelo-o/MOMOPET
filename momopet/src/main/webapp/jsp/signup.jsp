@@ -49,6 +49,8 @@
 	       				<option value="0">남</option>
 	       				<option value="1">여</option>
 	   				</select>
+	   				<span></span>
+	   				<label>성별</label>
 	       		</div>
 	       		<div class="txt_field">
 	       			<input name="email" id="email" type="text" required>
@@ -140,7 +142,9 @@
 		            <p>9. 반려동물 보험: 산책 중에 사고가 발생할 수 있으므로 강아지에게 적절한 보험 가입을 고려해보는 것이 좋습니다.</p>
 	    			<br>
 	    			<span><input name="termscheck" id="termscheck" type="checkbox"> 위의 필수약관을 읽고 동의합니다. </span>
+	    	
         		</div>
+        		<br>
         	<button type="submit" id="signup" class="signup">회원가입</button>
         </form>
 	    </div>
