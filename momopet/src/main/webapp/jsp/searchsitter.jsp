@@ -53,9 +53,9 @@
             <input type="date" placeholder="시작날짜" />
             <input type="date" placeholder="종료날짜" />
           </div>
-        <div class="input-box address">
+        <div class="input-address">
           <label>장소</label>
-          <input type="text" placeholder="주소를 입력하세요" />
+          <input type="text" placeholder="주소를 입력하세요" id="address" name="address"/>
         </div>
         <div class="pet-qty">
             <label>몇 마리 인가요?</label><br>

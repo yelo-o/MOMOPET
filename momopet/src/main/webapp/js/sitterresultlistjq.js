@@ -15,7 +15,8 @@ $(()=>{
 	
 	//요청하기버튼 누르면 요청했던 시터의 정보들이 히스토리로 간다.
 	
-	$("form").submit((e)=>{
+	/*$("form").submit((e)=>{*/
+	$(btRequest).click((e)=>{
         $.ajax({
 			url:`${backURL}/confirmrequest`,
 			method:'get',
