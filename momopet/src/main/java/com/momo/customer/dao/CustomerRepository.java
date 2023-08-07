@@ -191,4 +191,38 @@ public class CustomerRepository {
 			}
 		}
 	}
+	
+	
+	public void infoupdate(String loginedId, String phoneNumber, String email, String address, String birth) throws AddException {
+		System.out.println("리포지토리에서 loginedId : "+ loginedId + ", email : " + email + ", address: " + address);
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+			
+			Map<String, Object> map = new HashMap<>();
+			map.put("id", loginedId);
+			map.put("phoneNumber", phoneNumber);
+			map.put("email", email);
+			map.put("address", address);
+			map.put("birth", birth);
+			
+			int n = session.update("com.momo.customer.mapper.CustomerMapper.infoupdate", map); //성공하면 n = 1로 받고, 실패하면 n = 0으로 받음 
+			if (n == 0) {
+				throw new AddException("업데이트 실패했습니다");
+			} else {
+				session.commit();
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new AddException(e.getMessage());
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+	}
+	
+	
+	
+	
 }

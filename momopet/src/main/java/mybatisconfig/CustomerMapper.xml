@@ -32,4 +32,14 @@
 	SELECT * FROM customer WHERE user_type=0
   </select>
   
+  <update id="infoupdate" parameterType="map">
+	UPDATE CUSTOMER
+    SET
+    	email = #{email},
+    	phone_number = #{phoneNumber},
+    	address = #{address},
+    	birth_date = #{birth},
+    WHERE user_id = #{id}
+   </update>
+  
 </mapper>
