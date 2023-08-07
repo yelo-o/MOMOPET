@@ -1,7 +1,7 @@
 package com.momo.review.control;
 import java.io.IOException;
+//import java.time.LocalDate;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +28,7 @@ public class AddReviewServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		String reviewNo = "1"; //임의의 값
+//		String reviewNo = ""; //임의의 값
 		//String reviewRating = request.getParameter("reviewRating");
 //		String reviewRating = "2";
 		String reviewRating = request.getParameter("reviewRating");
@@ -39,13 +39,18 @@ public class AddReviewServlet extends HttpServlet {
 //		session.setAttribute("loginedId", "test1");
 //		String reviewWriter = (String)session.getAttribute("loginedId");
 		
-		String userId = "미스터조"; // 임의의 값, 결제완료 창에서 시터ID 받아야함
+		String userId = request.getParameter("userId"); // 임의의 값, 결제완료 창에서 시터ID 받아야함 // 직접 시터아이디 입력하고 리뷰 등록으로 수정
 		
-		//LocalDate now = LocalDate.now();
-		//String writingDate = now.toString();
 		
-		Review r = new Review(reviewNo, reviewRating, reviewContent, reviewWriter, userId);
+//		LocalDate now = LocalDate.now();
+//		String writingDate = now.toString();
+//		Review r = new Review(reviewNo, reviewRating, reviewContent, reviewWriter, userId, writingDate); //Local Date 사용을 위한 생성자
+		
+//		Review r = new Review(reviewNo, reviewRating, reviewContent, reviewWriter, userId); //SYSDATE 사용을 위한 생성자
+		Review r = new Review(reviewRating, reviewContent, reviewWriter, userId); //SYSDATE 사용을 위한 생성자
 		System.out.println("jsp로부터 가져온 리뷰 내용: " + reviewContent);
+		System.out.println("jsp로부터 가져온 userId: " + userId);
+		System.out.println("jsp로부터 가져온 reviewWriter: " + reviewWriter);
 		int status = 0;
 		try {
 			service.add(r);
@@ -58,10 +63,11 @@ public class AddReviewServlet extends HttpServlet {
 //	    request.setAttribute("reviewRating", reviewRating);
 //	    request.setAttribute("reviewContent", reviewContent);
 ////		
-		String path = "/jsp/review.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(path);
 		request.setAttribute("status", status);
-		rd.forward(request, response);
+		String path = "/jsp/review.jsp";
+//		RequestDispatcher rd = request.getRequestDispatcher(path);
+//		rd.forward(request, response);
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 }

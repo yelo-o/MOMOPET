@@ -2,7 +2,9 @@ package com.momo.review.dao;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
@@ -11,9 +13,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.momo.exception.AddException;
+import com.momo.exception.FindException;
 import com.momo.review.dto.Review;
 
 public class ReviewRepository {
+	// MyBatis 연결 준비
 	private SqlSessionFactory sessionFactory;
 
 	public ReviewRepository() {
@@ -27,33 +31,82 @@ public class ReviewRepository {
 		}
 	}
 
+	// 리뷰 등록하기
 	public void insert(Review r) throws AddException {
 		SqlSession session = null;
-		
+
 		try {
 			session = sessionFactory.openSession();
-			
+
 			Map<String, Object> map = new HashMap<>();
-			
-			//map.put("reviewNo", reviewNo);
+			// map.put("reviewNo", reviewNo); //시퀀스 처리
 			map.put("reviewRating", r.getReviewRating());
 			map.put("reviewContent", r.getReviewContent());
 			map.put("reviewWriter", r.getReviewWriter());
 			map.put("userId", r.getUserId()); // 결제완료 창에서 사용자 Id값을 아직 받지 못해서 임의로 값 넣음
-			//map.put("writingDate", rl.getWritingDate()); //SQL SYSDATE로 대신함
-			
+//			map.put("writingDate", r.getWritingDate()); //SQL SYSDATE로 대신함
+
 			session.insert("com.momo.review.mapper.ReviewMapper.insert", map);
 			session.commit();
-	} catch (Exception e) {
-		e.printStackTrace();
-		throw new AddException(e.getMessage());
-	} finally {
-		if (session != null) {
-			session.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new AddException(e.getMessage());
+		} finally {
+			if (session != null) {
+				session.close();
+			}
 		}
 	}
+	// ★ 목록조회 디비에 유저타입 정확하게 안나눠져서 조건문 안쓰고 메서드 2개 만듬
+	//시터가 받은 리뷰 목록 조회
+	public List<Review> checkReviews(Review r) throws FindException, AddException {
+		SqlSession session = null;
+		List<Review> reviewList = new ArrayList<>();
+
+		try {
+			session = sessionFactory.openSession();
+
+			Map<String, Object> map = new HashMap<>();
+			map.put("reviewWriter", r.getReviewWriter());
+
+			// selectList 메서드로 조회한 결과를 reviewList에 저장
+			reviewList = session.selectList("com.momo.review.mapper.ReviewMapper.checkReviews", map);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new FindException(e.getMessage());
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+
+		return reviewList;
+	}
+	
+	//이용자가 작성한 리뷰 목록 조회
+	public List<Review> checkReviews2(Review r) throws FindException, AddException {
+		SqlSession session = null;
+		List<Review> reviewList = new ArrayList<>();
+
+		try {
+			session = sessionFactory.openSession();
+
+			Map<String, Object> map = new HashMap<>();
+			map.put("reviewWriter", r.getReviewWriter());
+
+			// selectList 메서드로 조회한 결과를 reviewList에 저장
+			reviewList = session.selectList("com.momo.review.mapper.ReviewMapper.checkReviews2", map);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new FindException(e.getMessage());
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+
+		return reviewList;
 	}
 }
-		
-		
-		
