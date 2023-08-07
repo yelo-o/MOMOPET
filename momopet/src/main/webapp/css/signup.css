@@ -5,18 +5,27 @@
   font-family: "Poppins", sans-serif;
 }
 
-body{
+/* body{
   margin: 0;
   padding: 0;
   background: linear-gradient(120deg,#2980b9, #8e44ad);
   height: 100vh;
   overflow: hidden;
+} */
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgb(130, 106, 251);
 }
+
 .center{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -200px);
   width: 600px;
   background: white;
   border-radius: 10px;
@@ -159,4 +168,14 @@ form.signup>div.petInfo{
 
 form.signup>div.terms{
 	display: none;
+}
+
+/*Responsive*/
+@media screen and (max-width: 500px) {
+  .form .column {
+    flex-wrap: wrap;
+  }
+  .form :where(.gender-option, .gender) {
+    row-gap: 15px;
+  }
 }

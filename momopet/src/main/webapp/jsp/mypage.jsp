@@ -16,11 +16,13 @@
 	    	<aside>
 		    	<nav id="mypage">
 			        <ul>
-			        	<li><a href="<c:out value="${contextPath}"/>/jsp/informationcheck.jsp">내 정보 확인</a></li>
+			        	<%-- <li><a href="<c:out value="${contextPath}"/>/jsp/customerinfo.jsp">내 정보 확인</a></li> --%>
+			        	<li><a class="customerInfoChk" href="<c:out value="${contextPath}"/>/jsp/customerinfo.jsp">내 정보 확인</a></li>
 			        	<li><a href="sitterAvailability">내 시터 프로필 확인</a></li>
 			        	<li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">내가 받은 요청 내역</a></li>
 			        	<li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">거래 완료 내역</a></li>
-			        	<li><a href="<c:out value="${contextPath}"/>/jsp/review.jsp">내가 받은 리뷰 보기</a></li>
+			        	<li><a href="<c:out value="${contextPath}"/>/checkReviews">내가 받은 리뷰 보기</a></li>
+			        	<li><a href="<c:out value="${contextPath}"/>/checkReviews2">내가 쓴 리뷰 보기</a></li>
 			        </ul>
 		        </nav>
 		    </aside>

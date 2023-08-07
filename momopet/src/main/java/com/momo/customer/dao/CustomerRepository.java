@@ -45,6 +45,7 @@ public class CustomerRepository {
 				throw new FindException("고객이 없습니다");
 			}
 			System.out.println("c.id=" + c.getUserId() + ", c.pwd=" + c.getPwd() + ",c.name="+c.getName());
+			System.out.println("리포지토리에서 c.getBirth() : " + c.getBirthDate());
 			return c;
 		}catch(Exception e) {
 //			e.printStackTrace();
@@ -127,7 +128,7 @@ public class CustomerRepository {
 			map.put("a", c.getAddress());
 			map.put("s", c.getUserSex());
 			map.put("r", c.getRole());
-			map.put("b", c.getBirth());
+			map.put("b", c.getBirthDate());
 			map.put("d", c.getDateCreated());
 			map.put("u", c.getUserStatus());
 			
@@ -160,16 +161,22 @@ public class CustomerRepository {
 //		}
 //	}
 	
-	public List<Customer> selectSitters() throws FindException {
+	public List<Customer> selectSitters(String address) throws FindException {
+		System.out.println("리포지토리에서 주소 확인 : " + address);
 		List<Customer> list = new ArrayList<>();
+		
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			list = session.selectList("com.momo.customer.mapper.CustomerMapper.selectSitters");		
-			//System.out.println("list.get(0).getName() : " + list.get(0).getName());
+			
+			Map<String, Object> map = new HashMap<>();
+			map.put("a", address);
+			
+			list = session.selectList("com.momo.customer.mapper.CustomerMapper.selectSitters", map);		
+			System.out.println("repository - list.get(0).getName() : " + list.get(0).getName());
 			return list;
 		} catch (Exception e) {
-			throw new FindException("시터 검색 실패:" + e.getMessage());
+			throw new FindException("시터 검색 실패: " + e.getMessage());
 		} finally {
 			if(session != null) {
 				session.close();
@@ -193,7 +200,7 @@ public class CustomerRepository {
 	}
 	
 	
-	public void infoupdate(String loginedId, String phoneNumber, String email, String address, String birth) throws AddException {
+	public void infoupdate(String loginedId, String phoneNumber, String email, String address) throws AddException {
 		System.out.println("리포지토리에서 loginedId : "+ loginedId + ", email : " + email + ", address: " + address);
 		SqlSession session = null;
 		try {
@@ -204,7 +211,6 @@ public class CustomerRepository {
 			map.put("phoneNumber", phoneNumber);
 			map.put("email", email);
 			map.put("address", address);
-			map.put("birth", birth);
 			
 			int n = session.update("com.momo.customer.mapper.CustomerMapper.infoupdate", map); //성공하면 n = 1로 받고, 실패하면 n = 0으로 받음 
 			if (n == 0) {
