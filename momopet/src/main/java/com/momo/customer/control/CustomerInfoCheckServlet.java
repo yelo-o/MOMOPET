@@ -16,11 +16,12 @@ import com.momo.exception.FindException;
 
 @WebServlet("/customerinfocheck")
 public class CustomerInfoCheckServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	private CustomerService service;
 	public CustomerInfoCheckServlet() {
 		service = CustomerService.getInstance();
 	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession(); //세션이 있으면 있는 거 쓰고, 세션이 없으면 새로 생성함
 	    //session.setAttribute("loginedId", "yshin"); //로그인버튼 누르기 귀찮아서 테스트 아이디 지정
@@ -30,7 +31,6 @@ public class CustomerInfoCheckServlet extends HttpServlet {
 	    try {
 	    	Customer c = service.findInfo(loginedId);
 	    	request.setAttribute("customer", c);
-	    	System.out.println("c.getName() : " + c.getName());
 	    } catch (FindException e) {
 	    	e.printStackTrace();
 	    }
@@ -38,8 +38,5 @@ public class CustomerInfoCheckServlet extends HttpServlet {
 	    String path = "/jsp/customerinfo.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
-	    
-	    
 	}
-
 }

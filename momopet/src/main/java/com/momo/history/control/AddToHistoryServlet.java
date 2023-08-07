@@ -29,39 +29,26 @@ public class AddToHistoryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String loginedId = (String) session.getAttribute("loginedId");
-		Map<String,Object>sitterinfo = (Map)session.getAttribute("sitterInfo");
+		String sitterId = (String) session.getAttribute("sitterId");
+		String startDate = request.getParameter("startDate");
+		String endDate = request.getParameter("endDate");
 		
-		System.out.println("로그인된 아이디 : " + loginedId);
-		System.out.println("요청한 시터의 정보 : "+ sitterinfo);
+		
+		System.out.println("로그인된 아이디 : " + loginedId+ "시터찾기로 전달받은 정보 : "+sitterId+startDate+endDate);
 		
 		if(loginedId == null) {
 			request.setAttribute("msg", "로그인하세요");
-		}else if(sitterinfo==null) {
-			request.setAttribute("msg","선택한 돌보미가 없습니다");
 		}else {
 			try {
-				service.addHistory(loginedId, loginedId, loginedId, loginedId);
+				service.addHistory(sitterId, loginedId, startDate, endDate);
 				request.setAttribute("status",1);
-				session.removeAttribute("sitterinfo");
 			} catch (AddException e) {
-				request.setAttribute("status",0);
 				e.printStackTrace();
 			}
 		}
 		String path ="/jsp/addtohistoryresult.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);	
-		/*String sitterId = request.getParameter("sitterId");
-		String name = request.getParameter("sittername");
-		String sex = request.getParameter("sex");
-		String introduce = request.getParameter("introduce");
-
-	
-		if(loginedId == null) {
-			request.setAttribute("status",0);
-		}else {
-			service.addHistory(loginedId, );
-		}*/
 	}
 
 }

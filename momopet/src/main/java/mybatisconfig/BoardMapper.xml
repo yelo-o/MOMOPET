@@ -21,14 +21,18 @@ SELECT COUNT(*) FROM board
 
 <insert id="insert" parameterType="map">
 INSERT INTO board
-VALUES(board_seq.NEXTVAL, #{id}, 
-(SELECT user_type FROM customer WHERE customer.user_id=#{id}),
-#{title}, #{content}, SYSDATE)
+VALUES(board_seq.NEXTVAL, #{id}, 0, #{title}, #{content}, SYSDATE)
 </insert>
 
 <delete id="delete" parameterType="map"> 
 DELETE FROM board WHERE board_no = #{boardNo} AND board_id = #{boardId} 
 </delete>  
+
+<update id="updateViews" parameterType="string" >
+UPDATE board
+SET views = views + 1
+WHERE board_no=#{boardNo}
+</update>
 
 <update id="update" parameterType="map" >
 UPDATE board

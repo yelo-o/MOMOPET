@@ -29,6 +29,12 @@ public class BoardRepository {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * 게시판번호로 검색하여 게시물 객체 가져오기
+	 * @param boardNo
+	 * @return
+	 * @throws FindException
+	 */
 	public Board SelectByBoardNo(String boardNo) throws FindException {
 		SqlSession session = null;
 		try {
@@ -37,8 +43,7 @@ public class BoardRepository {
 			if(b == null) {
 				throw new FindException("해당하는 게시물이 없습니다");
 			}else {
-				System.out.println("Boardrepository selectByBoardNo() b.boardNo=" + b.getBoardNo()
-				+ ", b.boardId=" + b.getBoardId() + ", b.title=" + b.getBoardTitle());
+				System.out.println(boardNo + "번 게시물 불러오기 성공");
 				return b;
 			}
 		} catch(Exception e) {
@@ -50,7 +55,11 @@ public class BoardRepository {
 			}
 		}
 	}
-	
+	/**
+	 * board 테이블의 튜플(행)의 개수 가져온다.
+	 * @return
+	 * @throws FindException
+	 */
 	public int count() throws FindException{
 		SqlSession session = null;
 		try {
@@ -66,7 +75,7 @@ public class BoardRepository {
 		}
 	}
 	/**
-	 * 상품목록을 검색한다
+	 * 게시물을 검색한다
 	 * @param startRow 시작행
 	 * @param endRow 끝행
 	 * @return 게시판목록
@@ -92,6 +101,13 @@ public class BoardRepository {
 			}
 		}
 	}
+	/**
+	 * 게시물 등록
+	 * @param loginedId
+	 * @param title
+	 * @param content
+	 * @throws AddException
+	 */
 	public void insert(String loginedId, String title, String content) throws AddException {
 		SqlSession session = null;
 		try {
@@ -100,7 +116,7 @@ public class BoardRepository {
 			if(title == null || title.equals("") || content == null || content.equals("")) {
 				throw new Exception("제목이나 내용이 비어있습니다.");
 			}
-			//sql문에 입력할 HashMap 파라미터 선언
+			//SQL문에 입력할 HashMap 파라미터 선언
 			Map<String, Object> map = new HashMap<>();
 			map.put("id", loginedId);
 			map.put("title", title);
@@ -116,7 +132,12 @@ public class BoardRepository {
 			}
 		}
 	}
-	
+	/**
+	 * 게시물 삭제
+	 * @param boardNo
+	 * @param boardId
+	 * @throws RemoveException
+	 */
 	public void delete(String boardNo, String boardId) throws RemoveException {
 		SqlSession session = null;
 		try {
@@ -137,8 +158,45 @@ public class BoardRepository {
 			}
 		}
 	}
+	
+	/**
+	 * 조회수 갱신
+	 * @param loginedId
+	 * @param boardNo
+	 * @param title
+	 * @param content
+	 * @throws AddException
+	 */
+	public void update(String boardNo) throws AddException {
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+			
+			int n = session.update("com.momo.board.mapper.BoardMapper.updateViews", boardNo); //성공하면 n = 1로 받고, 실패하면 n = 0으로 받음 
+			if (n == 0) {
+				throw new AddException("조회수 업데이트 실패했습니다");
+			} else {
+				session.commit();
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new AddException(e.getMessage());
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+	}
+	
+	/**
+	 * 게시물 수정
+	 * @param loginedId
+	 * @param boardNo
+	 * @param title
+	 * @param content
+	 * @throws AddException
+	 */
 	public void update(String loginedId, String boardNo, String title, String content) throws AddException {
-		System.out.println("리포지토리에서 loginedId : "+ loginedId + ", boardNo : " + boardNo + ", title: " + title + ", content : " + content);
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
@@ -154,6 +212,7 @@ public class BoardRepository {
 				throw new AddException("업데이트 실패했습니다");
 			} else {
 				session.commit();
+				System.out.println(boardNo + "번 게시물 수정 성공했습니다");
 			}
 		} catch(Exception e) {
 			e.printStackTrace();

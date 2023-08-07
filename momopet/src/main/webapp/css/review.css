@@ -1,10 +1,29 @@
 #writeForm div.star-rating img {
-  width: 20px;
-  height: 20px;
-  filter: grayscale(100%); 
-  cursor: pointer; 
+	width: 20px;
+	height: 20px;
+	filter: grayscale(100%);
+	cursor: pointer;
 }
 
 #writeForm div.star-rating img.full {
-  filter: none; 
+	filter: none;
 }
+
+#writeForm textarea {
+	display: block;
+}
+
+.star-rating {
+	display: inline-block; /* 인라인 블록 요소로 배치 */
+	
+}
+
+.submit-bt {
+	display: inline-block; /* 인라인 블록 요소로 배치 */
+	margin-top: 10px; /* 버튼 위로 여백 추가 */
+	margin-left: 5px;
+	
+}
+
+
+

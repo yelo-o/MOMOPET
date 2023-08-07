@@ -58,7 +58,8 @@
 	          <div class="writer"><c:out value="${b.boardId}"/></div>
               <fmt:formatDate var="formattedDate" value="${b.postingDate}" pattern="yyyy-MM-dd" />
 	          <div class="date"><c:out value="${formattedDate}" /></div>
-	          <div class="count">조회수</div>
+	          <!-- <div class="count">조회수</div> -->
+	          <div class="count"><c:out value="${b.views}"/></div>
 	        </div>
           </c:forEach>
         </div> 

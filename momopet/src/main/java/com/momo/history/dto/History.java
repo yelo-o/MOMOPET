@@ -1,4 +1,4 @@
-package com.momo.customer.dto;
+package com.momo.history.dto;
 
 import java.util.Date;
 
@@ -11,9 +11,9 @@ import lombok.Setter;
 public class History {
 	private int historyNo;
 	private String sitterId;
-	private String ownerId;
-//	private Date startDate;
-//	private Date endDate;
+	private String userId;
+	private Date startDate;
+	private Date endDate;
 	private int userType;
 	private int status;
 }

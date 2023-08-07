@@ -1,9 +1,8 @@
 package com.momo.customer.control;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,7 +20,6 @@ public class SignupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CustomerService service;
 	public SignupServlet() {
-//		service = new CustomerService();
 		service = CustomerService.getInstance();
 	}
 
@@ -35,7 +33,8 @@ public class SignupServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		int userSex = Integer.parseInt(request.getParameter("gender"));
 		int role = Integer.parseInt(request.getParameter("role"));
-		String birth = (request.getParameter("birthdate")).toString();		
+		String birth = (request.getParameter("birthdate")).toString();	
+//		Date birth = request.getParameter("birthdate");
 		        
 		LocalDate now = LocalDate.now();
 		String dateCreated = now.toString();
@@ -52,6 +51,7 @@ public class SignupServlet extends HttpServlet {
 		int status = 0;
 		try {
 			service.signup(c);
+			System.out.println("Signup Servlet : 회원가입 성공" + userId);
 			status = 1;
 		} catch (AddException e) {
 			

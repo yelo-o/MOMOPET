@@ -14,6 +14,7 @@ import com.momo.board.service.BoardService;
 import com.momo.exception.RemoveException;
 @WebServlet("/deleteboard")
 public class DeleteBoardServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	private BoardService service;
 	public DeleteBoardServlet() {
 		service = BoardService.getInstance();

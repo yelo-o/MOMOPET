@@ -6,24 +6,27 @@
         <a class="logo" href="<c:out value="${contextPath}"/>/jsp/layout.jsp">모모펫</a>
     </h1>
     <nav>
-        <ul>
  
+        <ul>
         <c:set var="loginedId" value="${sessionScope.loginedId}"/>
+            <li><a href="<c:out value="${contextPath}"/>/jsp/searchsitter.jsp">시터찾기</a></li>
+            <li><a href="<c:out value="${contextPath}"/>/boardlist">자랑하기</a></li>
+        </ul>
+        <ul>
         <c:choose>
         	<c:when test="${empty loginedId}">
-        		<li><a href="<c:out value="${contextPath}"/>/jsp/login.jsp">로그인</a></li>
             	<li><a href="<c:out value="${contextPath}"/>/jsp/signup.jsp">회원가입</a></li>
+        		<li><a href="<c:out value="${contextPath}"/>/jsp/login.jsp">로그인</a></li>
         	</c:when>
         	<c:otherwise>
         		<li><a href="<c:out value="${contextPath}"/>/logout">로그아웃</a></li>
+        		<li><a href="<c:out value="${contextPath}"/>/jsp/mypage.jsp">마이페이지</a></li>
         	</c:otherwise>
         </c:choose>
-            <li><a href="<c:out value="${contextPath}"/>/jsp/searchsitter.jsp">시터찾기</a></li>
-            <li><a href="<c:out value="${contextPath}"/>/boardlist">자랑하기</a></li>
-            <li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">히스토리</a></li>
+            <%-- <li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">히스토리</a></li>
             <li><a href="<c:out value="${contextPath}"/>/jsp/review.jsp">리뷰</a></li>
             <li><a href="<c:out value="${contextPath}"/>/customerinfocheck">내정보확인</a></li>
-            <li><a href="<c:out value="${contextPath}"/>/jsp/member_update.jsp">내정보수정</a></li>
+            <li><a href="<c:out value="${contextPath}"/>/jsp/member_update.jsp">내정보수정</a></li> --%>
         </ul>
     </nav>
 </header>

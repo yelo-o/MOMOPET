@@ -3,8 +3,28 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.momo.review.mapper.ReviewMapper"> 
-  <insert id="insert" parameterType="map">
-  	INSERT INTO review(review_no, review_rating, review_content, review_writer, user_id, review_date) VALUES ( #{reviewNo}, #{reviewRating}, #{reviewContent}, #{reviewWriter}, #{userId}, #{writingDate})
+
+<!-- 아래 코드는 LocalDate 사용할 때 쓰는 SQL쿼리 -->
+<!--  <insert id="insert" parameterType="map">
+  	INSERT INTO review(review_no, review_rating, review_content, review_writer, user_id, review_date) VALUES (review_seq.NEXTVAL, #{reviewRating}, #{reviewContent}, #{reviewWriter}, #{userId}, #{writingDate})
+  </insert> -->
+  
+<!-- 아래 코드는 SYSDATE 사용할 때 쓰는 SQL쿼리 -->
+   <insert id="insert" parameterType="map">
+  	INSERT INTO review(review_no, review_rating, review_content, review_writer, user_id, review_date) VALUES (review_seq.NEXTVAL, #{reviewRating}, #{reviewContent}, #{reviewWriter}, #{userId}, SYSDATE)
   </insert>
+
+  
+<!--   <select id="checkReviews" parameterType="map" resultType="Review">
+	SELECT * FROM review WHERE user_id = #{reviewWriter}
+  </select> --> <!-- 위와 같이 SQL문 작성하면 리뷰 작성일을 출력 못함  -->
+<select id="checkReviews" parameterType="map" resultType="Review">
+    SELECT review.*, review_date AS writingDate FROM review WHERE user_id = #{reviewWriter}
+</select>
+
+<select id="checkReviews2" parameterType="map" resultType="Review">
+    SELECT review.*, review_date AS writingDate FROM review WHERE review_writer = #{reviewWriter}
+</select>
+  
 </mapper>
    

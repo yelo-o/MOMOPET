@@ -16,11 +16,17 @@ $(()=>{
     //가입버튼 객체찾기
     const btSignup = $('#signup')
     
+    //펫등록버튼 객체찾기
+    const btPetSignup = $('#petsignup')
+    
     //펫정보 입력 부분 객체찾기
     const divPetInfo = $('#petInfo')
     
     //약관동의서 객체찾기
     const divTerms = $('#terms')
+    
+    //약관동의서 동의체크박스 객체찾기
+    const chkbxTerms = $('#termscheck')
 
 	const backURL = '/momopet'
 	
@@ -35,7 +41,6 @@ $(()=>{
 					alert('이미 사용중인 아이디입니다')
 				}else{
 					alert('사용가능한 아이디입니다')
-					btSignup.show()
 				}
 			},
 			error: (xhr)=>{
@@ -50,15 +55,42 @@ $(()=>{
 	$(function() {
 	    $('#role').change(function(){
 	        if($('#role').val() == '0') {
-	            divPetInfo.hide()
+	            divPetInfo.hide()	
 	            divTerms.show()
+	            btSignup.show()
 	        } else if($('#role').val() == '1') {
 	            divTerms.hide()
 	            divPetInfo.show()
-	        } 
+	            btSignup.show()
+	        } else {
+				divTerms.hide()
+				divPetInfo.hide()
+				btSignup.hide()
+			}
 	    })		
 	})
 	//--역할 선택시 할 일 END--
+	
+	//--펫등록 클릭시 할 일 START--
+	btPetSignup.click(()=>{
+	    $.ajax({
+			url: 'http://localhost:8888/momopet/petsignup',
+			method: 'post',
+			data: formObj.serialize(),
+			success: (responseData)=>{
+				if(responseData.trim() == '0'){
+					alert('펫등록 실패')
+				}else{
+					alert('펫등록 성공')
+					btSignup.show()
+				}
+			},
+			error: (xhr)=>{
+				alert("에러:" +xhr.status)
+			}
+		})  
+    })
+	//--펫등록 클릭시 할 일 END--
 	
     //가입버튼-전송버튼 클릭->폼의 서브밋이벤트발생 
     //--폼 서브밋이벤트발생시 할 일 START--
@@ -72,6 +104,11 @@ $(()=>{
             pwdObj.focus()
             return false
         } 
+
+        if($('#role').val() == '0' && chkbxTerms.prop('checked') == false) {
+	        alert('필수약관 동의는 필수입니다')
+	        return false
+	    }
         
         $(e.target)
         .attr('action', 'http://localhost:8888/momopet/signup')
