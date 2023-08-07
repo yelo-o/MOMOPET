@@ -16,17 +16,20 @@ $(() => {
 					location.href = `/momopet/jsp/layout.jsp`;
 					alert('회원정보 수정실패!')
 				} else { // 게시물 수정 성공한 경우
+
 				
-				    sectionObj.html()
-				    sectionObj.html(responseData)
-					//location.href = `../jsp/layout.jsp`;
-					alert('회원정보 수정완료!');
+				    //sectionObj.html()
+				    //sectionObj.html(responseData)
+				    alert('회원정보 수정완료!');
+					location.href = `../jsp/mypage.jsp`;
+					//alert(responseData)
 				}
 			},
 			error: (xhr) => {
 				alert("에러" + xhr.status)
 			}
 		})
+		return false;
 
 	})
 	//--수정 버튼 클릭 END--
