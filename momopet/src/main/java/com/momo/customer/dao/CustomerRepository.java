@@ -160,16 +160,22 @@ public class CustomerRepository {
 //		}
 //	}
 	
-	public List<Customer> selectSitters() throws FindException {
+	public List<Customer> selectSitters(String address) throws FindException {
+		System.out.println("리포지토리에서 주소 확인 : " + address);
 		List<Customer> list = new ArrayList<>();
+		
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			list = session.selectList("com.momo.customer.mapper.CustomerMapper.selectSitters");		
-			//System.out.println("list.get(0).getName() : " + list.get(0).getName());
+			
+			Map<String, Object> map = new HashMap<>();
+			map.put("a", address);
+			
+			list = session.selectList("com.momo.customer.mapper.CustomerMapper.selectSitters", map);		
+			System.out.println("repository - list.get(0).getName() : " + list.get(0).getName());
 			return list;
 		} catch (Exception e) {
-			throw new FindException("시터 검색 실패:" + e.getMessage());
+			throw new FindException("시터 검색 실패: " + e.getMessage());
 		} finally {
 			if(session != null) {
 				session.close();
