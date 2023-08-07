@@ -10,7 +10,7 @@
     <typeAlias type="com.momo.customer.dto.Customer" alias="Customer"/>
     <typeAlias type="com.momo.board.dto.Board" alias="Board"/>
     <typeAlias type="com.momo.review.dto.Review" alias="Review"/>
-   <typeAlias type="com.momo.history.dto.History" alias="History"/>
+    <typeAlias type="com.momo.history.dto.History" alias="History"/>
   </typeAliases>
   <environments default="development">
     <environment id="development">

@@ -29,7 +29,7 @@ public class CheckReviewsServlet extends HttpServlet {
 //		String reviewWriter = "미스터조"; // 임의의 값
 	    HttpSession session = request.getSession();
 	    String reviewWriter = (String) session.getAttribute("loginedId");
-		System.out.println(reviewWriter);
+	    System.out.println("세션으로부터 가지고 오는 ID: " + reviewWriter);
 
 		Review r = new Review(reviewWriter);
 		
@@ -37,7 +37,7 @@ public class CheckReviewsServlet extends HttpServlet {
 		List<Review> reviewList = new ArrayList<>();
 		try {
 			reviewList = service.checkReviews(r);
-			System.out.println(reviewList);
+			System.out.println("ReviewRepository.java로 부터 가져오는 리스트: " + reviewList);
 		} catch (Exception e) {
 		}
 

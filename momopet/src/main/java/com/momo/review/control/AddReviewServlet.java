@@ -48,9 +48,9 @@ public class AddReviewServlet extends HttpServlet {
 		
 //		Review r = new Review(reviewNo, reviewRating, reviewContent, reviewWriter, userId); //SYSDATE 사용을 위한 생성자
 		Review r = new Review(reviewRating, reviewContent, reviewWriter, userId); //SYSDATE 사용을 위한 생성자
-		System.out.println("jsp로부터 가져온 리뷰 내용: " + reviewContent);
-		System.out.println("jsp로부터 가져온 userId: " + userId);
-		System.out.println("jsp로부터 가져온 reviewWriter: " + reviewWriter);
+		System.out.println("review.jsp로부터 가져온 리뷰 내용: " + reviewContent);
+		System.out.println("review.jsp로부터 가져온 userId: " + userId);
+		System.out.println("review.jsp로부터 가져온 reviewWriter: " + reviewWriter);
 		int status = 0;
 		try {
 			service.add(r);
