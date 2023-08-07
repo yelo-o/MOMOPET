@@ -37,8 +37,7 @@
     SET
     	email = #{email},
     	phone_number = #{phoneNumber},
-    	address = #{address},
-    	birth_date = #{birth},
+    	address = #{address}
     WHERE user_id = #{id}
    </update>
   

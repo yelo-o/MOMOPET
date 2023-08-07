@@ -1,6 +1,7 @@
 <%@page contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="zyhchoz.jsp" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%-- <%@ include file="zyhchoz.jsp" %> --%>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
@@ -17,6 +18,8 @@
 
 <body>
     <c:set var="c" value="${requestScope.customer}" />
+    <%-- <c:set var="bir" value="${c.customer}" /> --%>
+    <fmt:formatDate var="formattedDate" value="${c.birthDate}" pattern="yyyy-MM-dd" />
     <h3>내 정보 확인</h3>
     <form>
         <table>
@@ -46,7 +49,8 @@
             </tr>
             <tr>
                 <td>생년월일 : </td>
-                <td><c:out value="${c.birth}"/></td>
+                <%-- <td><c:out value="${c.birthDate}"/></td> --%>
+                <td><c:out value="${formattedDate}" /></td>
             </tr>
 <%--             <tr>
                 <td>시급 : </td>

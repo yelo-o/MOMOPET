@@ -1,5 +1,7 @@
 package com.momo.customer.dto;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +16,7 @@ public class Customer {
 	private String phoneNumber;
 	private String email;
 	private String address;
-	private String birth;
+	private Date birthDate;
 	private String pay;
 	private String introduce;
 	private int userSex;
