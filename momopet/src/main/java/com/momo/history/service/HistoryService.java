@@ -7,8 +7,7 @@ import java.util.Set;
 
 import com.momo.exception.AddException;
 import com.momo.history.dao.HistoryRepository;
-import com.momo.history.dto.Confirmation;
-import com.momo.history.dto.SitterInfo;
+import com.momo.history.dto.History;
 
 public class HistoryService {
 	private static HistoryService service = new HistoryService();

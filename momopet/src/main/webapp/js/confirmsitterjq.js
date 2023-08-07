@@ -6,16 +6,18 @@ $(()=>{
 	const backURL='/momopet'
 	
 	//내용맵핑
-	const sitterName = $(".sitterName")
+	//(c:set에서 가져온)sitterName, sitterId, sitterGender 보낼 수 있는 방법
 	const sitterId = $(".sitterId")
-	const sitterGender = $(".sitterGender")
-	
+	const startDate =$('#startDate')
+	const endDate =$('#endDate')
 	
 	btyes.click(()=>{
 		alert('돌봄신청합니다')
+		
 		$.ajax({
 			url:`${backURL}/addtohistory`,
-			data: `sitterName=${sitterName}&sitterId=${sitterId}&sitterGender=${sitterGender}`,
+			data: `sitterId=${sitterId}`,
+			/*data: `sitterId=${sitterId}&startDate=${startDate}&endDate=${endDate}`,*/
 			success:(responseData)=>{
 				if(responseData==0){
 				alert('로그인하세요')
