@@ -31,13 +31,14 @@ public class CheckReviewsServlet2 extends HttpServlet {
 //		String reviewWriter = "미스터조"; // 임의의 값
 	    HttpSession session = request.getSession();
 	    String reviewWriter = (String) session.getAttribute("loginedId");
-		System.out.println(reviewWriter);
+	    System.out.println("세션으로부터 가지고 오는 ID: " + reviewWriter);
 
 		Review r = new Review(reviewWriter);
 
 		List<Review> reviewList = new ArrayList<>();
 		try {
 			reviewList = service.checkReviews2(r);
+			System.out.println("ReviewRepository.java로 부터 가져오는 리스트: " + reviewList);
 			System.out.println(reviewList);
 		} catch (Exception e) {
 		}
