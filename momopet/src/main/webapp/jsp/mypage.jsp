@@ -20,7 +20,8 @@
 			        	<li><a href="sitterAvailability">내 시터 프로필 확인</a></li>
 			        	<li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">내가 받은 요청 내역</a></li>
 			        	<li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">거래 완료 내역</a></li>
-			        	<li><a href="<c:out value="${contextPath}"/>/jsp/review.jsp">내가 받은 리뷰 보기</a></li>
+			        	<li><a href="<c:out value="${contextPath}"/>/checkReviews">내가 받은 리뷰 보기</a></li>
+			        	<li><a href="<c:out value="${contextPath}"/>/checkReviews2">내가 쓴 리뷰 보기</a></li>
 			        </ul>
 		        </nav>
 		    </aside>
