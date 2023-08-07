@@ -13,9 +13,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.momo.customer.dto.Customer;
-import com.momo.customer.dto.History;
 import com.momo.exception.AddException;
 import com.momo.exception.FindException;
+import com.momo.history.dto.History;
 
 public class CustomerRepository {
 	private SqlSessionFactory sessionFactory;
@@ -45,6 +45,7 @@ public class CustomerRepository {
 				throw new FindException("고객이 없습니다");
 			}
 			System.out.println("c.id=" + c.getUserId() + ", c.pwd=" + c.getPwd() + ",c.name="+c.getName());
+			System.out.println("리포지토리에서 c.getBirth() : " + c.getBirthDate());
 			return c;
 		}catch(Exception e) {
 //			e.printStackTrace();
@@ -114,22 +115,24 @@ public class CustomerRepository {
 			throw new AddException(e.getMessage());
 		}
 	}
-	public void insert(Customer c) throws AddException {
+	public void insert(String userId, String name, String pwd, String phoneNumber, String email,
+						String address, String birthDate, String pay, String introduce, String userSex, 
+						String role, String userStatus, String dateCreated) throws AddException {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
 			Map<String, Object> map = new HashMap<>();
-			map.put("i", c.getUserId());
-			map.put("p", c.getPwd());
-			map.put("n", c.getName());
-			map.put("e", c.getEmail());
-			map.put("pn", c.getPhoneNumber());
-			map.put("a", c.getAddress());
-			map.put("s", c.getUserSex());
-			map.put("r", c.getRole());
-			map.put("b", c.getBirth());
-			map.put("d", c.getDateCreated());
-			map.put("u", c.getUserStatus());
+			map.put("i", userId);
+			map.put("p", pwd);
+			map.put("n", name);
+			map.put("e", email);
+			map.put("pn", phoneNumber);
+			map.put("a", address);
+			map.put("s", userSex);
+			map.put("r", role);
+			map.put("b", birthDate);
+			map.put("d", dateCreated);
+			map.put("u", userStatus);
 			
 			session.insert("com.momo.customer.mapper.CustomerMapper.signup", map);
 			session.commit();
@@ -160,16 +163,22 @@ public class CustomerRepository {
 //		}
 //	}
 	
-	public List<Customer> selectSitters() throws FindException {
+	public List<Customer> selectSitters(String address) throws FindException {
+		System.out.println("리포지토리에서 주소 확인 : " + address);
 		List<Customer> list = new ArrayList<>();
+		
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			list = session.selectList("com.momo.customer.mapper.CustomerMapper.selectSitters");		
-			//System.out.println("list.get(0).getName() : " + list.get(0).getName());
+			
+			Map<String, Object> map = new HashMap<>();
+			map.put("a", address);
+			
+			list = session.selectList("com.momo.customer.mapper.CustomerMapper.selectSitters", map);		
+			System.out.println("repository - list.get(0).getName() : " + list.get(0).getName());
 			return list;
 		} catch (Exception e) {
-			throw new FindException("시터 검색 실패:" + e.getMessage());
+			throw new FindException("시터 검색 실패: " + e.getMessage());
 		} finally {
 			if(session != null) {
 				session.close();
@@ -191,4 +200,37 @@ public class CustomerRepository {
 			}
 		}
 	}
+	
+	
+	public void infoupdate(String loginedId, String phoneNumber, String email, String address) throws AddException {
+		System.out.println("리포지토리에서 loginedId : "+ loginedId + ", email : " + email + ", address: " + address);
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+			
+			Map<String, Object> map = new HashMap<>();
+			map.put("id", loginedId);
+			map.put("phoneNumber", phoneNumber);
+			map.put("email", email);
+			map.put("address", address);
+			
+			int n = session.update("com.momo.customer.mapper.CustomerMapper.infoupdate", map); //성공하면 n = 1로 받고, 실패하면 n = 0으로 받음 
+			if (n == 0) {
+				throw new AddException("업데이트 실패했습니다");
+			} else {
+				session.commit();
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new AddException(e.getMessage());
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+	}
+	
+	
+	
+	
 }

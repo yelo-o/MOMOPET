@@ -13,7 +13,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.momo.customer.dto.Customer;
-import com.momo.customer.dto.History;
 import com.momo.exception.AddException;
 import com.momo.exception.FindException;
 import com.momo.pet.dto.Pet;

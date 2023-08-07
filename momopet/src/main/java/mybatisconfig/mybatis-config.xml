@@ -10,19 +10,16 @@
     <typeAlias type="com.momo.customer.dto.Customer" alias="Customer"/>
     <typeAlias type="com.momo.board.dto.Board" alias="Board"/>
     <typeAlias type="com.momo.review.dto.Review" alias="Review"/>
-    <!-- <typeAlias type="com.momo.customer.dto.history" alias="History"/> -->
+    <typeAlias type="com.momo.history.dto.History" alias="History"/>
   </typeAliases>
   <environments default="development">
     <environment id="development">
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.OracleDriver"/>
-<!--         <property name="url" value="jdbc:oracle:thin:@192.168.0.40:1521/xe"/>
+        <property name="url" value="jdbc:oracle:thin:@192.168.0.40:1521/xe"/>
         <property name="username" value="momo"/>
-        <property name="password" value="momo"/> -->
-        <property name="url" value="jdbc:oracle:thin:@localhost:1522/xe"/>
-        <property name="username" value="scott"/>
-        <property name="password" value="tiger"/>
+        <property name="password" value="momo"/>
       </dataSource>
     </environment>
   </environments>
@@ -30,6 +27,6 @@
     <mapper resource="/mybatisconfig/CustomerMapper.xml"/>
     <mapper resource="/mybatisconfig/BoardMapper.xml"/>
     <mapper resource="/mybatisconfig/ReviewMapper.xml"/>
-   <!--  <mapper resource="/mybatisconfig/HistoryMapper.xml"/> -->
+    <mapper resource="/mybatisconfig/HistoryMapper.xml"/> 
   </mappers>
 </configuration>

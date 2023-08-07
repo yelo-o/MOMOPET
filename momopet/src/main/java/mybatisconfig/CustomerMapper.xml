@@ -28,8 +28,17 @@
 	SELECT COUNT(*) FROM customer WHERE user_type=0
   </select>
 
-  <select id="selectSitters" resultType="Customer">
-	SELECT * FROM customer WHERE user_type=0
+  <select id="selectSitters" parameterType="map" resultType="Customer">
+	SELECT * FROM customer WHERE user_type=0 AND address=#{a}
   </select>
+  
+  <update id="infoupdate" parameterType="map">
+	UPDATE CUSTOMER
+    SET
+    	email = #{email},
+    	phone_number = #{phoneNumber},
+    	address = #{address}
+    WHERE user_id = #{id}
+   </update>
   
 </mapper>

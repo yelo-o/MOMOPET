@@ -5,18 +5,27 @@
   font-family: "Poppins", sans-serif;
 }
 
-body{
+/* body{
   margin: 0;
   padding: 0;
   background: linear-gradient(120deg,#2980b9, #8e44ad);
   height: 100vh;
   overflow: hidden;
+} */
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgb(130, 106, 251);
 }
+
 .center{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -200px);
   width: 600px;
   background: white;
   border-radius: 10px;
@@ -45,6 +54,15 @@ form .txt_field{
   background: none;
   outline: none;
 }
+.txt_field select{
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
 .txt_field label{
   position: absolute;
   top: 50%;
@@ -55,7 +73,6 @@ form .txt_field{
   pointer-events: none;
   transition: .5s;
 }
-
 
 /* .txt_field button{
   width: 100%;
@@ -90,6 +107,15 @@ form .txt_field{
 }
 .txt_field input:focus ~ span::before,
 .txt_field input:valid ~ span::before{
+  width: 100%;
+}
+.txt_field select:focus ~ label,
+.txt_field select:valid ~ label{
+  top: -5px;
+  color: #2691d9;
+}
+.txt_field select:focus ~ span::before,
+.txt_field select:valid ~ span::before{
   width: 100%;
 }
 .checkbox{
@@ -142,4 +168,14 @@ form.signup>div.petInfo{
 
 form.signup>div.terms{
 	display: none;
+}
+
+/*Responsive*/
+@media screen and (max-width: 500px) {
+  .form .column {
+    flex-wrap: wrap;
+  }
+  .form :where(.gender-option, .gender) {
+    row-gap: 15px;
+  }
 }

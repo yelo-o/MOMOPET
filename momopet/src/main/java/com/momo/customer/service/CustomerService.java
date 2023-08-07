@@ -8,8 +8,6 @@ import java.util.Set;
 import com.momo.board.dto.Board;
 import com.momo.customer.dao.CustomerRepository;
 import com.momo.customer.dto.Customer;
-import com.momo.customer.dto.Histories;
-import com.momo.customer.dto.History;
 import com.momo.exception.AddException;
 import com.momo.exception.FindException;
 import com.momo.util.PageBean;
@@ -48,6 +46,11 @@ public class CustomerService {
 		return c;
 	}
 	
+	public void infoModify(String loginedId, String phoneNumber, String email, String address) throws AddException {
+		repository.infoupdate(loginedId, phoneNumber, email, address);
+	}
+	
+	
 	public void idDupChk(String id) throws FindException {
 		Customer c = null;
 		try {
@@ -63,9 +66,13 @@ public class CustomerService {
 		
 	}
 	
-	public void signup(Customer c) throws AddException {
+	public void signup(String userId, String name, String pwd, String phoneNumber, String email, 
+			String address, String birthDate, String pay, String introduce, String userSex, String role, 
+			String userStatus, String dateCreated) throws AddException {
 		try {
-			repository.insert(c);
+			repository.insert(userId, name, pwd, phoneNumber, email, 
+								address, birthDate, pay, introduce, userSex, 
+								role, userStatus, dateCreated);
 		} catch (AddException e) {
 			throw new AddException("회원가입 실패");
 		} 
@@ -81,20 +88,20 @@ public class CustomerService {
 //		}
 //	}
 	
-	public List<Customer> findSitters() throws FindException {
+	public List<Customer> findSitters(String address) throws FindException {
+		System.out.println("서비스에서 주소 확인 : " + address);
 		List<Customer> list = null;
 		try {
-			list = repository.selectSitters();
-			//System.out.println("list.get(0).getName() : " + list.get(0).getName());
+			list = repository.selectSitters(address);
+			System.out.println("service - list.get(0).getName() : " + list.get(0).getName());
 			return list;
 		} catch (FindException e) {
 			throw new FindException("시터조회 실패");
 		}
-
 	}
 	public Customer recheckSitter(String id) throws FindException{
 		Customer c = repository.selectById(id);
-			return c;
+		return c;
 	}
 	
 }

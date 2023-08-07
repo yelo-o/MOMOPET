@@ -1,9 +1,8 @@
 package com.momo.customer.control;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,25 +31,30 @@ public class SignupServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String phoneNumber = request.getParameter("phoneNumber");
 		String address = request.getParameter("address");
-		int userSex = Integer.parseInt(request.getParameter("gender"));
-		int role = Integer.parseInt(request.getParameter("role"));
-		String birth = (request.getParameter("birthdate")).toString();		
+		//String userSex = Integer.parseInt(request.getParameter("gender"));
+		//String role = Integer.parseInt(request.getParameter("role"));
+		String userSex = request.getParameter("gender");
+		String role = request.getParameter("role");
+//		String birth = (request.getParameter("birthdate")).toString();	
+		String birthDate = request.getParameter("birthdate");
+		
+		String userStatus = "0";
 		        
 		LocalDate now = LocalDate.now();
 		String dateCreated = now.toString();
 		
-		int userStatus = 0;
 		
 		String introduce = null;
 		
 		String pay = "0";
 	
-		Customer c = new Customer(userId, name, pwd, phoneNumber, email, address, birth, pay, introduce, userSex, role, userStatus, dateCreated);
+		//Customer c = new Customer(userId, name, pwd, phoneNumber, email, address, birthDate, pay, introduce, userSex, role, userStatus, dateCreated);
 		
 		//회원가입하기
 		int status = 0;
 		try {
-			service.signup(c);
+			service.signup(userId, name, pwd, phoneNumber, email, address, birthDate, pay, introduce, userSex, role, userStatus, dateCreated);
+			System.out.println("Signup Servlet : 회원가입 성공" + userId);
 			status = 1;
 		} catch (AddException e) {
 			

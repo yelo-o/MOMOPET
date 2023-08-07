@@ -13,6 +13,7 @@ $(() => {
 				sectionObj.html(responseData)
 			},
 			error: (xhr) => {
+
 				alert("에러" + xhr.status)
 			}
 		})
