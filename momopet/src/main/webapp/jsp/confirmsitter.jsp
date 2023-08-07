@@ -23,7 +23,7 @@
     				<c:set var="name" value="${requestScope.name}" />
     				<c:set var="gender" value="${requestScope.gender}" />
                         <h1>돌보미정보</h1>
-                        이름 : <span class="sittername"><c:out value="${name}"/></span>
+                        이름 : <span class="sitterName"><c:out value="${name}"/></span>
                         <br>
                         아이디 : <span class="sitterId"><c:out value="${sitterId}"/></span>
                         <br>
@@ -31,9 +31,9 @@
                         <br>
                         자기소개 : <br>
                     </div>
-                    <div>
-                    돌봄 시작날짜 : <input type = "date" name = "startDate" placeholder="시작일자를 클릭하세요">
-                    돌봄 종료날짜 : <input type = "date" name = "finishDate" placeholder="종료일자를 클릭하세요"> 
+                   <div class="datepicker-to-from">
+                    돌봄 시작날짜 : <input type = "date" name ="startDate" id = "startDate" placeholder="시작일자를 클릭하세요">
+                    돌봄 종료날짜 : <input type = "date" name ="endDate" id = "endDate" placeholder="종료일자를 클릭하세요"> 
                     </div>
                     <button class="yes">예</button>
                     <button class="no">아니오</button>

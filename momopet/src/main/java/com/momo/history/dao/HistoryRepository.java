@@ -11,7 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.momo.exception.AddException;
-import com.momo.history.dto.Confirmation;
+import com.momo.history.dto.History;
 
 public class HistoryRepository {
 	private SqlSessionFactory sessionFactory;
@@ -27,11 +27,11 @@ public class HistoryRepository {
 			e.printStackTrace();
 		}
 	}
-	public Confirmation insert(String userId, String startDate, String endDate, String sitterId) throws AddException{
+	public History insert(String loginedId, String startDate, String endDate, String sitterId) throws AddException{
 		SqlSession session = null;
 		Map<String, Object> param = new HashMap<>();
-		System.out.println("MAP에 왔다" + userId+startDate+endDate+sitterId);
-		param.put("userId", userId);
+		System.out.println("MAP에 왔다" + loginedId+startDate+endDate+sitterId);
+		param.put("userId", loginedId);
 		param.put("startDate", startDate);
 		param.put("EndDate", endDate);
 		param.put("staus", 1);
@@ -40,12 +40,12 @@ public class HistoryRepository {
 		try {
 		session = sessionFactory.openSession();
 		System.out.println("마이바티스 연결직전");
-		Confirmation co = 
+		History co = 
 				session.selectOne("com.momo.history.mapper.HistoryMapper.insertHistory", param);
 		if(co==null) {
 			throw new AddException("추가할 고객이없습니다.");
 		}
-		System.out.println(co.getUserId()+co.getStartDate()+co.getFinishDate()+co.getInfo());	
+		System.out.println(co.getUserId()+co.getStartDate()+co.getEndDate());	
 		return co;
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -53,6 +53,7 @@ public class HistoryRepository {
 		}finally {
 			if(session != null) {
 				session.close();
+				session.commit();
 			}
 		}
 		
