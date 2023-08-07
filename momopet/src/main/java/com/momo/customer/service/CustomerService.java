@@ -8,8 +8,6 @@ import java.util.Set;
 import com.momo.board.dto.Board;
 import com.momo.customer.dao.CustomerRepository;
 import com.momo.customer.dto.Customer;
-import com.momo.customer.dto.Histories;
-import com.momo.customer.dto.History;
 import com.momo.exception.AddException;
 import com.momo.exception.FindException;
 import com.momo.util.PageBean;

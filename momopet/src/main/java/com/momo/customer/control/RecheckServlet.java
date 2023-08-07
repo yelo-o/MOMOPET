@@ -27,9 +27,9 @@ public class RecheckServlet extends HttpServlet {
 		String loginedId = (String) session.getAttribute("loginedId");
 		System.out.println("로그인된 아이디는"+loginedId+"jsp에서 가지고옴"+sitterId+name+gender);
 
-		/*if(loginedId == null) {
+		if(loginedId == null) {
 			request.setAttribute("msg", "로그인하세요");
-		}else {*/
+		}else {
 			String path = "/jsp/confirmsitter.jsp";
 			RequestDispatcher rd = request.getRequestDispatcher(path);
 			request.setAttribute("sitterId", sitterId);
@@ -38,4 +38,4 @@ public class RecheckServlet extends HttpServlet {
 			rd.forward(request, response);
 		}
 	}
-//}
+}

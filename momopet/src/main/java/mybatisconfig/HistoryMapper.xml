@@ -4,16 +4,15 @@
    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.momo.history.mapper.HistoryMapper"> 
   
-  <!-- <insert id="inserthistory" parameterType="map">
-  	INSERT INTO history
-  	(history_no, user_id, start_date, end_date, user_type, status, sitter_id) 
-  	VALUES (history_seq.NEXTVAL, #{userId}, #{startDate}, #{EndDate},#{status}, #{sitterId})
-  </insert> -->
-  <insert id = "inserthistory" parameterType="map">
+  <insert id = "insert" parameterType="map">
   INSERT INTO history
-  	(history_no, user_id, start_date, end_date, user_type, status, sitter_id) 
-  	VALUES (history_seq.NEXTVAL, #{userId}, #{startDate}, #{EndDate},#{status}, #{sitterId})
+  	<!-- (history_no, user_id, start_date, end_date, status, sitter_id)  -->
+  	VALUES (history_seq.NEXTVAL, #{userId}, #{startDate}, #{endDate},#{status},#{sitterId})
   </insert>
+  
+  <select id="selectById" resultType="History" parameterType="map">
+  SELECT * FROM history WHERE user_id=#{loginedId}
+  </select>
 </mapper>
 
 

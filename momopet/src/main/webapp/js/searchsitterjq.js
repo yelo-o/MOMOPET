@@ -13,11 +13,12 @@ $(()=>{
     //가입버튼-전송버튼 클릭->폼의 서브밋이벤트발생 
     //--시터조회 클릭해서 시터 목록 불러오기 START--
     formObj.submit((e)=>{
+		
         
         $(e.target)
         .attr('action', 'http://localhost:8888/momopet/sitterlist')
         .attr('method', 'get')
-
+l
         $.ajax({
             url: $(e.target).attr('action'),
             method: $(e.target).attr('method'),
