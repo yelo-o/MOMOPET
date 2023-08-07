@@ -17,36 +17,40 @@
 
 <body>
     <c:set var="c" value="${requestScope.customer}" />
+    <c:set var="phone" value="${c.phoneNumber}" />
+    <c:set var="em" value="${c.email}" />
+    <c:set var="add" value="${c.address}" />
+    <c:set var="bir" value="${c.birth}" />
     <h3>내 정보 확인</h3>
-    <form>
+    <form class="infoupdate">
         <table>
             <tr>
                 <td>이름 : </td>
-                <td><c:out value="${customer.name}"/></td>
+                <td><c:out value="${c.name}"/></td>
             </tr>
             <tr>
                 <td>아이디 : </td>
-                <td><c:out value="${customer.userId}"/></td>
+                <td><c:out value="${c.userId}"/></td>
             </tr>
-<%--             <tr>
+<%--        <tr>
                 <td>비밀번호 : </td>
                 <td><c:out value="${c.pwd}"/></td>
             </tr> --%>
             <tr>
 				<td>휴대폰번호 : </td>
-				<td><input type="text" <c:out value="${c.phoneNumber}"/>></td>
+				<td><input type="text" name="phoneNumber" value="${phone}"></td>
 			</tr>
             <tr>
                 <td>이메일 : </td>
-                <td><input type="text" <c:out value="${c.email}"/>></td>
+                <td><input type="text" name="email" value="${em}"></td>
             </tr>
             <tr>
                 <td>주소 : </td>
-                <td><input type="text" <c:out value="${c.address}"/>></td>
+                <td><input type="text" name="address" value="${add}"></td>
             </tr>
             <tr>
                 <td>생년월일 : </td>
-                <td><input type="text" <c:out value="${c.birth}"/>></td>
+                <td><input type="text" name="birth" value="${bir}"></td>
             </tr>
 		<%--<tr>
                 <td>시급 : </td>
@@ -59,7 +63,7 @@
 
             <tr>
                 <td><input class="buttonupdate" type="submit" value="수정하기" onclick="return joinCheck()"></td>
-                <td><input class="buttonback" type="submit" value="뒤로가기" onclick="return joinCheck()"></td>
+                <td><input class="buttonback" type="button" value="뒤로가기" onclick="return joinCheck()"></td>
             </tr>
 
         </table>

@@ -48,6 +48,11 @@ public class CustomerService {
 		return c;
 	}
 	
+	public void infoModify(String loginedId, String phoneNumber, String email, String address, String birth) throws AddException {
+		repository.infoupdate(loginedId, phoneNumber, email, address, birth);
+	}
+	
+	
 	public void idDupChk(String id) throws FindException {
 		Customer c = null;
 		try {
