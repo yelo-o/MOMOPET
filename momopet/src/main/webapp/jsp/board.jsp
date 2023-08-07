@@ -21,24 +21,24 @@
 
 <body>
   <jsp:include page="./header.jsp" />
+  <c:set var="msg" value="${requestScope.msg}" />
+  <c:set var="pb" value="${requestScope.pagebean}" />
+  <c:set var="list" value="${pb.list}" />
 
   <div class="board_wrap">
     <div class="board_title">
       <strong>자랑하기</strong>
       <p>귀욤둥이들을 자랑해보세요🥰</p>
     </div>
-  
-    <c:set var="msg" value="${requestScope.msg}" />
-    <c:set var="pb" value="${requestScope.pagebean}" />
-    <c:set var="list" value="${pb.list}" />
-    
-    <%-- <c:out value="${fn:length(list)}"/>
-    <c:out value="${pb.totalCnt}"/> --%>
+
     <c:choose>
       <c:when test="${!empty msg}">
         <h3>게시판 목록 검색 실패:<c:out value="${msg}" /></h3>
       </c:when>
     <c:otherwise>
+    
+    
+    
       <div class="board_list_wrap">
         <div class="board_list">
           <div class="top">
@@ -48,17 +48,14 @@
             <div class="date">작성일</div>
             <div class="count">조회</div>
           </div>
-          
             
           <c:forEach items="${list}" var="b" varStatus="status">
 	        <div class="board <c:out value="${b.boardNo}"/>">
 	          <div class="num"><c:out value="${pb.totalCnt - b.rn + 1}"/></div>
-	          <%-- <div class="num"><c:out value="${b.rn}"/></div> --%>
 	          <div class="title"><c:out value="${b.boardTitle}"/></div>
 	          <div class="writer"><c:out value="${b.boardId}"/></div>
               <fmt:formatDate var="formattedDate" value="${b.postingDate}" pattern="yyyy-MM-dd" />
 	          <div class="date"><c:out value="${formattedDate}" /></div>
-	          <!-- <div class="count">조회수</div> -->
 	          <div class="count"><c:out value="${b.views}"/></div>
 	        </div>
           </c:forEach>
@@ -83,12 +80,12 @@
     </div>
     
       <div class="bt_wrap">
-        <a href="<c:out value="${contextPath}"/>/jsp/boardwrite.jsp" class="on">등록</a>
+      	<button class="on">등록</button>
+        <%-- <a href="<c:out value="${contextPath}"/>/jsp/boardwrite.jsp" class="on">등록</a> --%>
       </div>
     </c:otherwise>
     </c:choose>
     </div>
-      </div>
 </body>
 
 </html>

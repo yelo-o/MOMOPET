@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.momo.board.dto.Board;
 import com.momo.board.service.BoardService;
 import com.momo.exception.AddException;
 import com.momo.exception.FindException;
