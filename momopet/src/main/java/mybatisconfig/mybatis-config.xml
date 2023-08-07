@@ -10,7 +10,7 @@
     <typeAlias type="com.momo.customer.dto.Customer" alias="Customer"/>
     <typeAlias type="com.momo.board.dto.Board" alias="Board"/>
     <typeAlias type="com.momo.review.dto.Review" alias="Review"/>
-    <!-- <typeAlias type="com.momo.customer.dto.history" alias="History"/> -->
+   <typeAlias type="com.momo.history.dto.History" alias="History"/>
   </typeAliases>
   <environments default="development">
     <environment id="development">
@@ -27,6 +27,6 @@
     <mapper resource="/mybatisconfig/CustomerMapper.xml"/>
     <mapper resource="/mybatisconfig/BoardMapper.xml"/>
     <mapper resource="/mybatisconfig/ReviewMapper.xml"/>
-   <!--  <mapper resource="/mybatisconfig/HistoryMapper.xml"/> -->
+    <mapper resource="/mybatisconfig/HistoryMapper.xml"/> 
   </mappers>
 </configuration>

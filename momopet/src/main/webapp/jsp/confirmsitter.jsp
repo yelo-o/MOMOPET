@@ -12,6 +12,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="<c:out value="${contextPath}"/>/js/confirmsitterjq.js"></script>
+
 <title>돌보미신청확인</title>
 </head>
  <body>
@@ -33,10 +34,12 @@
                     </div>
                    <div class="datepicker-to-from">
                     돌봄 시작날짜 : <input type = "date" name ="startDate" id = "startDate" placeholder="시작일자를 클릭하세요">
+                    
                     돌봄 종료날짜 : <input type = "date" name ="endDate" id = "endDate" placeholder="종료일자를 클릭하세요"> 
                     </div>
+
                     <button class="yes">예</button>
-                    <button class="no">아니오</button>
+                    <button type="button" onclick="location.href='<c:out value="${contextPath}"/>/jsp/searchsitter.jsp'">아니오</button>
                 </form>
 
             </section>
