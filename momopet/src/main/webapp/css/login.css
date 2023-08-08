@@ -13,15 +13,17 @@ body{
   overflow: hidden;
 }
 .center{
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+  
 }
+
 .center h1{
   text-align: center;
   padding: 20px 0;

@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<jsp:include page="./header.jsp"/>
 	<c:set var="userId" value="${requestScope.userId}" />
 	<section class="container">
 		<header> 고객님의 아이디는 아래와 같습니다</header>
@@ -32,5 +33,6 @@
 			</button>
 		</form>
 	</section>
+	     <%@include file="./footer.jsp" %>
 </body>
 </html>

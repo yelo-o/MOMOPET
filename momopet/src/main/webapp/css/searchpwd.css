@@ -7,21 +7,21 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: rgb(130, 106, 251);
+	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	background-color: rgb(244, 245, 246);
 }
 .container {
-  position: relative;
-  max-width: 700px;
-  width: 100%;
-  background: #fff;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+	position: relative;
+	max-width: 700px;
+	width: 100%;
+	background: #fff;
+	padding: 25px;
+	border-radius: 8px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+	margin: 100px auto;
 }
 .container header {
   font-size: 1.5rem;
@@ -70,6 +70,7 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   background: rgb(130, 106, 251);
+  border-radius : 15px;
 }
 .searchpwd button:hover {
   background: rgb(88, 56, 250);

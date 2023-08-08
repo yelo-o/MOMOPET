@@ -15,7 +15,7 @@
 </head>
 <body>
 <jsp:include page="./header.jsp"/>
-    <div class="center">
+    <section class="center">
         <h1>로그인</h1>
         <form class="login">
             <div class="txt_field">
@@ -40,7 +40,7 @@
             아직 회원이 아니신가요? <a href="${contextPath}/jsp/signup.jsp">signup</a>
             </div>
         </form>
-    </div>
+    </section>
  <%@include file="./footer.jsp" %>
 </body>
 </html>
