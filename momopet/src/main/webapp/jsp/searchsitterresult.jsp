@@ -19,7 +19,7 @@
   <script src="<c:out value="${contextPath}"/>/js/sitterresultlistjq.js"></script>
 
 <body>
-<%--     <jsp:include page="./header.jsp" /> --%>
+ <jsp:include page="./header.jsp" /> 
     
     <div class="center">
     	<h1>돌보미 조회 목록</h1>
@@ -38,14 +38,14 @@
 					<div class="txt_field">
 					아이디 : <span class="sitterId"><c:out value="${s.userId}"/></span><br>
 					이름 : <span class="name"><c:out value="${s.name}"/></span><br>
-					성별 : <span class="gender"><%-- <c:out value="${s.userSex}"/> --%>
-							  <c:choose>
+					성별 : <span class="gender"> <c:out value="${s.userSex}"/> 
+							  <%-- <c:choose>
 							       <c:when test="${s.userSex==0}">남자<br>
 							       </c:when>    
 							       <c:otherwise>여자<br>
 							       </c:otherwise>
-								 </c:choose>		
-							   </span>
+								 </c:choose>--%>		
+							   </span> 
 					자기소개 : <span class="introduce"><c:out value="${s.introduce}"/></span><br>
 					<div class="request"><input type="submit" value="${s.userId}님에게 돌봄요청"></div>
 					</div>
@@ -54,6 +54,7 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
+	
 </body>
 
 </html>

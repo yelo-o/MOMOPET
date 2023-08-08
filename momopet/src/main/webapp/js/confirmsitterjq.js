@@ -32,6 +32,7 @@ $(()=>{
 					
 				alert('로그인하세요')
 				} else { //성공한 경우
+			alert('돌봄신청이 완료되었습니다')
 				location.href=`${backURL}/jsp/completedrequest.jsp`
 				}
 			},
