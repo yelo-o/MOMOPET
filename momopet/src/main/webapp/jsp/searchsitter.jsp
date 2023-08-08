@@ -15,8 +15,9 @@
 </head>
  <body>
  <jsp:include page="./header.jsp"/>
+ 
     <section class="container">
-      <header>돌보미 찾기</header>
+      <!-- <header>돌보미 찾기</header> -->
       <form action="#" class="searchsitter">
         <div class="pet-box">
             <h3>돌봄이 필요한 친구는?</h3>
