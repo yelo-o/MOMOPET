@@ -20,7 +20,7 @@
 			        	<li><a href="<c:out value="${contextPath}"/>/jsp/petinfo.jsp">내 펫 정보 확인</a></li>
 			        	<li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">내가 보낸 요청 내역</a></li>
 			        	<li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">거래 완료 내역</a></li>
-			        	<li><a href="<c:out value="${contextPath}"/>/jsp/review.jsp">내가 쓴 리뷰 보기</a></li>
+			        	<%-- <li><a href="<c:out value="${contextPath}"/>/jsp/review.jsp">내가 쓴 리뷰 보기</a></li> --%>
 			        </ul>
 			    </nav>
 		    </aside>

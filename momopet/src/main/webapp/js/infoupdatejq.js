@@ -1,13 +1,10 @@
 $(() => {
 	const infoupdateObj = $('form.infoupdate')
+	const sectionObj = $('section#mypagenav>div') //ajax로 바뀌어질 섹션 선언
+	const backBtn = $('.buttonback')
 
-//--수정 버튼 클릭 START--
+	//--수정 버튼 클릭 START--
 	infoupdateObj.submit(() => {
-		// post 방식으로 보낼 때 불러온 boardNo 값은 name 값으로 가져올 수 없어서 직접 serialize()에 붙여줌
-		//let infoData = updateObj.serialize()
-		//infoData += "&boardNo="+$("#btNo").html(); //서블릿 통해 불러온 boardNo 같이 붙여서 보냄
-		//alert("e의 값은 : "+ e)
-		//alert("e.CurrentTarget의 값은 : "+ e.currentTarget)
 		$.ajax({
 			url: '/momopet/infoupdate',
 			method: 'post',
@@ -16,31 +13,42 @@ $(() => {
 			success: (responseData) => {
 				//alert(responseData);
 				if (responseData == 0) {
-					location.href = `/momopet/jsp/layout.jsp`; //게시판 목록 페이지로 이동
+					location.href = `/momopet/jsp/layout.jsp`;
 					alert('회원정보 수정실패!')
 				} else { // 게시물 수정 성공한 경우
-					location.href = `/momopet/customerinfocheck`; //게시판 목록 페이지로 이동
-					alert('회원정보 수정완료!');
+
+				
+				    //sectionObj.html()
+				    //sectionObj.html(responseData)
+				    alert('회원정보 수정완료!');
+					location.href = `../jsp/mypage.jsp`;
+					//alert(responseData)
 				}
 			},
 			error: (xhr) => {
 				alert("에러" + xhr.status)
 			}
 		})
+		return false;
 
 	})
-    //--수정 버튼 클릭 END--
-    
-    
-     $(function() {
- 
-       $(".buttonback").bind('click', function() {
-          window.location.href = '../customerinfocheck';
-          alert("내 정보확인으로 이동합니다.");
- 
-       });
-    });
-    
-    
-    
- });
+	//--수정 버튼 클릭 END--
+
+	//--뒤로가기 버튼 클릭 START--
+	backBtn.click(() => {
+		$.ajax({
+			url: '/momopet/customerinfocheck',
+			method: 'post',
+			success: (responseData) => {
+				sectionObj.html()
+				sectionObj.html(responseData)
+				alert("내 정보확인으로 이동합니다.");
+			},
+			error: (xhr) => {
+				alert("에러" + xhr.status)
+			}
+		})
+		//--뒤로가기 버튼 클릭 END--
+
+	});
+})

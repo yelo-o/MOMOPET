@@ -7,34 +7,33 @@ $(()=>{
 
     //시터조회버튼 객체찾기
     const btSubmit = $('#submit')
-
-	const backURL = '/momopet'
 		
-    //가입버튼-전송버튼 클릭->폼의 서브밋이벤트발생 
+
     //--시터조회 클릭해서 시터 목록 불러오기 START--
     formObj.submit((e)=>{
-		
-        
-        $(e.target)
-        .attr('action', 'http://localhost:8888/momopet/sitterlist')
-        .attr('method', 'get')
-l
+
+		//alert("e의 값은 : " + e)
+		//alert("e.CurrentTarget의 값은 : " + e.currentTarget)
+
         $.ajax({
-            url: $(e.target).attr('action'),
-            method: $(e.target).attr('method'),
-            data: formObj.serialize(),
-            success: (responseObj)=>{
-                if(responseObj.trim() == '0'){
-                    //실패경우 할 일
-                    /*alert("실패:" + responseObj.msg)*/
-                    alert("시터조회 실패")
-                } else {
-                    //성공경우 할 일
-                    //location.href='sitterlistresult.jsp'
-                    location.href=`/momopet/sitterlist`
-                    alert("시터조회 성공!")
-                }               
-            },
+            url: `/momopet/searchsitter`,
+            method: 'post',
+            /*data: formObj.serialize(),*/
+            data:formObj.serialize(),
+            success: (responseData)=>{
+				/*location.href=`/momopet/jsp/sitterlistresult.jsp`*/
+				/*location.href=`/momopet/sitterlist`*/
+/*				if(responseData==0) {
+					alert("조회실패")	
+				}else{ //성공한 경우
+					location.href=`/momopet/sitterlist`
+					alert("조회성공!")
+				}*/
+				/*location.href=`/momopet/sitterlist`
+				alert("조회성공!")*/
+				$('body').empty()
+				$('body').html(responseData)
+			},
             error: (xhr)=>{
 				alert("에러:" + xhr.status)
             }
@@ -43,7 +42,7 @@ l
         return false //e.preventDefault() e.stopPropagation()
 
     })
-    
+    //--시터조회 클릭해서 시터 목록 불러오기 END--
     
 	//--페이지 이동 버튼 클릭할 때 할일 START--
     $('div.pagegroup>span').click((e)=>{

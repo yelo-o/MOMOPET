@@ -17,8 +17,6 @@
   <link rel="stylesheet" href="<c:out value=" ${contextPath}" />/css/layout.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="<c:out value="${contextPath}"/>/js/sitterresultlistjq.js"></script>
- <%--  <script src="<c:out value="${contextPath}"/>/js/searchsitterjq.js"></script> --%>
-</head>
 
 <body>
 <%--     <jsp:include page="./header.jsp" /> --%>
