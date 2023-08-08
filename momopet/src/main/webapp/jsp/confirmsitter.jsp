@@ -28,7 +28,15 @@
                         <br>
                         아이디 : <span class="sitterId"><c:out value="${sitterId}"/></span>
                         <br>
-                        성별 : <span class="sitterGender"><c:out value ="${gender}"/></span>
+                        <span hidden="hidden" class="sitterGender"><c:out value ="${gender}"/></span> <!-- 진짜 gender(숫자)는 숨기고, 아래에서 출력  -->
+                        성별 : <span>
+                        		<c:choose>
+							       <c:when test="${gender==0}">남자<br>
+							       </c:when>    
+							       <c:otherwise>여자<br>
+							       </c:otherwise>
+							    </c:choose>		
+                              </span>
                         <br>
                         자기소개 : <br>
                     </div>
