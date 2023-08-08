@@ -25,14 +25,16 @@ public class ConfirmRequestServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
-		HttpSession session = request.getSession();
 		String sitterId = request.getParameter("sitterId");
-		//String name = request.getParameter("name");
-		//String gender = request.getParameter("gender");
+		HttpSession session = request.getSession();
+		String loginedId = (String)session.getAttribute("loginedId");
 		System.out.println("sitterList에서 불러온 sitterId"+ sitterId);
 		
 		int status = 0;
 		try {
+			if (loginedId == null || loginedId.equals("")) {
+				throw new FindException("로그인이 안되어있습니다."); //세션에 로그인된 아이디가 없을 경우 FindException 던짐
+			}
 			Customer c= service.recheckSitter(sitterId);
 			status = 1;
 			System.out.println("DB에서 불러온 sitterId : "+c.getUserId());
@@ -42,7 +44,6 @@ public class ConfirmRequestServlet extends HttpServlet {
 		} catch (FindException e) {
 			e.printStackTrace();
 		}
-		//System.out.println("sitterlistresult.jsp에서 가지고옴"+sitterId+name+gender);
 		System.out.println("sitterlistresult.jsp에서 가지고옴 : " + sitterId);
 		
 		String path = "/jsp/confirmresult.jsp";
@@ -50,5 +51,4 @@ public class ConfirmRequestServlet extends HttpServlet {
 		request.setAttribute("status",status);
 		rd.forward(request, response);
 	}
-
 }
