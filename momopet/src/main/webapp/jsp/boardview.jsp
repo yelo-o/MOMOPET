@@ -12,13 +12,11 @@
     <link rel="stylesheet" href="<c:out value=" ${contextPath}" />/css/board.css">
     <link rel="stylesheet" href="<c:out value=" ${contextPath}" />/css/layout.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <%-- <script src="<c:out value=" ${contextPath}" />/js/boardjq.js"></script> --%>
-    <%-- <script src="<c:out value=" ${contextPath}" />/js/toboardupdatejq.js"></script> --%>
     <script src="<c:out value=" ${contextPath}" />/js/boardviewjq.js"></script>
 </head>
 
 <body>
-  <jsp:include page="./header.jsp" />
+  <%-- <jsp:include page="./header.jsp" /> --%>
   <!-- 개행하기 위한 속성값 추가 -->
   <% pageContext.setAttribute("LF", "\n"); %>
   
@@ -29,10 +27,6 @@
    <c:otherwise>
     <c:set var="b" value="${requestScope.Board}"/>
     <c:set  var="con" value="${b.boardContent}" />
-    <%-- <c:set var="date" value="${b.postingDate}" /> --%>
-	<%-- <fmt:formatDate value="${b.postingDate}" pattern="yyyy-MM-dd" var="formattedDate" /> --%>
-    
-    <%-- <c:out value="${b}"/> --%>
     <div class="board_wrap">
         <div class="board_title">
             <strong>자랑하기</strong>
@@ -64,18 +58,17 @@
                 </div>
 			    <!-- con으로 선언한 변수를 개행하기 위해 fn 사용  -->
                 <div class="cont">${fn:replace(con, LF, '<br>')}</div>
+                <!-- <div class="img"></div> -->
             </div>
+            
+		    <div class="bt_wrap">
+		   		<button class="on" type="button" onclick="location.href='<c:out value="${contextPath}"/>/boardlist'" >목록</button>
+		        <button class="updatepage">수정</button>
+		        <button class="delete">삭제</button>
+		    </div>
         </div>
     </div>
    </c:otherwise>
   </c:choose>
-    <div class="bt_wrap">
-   		<button class="on" type="button" onclick="location.href='<c:out value="${contextPath}"/>/boardlist'" >목록</button>
-        <button class="updatepage">수정</button>
-        <button class="delete">삭제</button>
-        <%-- <button></button><a href="<c:out value="${contextPath}"/>/boardlist" class="on">목록</a> --%>
-        <!-- <a href="#">수정</a>
-        <a class="delete" >삭제</a> -->
-    </div>
 </body>
 </html>
