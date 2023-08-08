@@ -6,13 +6,12 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-body {
+ body {
   min-height: 100vh;
-  display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: rgb(130, 106, 251);
+background-color: rgb(244, 245, 246);
 }
 .center{
   position: absolute;
@@ -36,6 +35,7 @@ body {
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: 100px auto;
 }
 .container header {
   font-size: 1.5rem;
