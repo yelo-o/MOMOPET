@@ -36,17 +36,22 @@
 			<c:otherwise>
 				<c:forEach items="${list}" var="s">
 				<form>
+					<%--    
+					돌보미 아이디 : <span class="sitterId"><c:out value="${s.userId}"/></span><br>
+					돌보미 이름 : <span class="name"><c:out value="${s.name}"/></span><br>
+					돌보미 성별 : <span class="gender"><c:out value="${s.userSex}"/></span><br>
+					<div class="request"><input type=submit value="Request"></div>--%>
 					<div class="txt_field">
 					아이디 : <span class="sitterId"><c:out value="${s.userId}"/></span><br>
 					이름 : <span class="name"><c:out value="${s.name}"/></span><br>
-					성별 : <span class="gender">
-							     <c:choose>
-							       <c:when test="${s.userSex=='0'}">남자<br>
+					성별 : <span class="gender"><c:out value="${s.userSex}"/></span>
+							     <%-- <c:choose>
+							       <c:when test="${s.userSex=='0'}">남자
 							       </c:when>    
-							       <c:otherwise>여자<br>
+							       <c:otherwise>여자
 							       </c:otherwise>
 								 </c:choose>					
-							   </span>
+							   </span><br> --%>
 					자기소개 : <span class="introduce"><c:out value="${s.introduce}"/></span><br>
 					<input class="request" type="button" value="요청!">
 					</div>
