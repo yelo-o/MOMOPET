@@ -78,22 +78,27 @@ form .txt_field{
   text-align: center;
 }
 
-.form button {
+button {
   height: 55px;
   width: 100%;
   color: #fff;
   font-size: 1rem;
   font-weight: 400;
-  margin-top: 30px;
+  margin-top: 10px;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
   background: rgb(130, 106, 251);
+  border-radius:15px;
 }
-.form button:hover {
+button:hover {
   background: rgb(88, 56, 250);
+  
 }
 /*Responsive*/
+span.required {
+float : right;
+}
 @media screen and (max-width: 500px) {
   .form .column {
     flex-wrap: wrap;

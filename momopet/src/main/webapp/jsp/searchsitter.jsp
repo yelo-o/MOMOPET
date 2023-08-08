@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="<c:out value="${contextPath}"/>/css/searchsitter.css">
-<link rel="stylesheet" href="<c:out value=" ${contextPath}" />/css/layout.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="<c:out value="${contextPath}"/>/js/searchsitterjq.js"></script>
@@ -30,8 +29,9 @@
                 <input type="radio" id="check-cat" name="gender" />
                 <label for="check-cat">고양이</label>
               </div>
-            </div>
+            </div><br>
           </div>
+          
           <div class="pet-box">
             <h3>어디서 돌봄이 필요하시나요?</h3>
             <div class="place-option">
@@ -48,21 +48,23 @@
                 <label for="check-walking">산책</label>
               </div>
             </div>
-          </div>
+          </div><br>
 
           <div class="input-box">
-            <label>돌봄이 필요한 날짜</label>
+            <h3>돌봄이 필요한 날짜</h3>
             <input type="date" placeholder="시작날짜" />
             <input type="date" placeholder="종료날짜" />
-          </div>
+          </div><br>
+          
         <div class="input-address">
-          <label>장소</label>
-          <input type="text" placeholder="주소를 입력하세요" id="address" name="address"/>
+          <h3>*장소</h3>
+          <input type="text" placeholder="주소를 입력하세요" id="address" name="address" required/>
+        </div><br>
+ 		<div class="petqty">     
+            <h3>몇 마리 인가요?</h3>
+            <input type="number" id="petqty" name="petqty" min="0">
         </div>
-        <div class="pet-qty">
-            <label>몇 마리 인가요?</label><br>
-            <input type="number">
-        </div>
+        <span class="required">* : 필수입력</span>
         <button type="submit">Submit</button>
       </form>
     </section>
