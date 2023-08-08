@@ -13,23 +13,23 @@
   overflow: hidden;
 } */
 body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: rgb(130, 106, 251);
+	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	background-color: rgb(244, 245, 246);
 }
 
 .center{
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -200px);
-  width: 600px;
+  transform: translate(-50%, 1%);
+  width: 400px;
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+  
 }
 .center h1{
   text-align: center;
@@ -123,8 +123,6 @@ form .txt_field{
 	color:gray;
 	margin: 20px 10px 10px 0;
 }
-
-
 
 
 button{

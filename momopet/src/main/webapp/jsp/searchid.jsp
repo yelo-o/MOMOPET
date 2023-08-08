@@ -15,6 +15,7 @@
 <script src="<c:out value="${contextPath}"/>/js/searchidjq.js"></script>
 </head>
  <body>
+  <jsp:include page="./header.jsp"/>
     <section class="container">
       <header>아이디 찾기</header>
       <form class="searchid">
@@ -29,5 +30,6 @@
         <button>Submit</button>
       </form>
     </section>
+         <%@include file="./footer.jsp" %>
   </body>
 </html>
