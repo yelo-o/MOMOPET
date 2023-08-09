@@ -38,7 +38,7 @@
 		<tr>
 			<%-- <td><c:out value="${h.historyNo}"/></td> --%>
 			<td><c:out value="${pb.totalCnt - h.rn + 1}"/></td>
-			<td><c:out value="${h.historyNo}"/></td>
+			<%-- <td><c:out value="${h.historyNo}"/></td> --%>
 			<td>${h.sitterId}</td>
 			<td>${h.userId}</td>
 			<td><c:out value="${formattedStartDate}" /></td>

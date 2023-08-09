@@ -5,7 +5,6 @@ package com.momo.history.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.momo.board.dto.Board;
 import com.momo.exception.AddException;
 import com.momo.exception.FindException;
 import com.momo.history.dao.HistoryRepository;
@@ -48,7 +47,7 @@ public class HistoryService {
 		List<History> list = repository.selectAll(startRow, endRow, loginedId);
 		int totalCnt = repository.count(loginedId); //총 상품수
 		
-		int cntPerPageGroup = 5;
+		int cntPerPageGroup = 5; //한번에 5페이지 버튼까지 보여줄거임
 		
 		PageBean<History> pb = new PageBean<>(cntPerPage, totalCnt, list,
 				                   cntPerPageGroup, currentPage);
