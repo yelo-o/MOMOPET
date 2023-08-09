@@ -28,10 +28,10 @@ $(()=>{
 			/*data: `sitterId=${sitterId}`,*/
 			data: `sitterId=${sitterId}&startDate=${startDate}&endDate=${endDate}`,
 			success:(responseData)=>{
-				if(responseData==0){
-					
+				if(responseData==0){	
 				alert('로그인하세요')
 				} else { //성공한 경우
+			    alert('돌봄신청이 완료되었습니다')
 				location.href=`${backURL}/jsp/completedrequest.jsp`
 				}
 			},
@@ -40,5 +40,6 @@ $(()=>{
 			}
 		});
 	}
+	return false;
 	});
 })

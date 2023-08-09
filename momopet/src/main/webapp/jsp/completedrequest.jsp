@@ -15,6 +15,7 @@
 <title>돌보미요청신청완료</title>
 </head>
 <body>
+<jsp:include page="./header.jsp" />
 	<section class="container">
 		<header> 돌보미 요청이 완료되었습니다.</header>
 		<p>돌보미님의 수락을 기다려주세요</p>
@@ -24,5 +25,6 @@
 		</form>
 
 	</section>
+	<%@include file="./footer.jsp" %>
 </body>
 </html>

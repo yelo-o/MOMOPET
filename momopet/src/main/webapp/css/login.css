@@ -6,21 +6,29 @@
   font-family: "Poppins", sans-serif;
 }
 body{
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(120deg,#2980b9, #8e44ad);
-  height: 100vh;
-  overflow: hidden;
+	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	background-color: rgb(244, 245, 246);
 }
 .center{
-  position: absolute;
-  top: 50%;
+/*   position: relative;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+   */
+  	position: relative;
+	width: 40%;
+	background: #fff;
+	padding: 25px;
+	border-radius: 8px;
+	box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+	margin: 100px auto;
 }
 .center h1{
   text-align: center;
