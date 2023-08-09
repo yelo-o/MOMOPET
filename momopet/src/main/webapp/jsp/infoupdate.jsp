@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="<c:out value=" ${contextPath}" />/css/info.css">
+	<link rel="stylesheet" href="<c:out value=" ${contextPath}" />/css/infoupdate.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="<c:out value=" ${contextPath}" />/js/infoupdatejq.js"></script>
 </head>
@@ -22,7 +22,7 @@
     
     <fmt:formatDate var="formattedDate" value="${c.birthDate}" pattern="yyyy-MM-dd" />
     
-    <h3>내 정보 확인</h3>
+    <h1>내 정보 확인</h1>
     <form class="infoupdate">
         <table>
             <tr>

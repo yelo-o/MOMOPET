@@ -1,25 +1,47 @@
 footer {
+    width: 100%;
+	height: 60[x]; /* footer의 높이; */
+    position: relative;  
+    bottom: 0px;
+    left: 0;
+    text-align: center;
+    background-color: #2c2a29; 
+    color: #fff;
+    
+    /* height : 60px; foofer의 높이
+	position: relative;
+	transform: translate(0%); 
+	border-top: 1px solid #248efe;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+ */
+}
+/* footer {
 	position : relative;
     background-color: #2c2a29; 
     color: #fff;
  	text-align: center;
  	top:30px;
- 	height : 40%;
- 	
+ 	height : 180px;	
+} */
+.content{
+	padding : 10px;
 }
 
 footer>ul {
     text-align: center;
     list-style-type: none;
     padding-left: 0;
-    margin: 0 auto;
+    margin: 100px auto ;
 	width: 50%;
+	font-size: small;
 }
 
 footer>span {
     display: inline-block;
-    margin-top: 40px;
+    margin-top: 80px;
     margin: 0 auto;
     width: 80%;
  
-}
+} 
