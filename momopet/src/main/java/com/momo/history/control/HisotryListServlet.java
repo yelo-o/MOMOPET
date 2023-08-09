@@ -38,6 +38,10 @@ public class HisotryListServlet extends HttpServlet {
 		try {
 			PageBean pb = service.findAll(currentPage, loginedId);
 			request.setAttribute("pagebean", pb);
+			
+			/*
+			 * if(pb == null) { throw new FindException("조회된 데이터가 없습니다."); }
+			 */
 		} catch (FindException e) {
 			e.printStackTrace();
 			request.setAttribute("msg", e.getMessage());

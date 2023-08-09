@@ -44,7 +44,7 @@ public class HistoryRepository {
 			map.put("userId", loginedId);
 			map.put("startDate", startDate);
 			map.put("endDate", endDate);
-			map.put("status", 1);
+			map.put("status", 0);
 			map.put("sitterId", sitterId);
 			session = sessionFactory.openSession();
 			System.out.println("마이바티스 연결직전");
@@ -71,7 +71,11 @@ public class HistoryRepository {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			return session.selectOne("com.momo.history.mapper.HistoryMapper.count", loginedId);
+			int c = session.selectOne("com.momo.history.mapper.HistoryMapper.count", loginedId);
+			if (c==0) {
+				throw new FindException("조회된 데이터가 없습니다.");
+			}
+			return c;
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new FindException(e.getMessage());
@@ -117,7 +121,7 @@ public class HistoryRepository {
 			map.put("userId", loginedId);
 			
 			list = session.selectList("com.momo.history.mapper.HistoryMapper.selectAllById", map);
-			System.out.println("히스토리번호 불러오기 : " + list.get(0).getHistoryNo());
+			//System.out.println("히스토리번호 불러오기 : " + list.get(0).getHistoryNo());
 			return list;
 		} catch(Exception e) {
 			throw new FindException("히스토리 검색 실패 : " + e.getMessage());
