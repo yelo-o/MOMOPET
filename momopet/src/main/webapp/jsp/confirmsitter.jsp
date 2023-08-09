@@ -16,6 +16,7 @@
 <title>돌보미신청확인</title>
 </head>
  <body>
+   <jsp:include page="./header.jsp" />
             <section class="container">
                 <header> 아래의 돌보미님께 돌봄 신청을 하시겠습니까?</header>
                 <form>
@@ -28,12 +29,20 @@
                         <br>
                         아이디 : <span class="sitterId"><c:out value="${sitterId}"/></span>
                         <br>
-                        성별 : <span class="sitterGender"><c:out value ="${gender}"/></span>
-                        <br>
+                        <span hidden="hidden" class="sitterGender"><c:out value ="${gender}"/></span> <!-- 진짜 gender(숫자)는 숨기고, 아래에서 출력  -->
+                        성별 : <span>
+                        		<c:choose>
+							       <c:when test="${gender==0}">남자<br>
+							       </c:when>    
+							       <c:otherwise>여자<br>
+							       </c:otherwise>
+							    </c:choose>		
+                              </span>
                         자기소개 : <br>
                     </div>
+                    <br>
                    <div class="datepicker-to-from">
-                    돌봄 시작날짜 : <input type = "date" name ="startDate" id = "startDate" placeholder="시작일자를 클릭하세요">
+                    돌봄 시작날짜 : <input type = "date" name ="startDate" id = "startDate" placeholder="시작일자를 클릭하세요"> &nbsp&nbsp&nbsp&nbsp
                     
                     돌봄 종료날짜 : <input type = "date" name ="endDate" id = "endDate" placeholder="종료일자를 클릭하세요"> 
                     </div>
@@ -43,5 +52,6 @@
                 </form>
 
             </section>
+                 <%@include file="./footer.jsp" %>
         </body>
 </html>

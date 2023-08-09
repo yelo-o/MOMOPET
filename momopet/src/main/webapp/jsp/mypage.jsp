@@ -18,9 +18,9 @@
 			        <ul>
 			        	<%-- <li><a href="<c:out value="${contextPath}"/>/jsp/customerinfo.jsp">내 정보 확인</a></li> --%>
 			        	<li><a class="customerInfoChk" href="<c:out value="${contextPath}"/>/jsp/customerinfo.jsp">내 정보 확인</a></li>
-			        	<li><a href="sitterAvailability">내 시터 프로필 확인</a></li>
-			        	<li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">내가 받은 요청 내역</a></li>
-			        	<li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">거래 완료 내역</a></li>
+			        	<!-- <li><a href="sitterAvailability">내 시터 프로필 확인</a></li> -->
+			        	<li><a class="historylistChk" href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">내가 받은 요청 내역</a></li>
+			        	<!-- <li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">거래 완료 내역</a></li> -->
 			        	<%-- <li><a href="<c:out value="${contextPath}"/>/checkReviews">내가 받은 리뷰 보기</a></li> --%>
 			        	<li><a href="<c:out value="${contextPath}"/>/reviewlist" id="checkReviewsLink">내가 받은 리뷰 보기</a></li>
 			        	<li><a href="<c:out value="${contextPath}"/>/reviewlist2" id="checkReviewsLink2">내가 쓴 리뷰 보기</a></li>
@@ -52,6 +52,6 @@
 		            <li><a href="<c:out value="${contextPath}"/>/jsp/member_update.jsp">내정보수정</a></li>
 		        </ul> --%>
 
-
+ 	<%@include file="./footer.jsp" %>
 	</body>
 </html>

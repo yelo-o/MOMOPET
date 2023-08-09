@@ -21,11 +21,12 @@ public class RecheckServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String sitterId = (String) session.getAttribute("sitterId");
-		String name = (String) session.getAttribute("name");
-		String gender = (String) session.getAttribute("gender");
 		String loginedId = (String) session.getAttribute("loginedId");
-		System.out.println("로그인된 아이디는"+loginedId+"jsp에서 가지고옴"+sitterId+name+gender);
+		System.out.println("로그인된 아이디는 : " + loginedId);
+		String sitterId = (String) session.getAttribute("sitterId");
+		System.out.println("jsp에서 가지고 온 시터아이디 : " + sitterId);
+		String name = (String) session.getAttribute("name");
+		int gender = (int) session.getAttribute("gender");
 
 		if(loginedId == null) {
 			request.setAttribute("msg", "로그인하세요");

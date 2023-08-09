@@ -16,5 +16,4 @@
             <button class="history">히스토리 조회</button>
             <section class="history_list"></section>
     </body>
-
 </html>

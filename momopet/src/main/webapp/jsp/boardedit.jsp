@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <jsp:include page="./header.jsp" />
+  <%-- <jsp:include page="./header.jsp" /> --%>
   <c:choose>
    <c:when test="${!empty msg}">
      <h3>게시물조회 실패:<c:out value="${msg}" /></h3>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="cont">
                     <%-- <textarea type="text" id="boardContent" name="boardContent" placeholder="${fn:replace(con, LF, '<br>')}"></textarea> --%> <!-- 값 대신 placeholder로 사용하고 싶을 때  -->
-                    <textarea type="text" id="boardContent" " >${fn:replace(con, LF, '<br>')}</textarea>
+                    <textarea id="boardContent" >${fn:replace(con, LF, '<br>')}</textarea>
                 </div>
             </div>
         </div>

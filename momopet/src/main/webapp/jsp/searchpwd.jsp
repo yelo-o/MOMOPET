@@ -14,6 +14,7 @@
 <script src="<c:out value="${contextPath}"/>/js/searchpwdjq.js"></script>
 </head>
  <body>
+ <jsp:include page="./header.jsp"/>
     <section class="container">
       <header>비밀번호 찾기</header>
       <form class="searchpwd">
@@ -35,5 +36,6 @@
         <button>Submit</button>
       </form>
     </section>
+     <%@include file="./footer.jsp" %>
   </body>
 </html>
