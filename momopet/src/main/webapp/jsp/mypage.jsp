@@ -22,8 +22,8 @@
 			        	<li><a class="historylistChk" href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">내가 받은 요청 내역</a></li>
 			        	<!-- <li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">거래 완료 내역</a></li> -->
 			        	<%-- <li><a href="<c:out value="${contextPath}"/>/checkReviews">내가 받은 리뷰 보기</a></li> --%>
-			        	<li><a href="<c:out value="${contextPath}"/>/checkReviews" id="checkReviewsLink">내가 받은 리뷰 보기</a></li>
-			        	<li><a href="<c:out value="${contextPath}"/>/checkReviews2" id="checkReviewsLink2">내가 쓴 리뷰 보기</a></li>
+			        	<li><a href="<c:out value="${contextPath}"/>/reviewlist" id="checkReviewsLink">내가 받은 리뷰 보기</a></li>
+			        	<li><a href="<c:out value="${contextPath}"/>/reviewlist2" id="checkReviewsLink2">내가 쓴 리뷰 보기</a></li>
 			        </ul>
 		        </nav>
 		    </aside>

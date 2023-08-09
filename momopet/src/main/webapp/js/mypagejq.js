@@ -11,7 +11,7 @@ $(() => {
 			success: (responseData) => {
 				//customerinfo.jsp 파일의 내용을 sectionObj에 넣음
 				sectionObj.empty()
-				sectionObj.html(responseData)
+				sectionObj.html(responseData) 
 			},
 			error: (xhr) => {
 
@@ -22,39 +22,40 @@ $(() => {
 	})
 
 	// 내가 받은 리뷰 보기(시터 입장)
-	const checkReviewsBtn = $("#checkReviewsLink")
+/*	const checkReviewsBtn = $("#checkReviewsLink")
 	checkReviewsBtn.click((e) => {
-		/*alert("클릭됨")*/
 		e.preventDefault() // 링크 기본 동작(페이지 이동) 막기
 		$.ajax({
-			url: '/momopet/checkReviews', // 링크의 href 속성을 사용하여 요청 URL을 설정합니다.
+			url: '/momopet/reviewlist', 
 			type: "GET",
 			success: (responseData) => { //"/jsp/checkreview.jsp" 파일 내용을 responseData에 저장
 				sectionObj.empty()
-				sectionObj.html(responseData)
+				sectionObj.html(responseData) //section에 출력
 			},
 			error: (xhr) => {
 				alert("에러" + xhr.status)
 			}
 		})
-	})
+	})*/
 	// 내가 쓴 리뷰 보기(이용자 입장)
-	const checkReviewsBtn2 = $("#checkReviewsLink2")
+/*	const checkReviewsBtn2 = $("#checkReviewsLink2")
 	checkReviewsBtn2.click((e) => {
-		//alert("클릭됨")
+
 		e.preventDefault() // 링크 기본 동작(페이지 이동) 막기
-		// 서버로 리뷰 목록 가져오는 AJAX 요청
 		$.ajax({
-			url: '/momopet/checkReviews2', // 링크의 href 속성을 사용하여 요청 URL을 설정합니다.
+			url: '/momopet/reviewlist2', 
 			type: "GET",
 			success: (responseData) => { //"/jsp/checkreview2.jsp" 파일 내용을 responseData에 저장
 				sectionObj.empty()
-				sectionObj.html(responseData)
+				sectionObj.html(responseData) //section에 출력
 			},
 			error: (xhr) => {
 				alert("에러" + xhr.status)
 			}
 		})
+
+	})*/
+
 	})
 	
 		histChkBtn.click(()=>{
@@ -75,4 +76,5 @@ $(() => {
 	})
 
 	
+
 })
