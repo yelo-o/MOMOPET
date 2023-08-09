@@ -1,12 +1,12 @@
 $(() => {
 	//--페이지 이동 버튼 클릭할 때 할일 START--
 	$('div.pagegroup>span').click((e) => {
-		alert("클릭")
+		//alert("클릭")
 		//$(e.target).css("background-color", "#000")
 		const classValue = $(e.target).attr('class') //page 3, page 4, page 7
 		//alert("클래스 value : " + classValue)
 		const pageNo = classValue.substring(5)
-		alert("페이지를 요청 : " + pageNo)
+		//alert("페이지를 요청 : " + pageNo)
 		location.href = `reviewlist2?cp=${pageNo}`
 	})
 	//--페이지 이동 버튼 클릭할 때 할일 END--
