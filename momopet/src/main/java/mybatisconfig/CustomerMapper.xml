@@ -29,7 +29,7 @@
   </select>
 
   <select id="selectSitters" parameterType="map" resultType="Customer">
-	SELECT * FROM customer WHERE user_type=0 AND address=#{a}
+	SELECT * FROM customer WHERE user_type=0 AND address LIKE '%'||#{a}||'%'
   </select>
   
   <update id="infoupdate" parameterType="map">
