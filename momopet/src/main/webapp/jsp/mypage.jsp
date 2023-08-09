@@ -52,6 +52,6 @@
 		            <li><a href="<c:out value="${contextPath}"/>/jsp/member_update.jsp">내정보수정</a></li>
 		        </ul> --%>
 
-
+ <%@include file="./footer.jsp" %>
 	</body>
 </html>

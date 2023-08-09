@@ -14,6 +14,7 @@
 <title>비밀번호확인</title>
 </head>
 <body>
+ <jsp:include page="./header.jsp"/>
 	<c:set var="pwd" value="${requestScope.pwd}" />
 	<section class="container">
 		<header> 고객님의 비밀번호는 아래와 같습니다</header>
@@ -25,10 +26,11 @@
 			<button>
 				<a href="${contextPath}/jsp/login.jsp">로그인하기</a>
 			</button>
-			<button>
-				<a href="${contextPath}/jsp/findpwd.jsp">비밀번호 설정하기</a>
+			<%-- <button>
+				<a href="${contextPath}/jsp/searchpwd.jsp">비밀번호 설정하기</a> --%>
 			</button>
 		</form>
 	</section>
+	     <%@include file="./footer.jsp" %>
 </body>
 </html>
