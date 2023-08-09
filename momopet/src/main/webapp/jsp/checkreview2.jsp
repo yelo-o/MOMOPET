@@ -9,7 +9,7 @@
 	href="<c:out value="${contextPath}"/>/css/checkreview.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="<c:out value=" ${contextPath}" />/js/checkreviewjq.js"></script>
+<script src="<c:out value=" ${contextPath}" />/js/checkreviewjq2.js"></script>
 </head>
 <body>
 <jsp:include page="./header.jsp"/>
@@ -23,8 +23,6 @@
 		<table border="1">
 			<tr>
 				<th>내 리뷰를 받은 시터</th>
-				<th>리뷰 등록 번호</th>
-				<!-- 다른 기능 구현으로 사용할 예정 -->
 				<th>리뷰 작성일</th>
 				<th>평점</th>
 				<th>내가 쓴 리뷰 내용</th>
@@ -33,8 +31,6 @@
 				<!-- c:set과 차이 공부 -->
 				<tr align="center">
 					<td>${review.userId}</td>
-					<td>${review.reviewNo}</td>
-					<!-- 기능 구현용으로 사용할 예정 -->
 					<td>${review.reviewDate}</td>
 					<td>${review.reviewRating}</td>
 					<td>${review.reviewContent}</td>

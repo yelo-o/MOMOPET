@@ -1,7 +1,7 @@
-.reviewList-wrap {
+/* .reviewList-wrap {
 	background: white;
 	border: none;
-}
+} */
 
 
 /* 페이징 */
@@ -26,5 +26,5 @@
     cursor : pointer;
 }
 .pagegroup {
-	margin-left:33%;
+	
 }
