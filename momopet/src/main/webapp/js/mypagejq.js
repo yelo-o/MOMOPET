@@ -56,8 +56,6 @@ $(() => {
 
 	})*/
 
-	})
-	
 		histChkBtn.click(()=>{
 		$.ajax({
 			url:'/momopet/historylist',
@@ -74,7 +72,8 @@ $(() => {
 		})
 		return false //a 태그의 기본동작인 주소 이동 막음(ajax로 sectionObj에 내용을 넣을 것이기 때문에)
 	})
+})
+	
 
 	
 
-})
