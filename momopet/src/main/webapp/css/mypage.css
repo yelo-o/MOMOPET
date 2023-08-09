@@ -1,5 +1,5 @@
 section {
-    background-color: #00704a;
+    background-color: rgb(244, 245, 246);
     height: 500px;
     width: 100%;
     /* position: relative;
@@ -8,14 +8,14 @@ section {
     margin-top: 70px;
 }
 section>div {
-    background-color: aqua;
+    background-color: rgb(244, 245, 246);
     height: 100%;
     float: left;
     width: 80%;
 }
 
 section>aside {
-    background-color: azure;
+    background-color: #0082e6;
     height: 100%;
     float: left;
     width: 20%;
@@ -27,6 +27,6 @@ section>aside>nav>ul {
     text-align: center;
 }
 
-section>aside>nav>ul>li:hover{
+/* section>aside>nav>ul>li:hover{
 	background-color: yellow;
-}
+} */
