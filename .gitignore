@@ -75,4 +75,4 @@ local.properties
 
 # Server 예외 설정
 Servers/
-momopet/src/main/java/mybatisconfig/mybatis-config.xml
+mybatis-config.xml
