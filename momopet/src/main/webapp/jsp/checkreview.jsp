@@ -17,40 +17,24 @@
 </head>
 <body>
 	<jsp:include page="./header.jsp" />
-	<jsp:include page="./aside.jsp" />
+	<%-- <jsp:include page="./aside.jsp" /> --%>
 	<c:set var="msg" value="${requestScope.msg}" />
 	<c:set var="pb" value="${requestScope.pagebean}" />
 	<c:set var="list" value="${pb.list}" />
 
-	<div class="reivewPagegroup-container"></div>
 	<c:set var="sitterId" value="${list[0].userId}" />
 	<div class="reviewList-wrap">
 		<h1>"${sitterId}"님이 받은 리뷰 목록</h1>
 		<table border="1">
 			<tr>
 				<th>리뷰 작성자</th>
-				<th>리뷰 등록 번호</th>
-				<!-- 다른 기능 구현으로 사용할 예정 -->
 				<th>리뷰 작성일</th>
 				<th>평점</th>
 				<th>내가 받은 리뷰 내용</th>
 			</tr>
-			<%-- <c:forEach items="${reviewList}" var="review">
-				<tr align="center">
-					<td>${review.reviewWriter}</td>
-					<td>${review.reviewNo}</td> 
-					<!-- 기능 구현용으로 사용할 예정 -->
-					<td>${review.writingDate}</td>
-					<!-- 기능 구현용으로 사용할 예정 -->
-					<td>${review.reviewRating}</td>
-					<td>${review.reviewContent}</td>
-				</tr>
-			</c:forEach> --%>
 			<c:forEach items="${list}" var="review">
 				<tr align="center">
 					<td>${review.reviewWriter}</td>
-					<td>${review.reviewNo}</td>
-					<!-- 기능 구현용으로 사용할 예정 -->
 					<td>${review.reviewDate}</td>
 					<td>${review.reviewRating}</td>
 					<td>${review.reviewContent}</td>
