@@ -67,7 +67,7 @@ public class ReviewService {
 
 //		List<Review> list = repository.selectAll(startRow, endRow);
 		List<Review> list = repository.sitterSelectAll(startRow, endRow, loginedId);
-		int totalCnt = repository.count(); // 총 상품수
+		int totalCnt = repository.sitterPageCount(loginedId); // 총 상품수
 
 		int cntPerPageGroup = 5;
 
@@ -85,9 +85,9 @@ public class ReviewService {
 
 //		List<Review> list = repository.selectAll(startRow, endRow);
 		List<Review> list = repository.customerSelectAll(startRow, endRow, loginedId);
-		int totalCnt = repository.count(); // 총 상품수
+		int totalCnt = repository.customerPageCount(loginedId); // 총 상품수
 
-		int cntPerPageGroup = 3;
+		int cntPerPageGroup = 5;
 
 
 		PageBean<Review> pb = new PageBean<>(cntPerPage, totalCnt, list, cntPerPageGroup, currentPage);

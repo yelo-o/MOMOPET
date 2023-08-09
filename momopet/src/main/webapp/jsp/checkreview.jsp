@@ -52,19 +52,11 @@
 		<c:set var="totalPage" value="${pb.totalPage}" />
 		<c:set var="startPage" value="${pb.startPage}" />
 		<c:set var="endPage" value="${pb.endPage}" />
-		<c:set var="cntPerPageGroup" value="${pb.cntPerPageGroup}"/>
 
 		<c:if test="${startPage > 1 }">
 			<span class="page<c:out value=" ${startPage-1}" />"><</span>
 		</c:if>
 		
-		<c:if test="${totalPage} < ${cntPerPageGroup}">
-			<c:forEach begin="${startPage}" end="${endPage}" var="i">
-				<span class="page<c:out value=" ${i}" />"><c:out value="${i}" /></span>
-			</c:forEach>
-		</c:if>
-		
-
 		<c:forEach begin="${startPage}" end="${endPage}" var="i">
 			<span class="page<c:out value=" ${i}" />"><c:out value="${i}" /></span>
 		</c:forEach>
