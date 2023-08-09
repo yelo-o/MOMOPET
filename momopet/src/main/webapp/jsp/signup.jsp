@@ -13,7 +13,7 @@
 
     </head>
     <body>
-    	 <jsp:include page="./header.jsp"/>
+    	<jsp:include page="./header.jsp"/>
     	<div class="center">
     		<h1>회원가입</h1>
 	        <form class="signup">
@@ -38,9 +38,9 @@
 	       			<span></span>
 	       			<label>이름</label>
 	       		</div>
-	       		<div class="txt_field">
-	       			<input name="birthdate" id="birthdate" type="date" value="." required>
-	       			<span></span>
+	       		<div class="date">
+	       			<input name="birthdate" id="birthdate" type="date"  required>
+	       			<span></span>			
 	       			<label>생년월일</label>
 	       		</div>
 	       		<div class="txt_field">
@@ -145,9 +145,9 @@
 	    	
         		</div>
         		<br>
-        	<button type="submit" id="signup" class="signup">회원가입</button>
+        	<button type="submit" id="btnsignup" class="btnsignup">회원가입</button>
         </form>
 	    </div>
-	         <%@include file="./footer.jsp" %>
+	    <%@include file="./footer.jsp" %>
     </body>
 </html>
