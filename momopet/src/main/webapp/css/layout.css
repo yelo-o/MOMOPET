@@ -1,4 +1,86 @@
-* {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  
+}
+
+h1 {
+    margin-top: 0px;
+    margin-bottom: 40px;
+    text-align: center;  
+}
+
+h2 {
+	font-size: 28px;
+	padding: 16px;
+	text-align: center;  
+}
+
+.content {
+	font-size: 22px;
+	padding: 16px;
+	text-align: center;  
+	line-height: 35px;
+}
+/* .top {
+	text-align: center;
+	font-size: 18px;
+	line-height: 40px;
+	padding: 32px;
+} */
+
+.service, .howtouse {
+ 	padding: 32px;
+	margin-top: 60px;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.row {
+	padding: 16px;
+}
+
+.center {
+	text-align: center;
+}
+
+.sitter-picture {
+	background-image: url("https://i.cbc.ca/1.6654160.1668638085!/fileImage/httpImage/what-to-consider-when-looking-for-a-pet-sitter.jpg");
+	background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-grow: 1;
+    height: 720px;
+    width: 100%;
+    position: relative;
+} 
+img {
+	position: relative;
+	height: 600px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* * {
     box-sizing: border-box;
 }
 
@@ -7,9 +89,9 @@ section {
     background-color: #00704a;
     height: 500px;
     width: 100%;
-    /* position: relative;
+    position: relative;
     left: 0;
-    top: 70px; */
+    top: 70px;
     margin-top: 70px;
 }
 section>div {
@@ -56,6 +138,4 @@ body>div.usepetsitter {
 	display:block;
 	position: absolute;  
 }
-
-
-
+ */
