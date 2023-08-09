@@ -17,27 +17,30 @@
 </head>
 <body>
 	<jsp:include page="./header.jsp" />
-	<%-- <jsp:include page="./aside.jsp" /> --%>
+	<br>
+	<jsp:include page="./aside.jsp" />
 	<c:set var="msg" value="${requestScope.msg}" />
 	<c:set var="pb" value="${requestScope.pagebean}" />
 	<c:set var="list" value="${pb.list}" />
 
 	<c:set var="sitterId" value="${list[0].userId}" />
+	
+
+	<h1>"${sitterId}"님이 받은 리뷰 목록</h1>
 	<div class="reviewList-wrap">
-		<h1>"${sitterId}"님이 받은 리뷰 목록</h1>
-		<table border="1">
+		<table border="0">
 			<tr>
 				<th>리뷰 작성자</th>
-				<th>리뷰 작성일</th>
+				<th>리뷰 받은 날짜</th>
 				<th>평점</th>
 				<th>내가 받은 리뷰 내용</th>
 			</tr>
 			<c:forEach items="${list}" var="review">
-				<tr align="center">
-					<td>${review.reviewWriter}</td>
-					<td>${review.reviewDate}</td>
-					<td>${review.reviewRating}</td>
-					<td>${review.reviewContent}</td>
+				<tr align="center" style="height: 50px;">
+					<td style="width: 200px;">${review.reviewWriter}</td>
+					<td style="width: 200px;">${review.reviewDate}</td>
+					<td style="width: 100px;">${review.reviewRating}</td>
+					<td style="width: 500px;">${review.reviewContent}</td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -53,7 +56,7 @@
 		<c:if test="${startPage > 1 }">
 			<span class="page<c:out value=" ${startPage-1}" />"><</span>
 		</c:if>
-
+		
 		<c:forEach begin="${startPage}" end="${endPage}" var="i">
 			<span class="page<c:out value=" ${i}" />"><c:out value="${i}" /></span>
 		</c:forEach>
@@ -63,8 +66,11 @@
 		</c:if>
 	</div>
 
+	
+	<div style="text-align: right;">
 	<a href="${contextPath}/jsp/review.jsp">
 		<button>리뷰 등록 테스트 버튼</button>
 	</a>
+	</div>
 </body>
 </html>

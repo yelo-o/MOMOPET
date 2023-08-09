@@ -174,11 +174,26 @@ public class ReviewRepository {
 	 * @return
 	 * @throws FindException
 	 */
-	public int count() throws FindException {
+	public int sitterPageCount(String loginedId) throws FindException {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
-			return session.selectOne("com.momo.review.mapper.ReviewMapper.count");
+			return session.selectOne("com.momo.review.mapper.ReviewMapper.sitterPageCount", loginedId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new FindException(e.getMessage());
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	
+	public int customerPageCount(String loginedId) throws FindException {
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+			return session.selectOne("com.momo.review.mapper.ReviewMapper.customerPageCount", loginedId);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new FindException(e.getMessage());

@@ -46,12 +46,12 @@ public class SitterReviewListServlet extends HttpServlet {
 		try {
 			PageBean pb = service.sitterFindAll(currentPage, loginedId);
 			request.setAttribute("pagebean", pb);
+			//System.out.println("ReviewRepository.java로 부터 가져오는 리스트: " + pb);
 		} catch (FindException e) {
 			e.printStackTrace();
 			request.setAttribute("msg", e.getMessage());
 		}
 		
-//		request.setAttribute("reviewList", reviewList);
 		String path = "/jsp/checkreview.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);

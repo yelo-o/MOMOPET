@@ -7,20 +7,27 @@
 <title>내가 받은 리뷰 보기</title>
 <link rel="stylesheet"
 	href="<c:out value="${contextPath}"/>/css/checkreview.css">
+<link rel="stylesheet"
+	href="<c:out value="${contextPath}"/>/css/layout.css">
+<link rel="stylesheet"
+	href="<c:out value="${contextPath}"/>/css/aside.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="<c:out value=" ${contextPath}" />/js/checkreviewjq2.js"></script>
 </head>
 <body>
-<jsp:include page="./header.jsp"/>
+	<jsp:include page="./header.jsp" />
+	<br>
+	<jsp:include page="./aside.jsp" />
 	<c:set var="msg" value="${requestScope.msg}" />
 	<c:set var="pb" value="${requestScope.pagebean}" />
 	<c:set var="list" value="${pb.list}" />
 
 	<c:set var="customerId" value="${list[0].reviewWriter}" />
+
+	<h1>"${customerId}"님이 작성한 리뷰 목록</h1>
 	<div class="reviewList-wrap">
-		<h1>"${customerId}"님이 작성한 리뷰 목록</h1>
-		<table border="1">
+		<table border="0">
 			<tr>
 				<th>내 리뷰를 받은 시터</th>
 				<th>리뷰 작성일</th>
@@ -29,11 +36,11 @@
 			</tr>
 			<c:forEach items="${list}" var="review">
 				<!-- c:set과 차이 공부 -->
-				<tr align="center">
-					<td>${review.userId}</td>
-					<td>${review.reviewDate}</td>
-					<td>${review.reviewRating}</td>
-					<td>${review.reviewContent}</td>
+				<tr align="center" style="height: 50px;">
+					<td style="width: 200px;">${review.reviewWriter}</td>
+					<td style="width: 200px;">${review.reviewDate}</td>
+					<td style="width: 100px;">${review.reviewRating}</td>
+					<td style="width: 500px;">${review.reviewContent}</td>
 				</tr>
 
 			</c:forEach>
@@ -60,8 +67,10 @@
 		</c:if>
 	</div>
 
-	<a href="${contextPath}/jsp/review.jsp">
-		<button>리뷰 등록 테스트 버튼</button>
-	</a>
+	<div style="text-align: right;">
+		<a href="${contextPath}/jsp/review.jsp">
+			<button>리뷰 등록 테스트 버튼</button>
+		</a>
+	</div>
 </body>
 </html>
