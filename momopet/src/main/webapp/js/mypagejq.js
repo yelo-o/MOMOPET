@@ -64,7 +64,7 @@ $(() => {
 			success:(responseData)=>{
 				//customerinfo.jsp 파일의 내용을 sectionObj에 넣음
 				sectionObj.empty()
-				sectionObj.html(responseData)  
+				sectionObj.html(responseData)
 			},
 			error:(xhr)=>{
 				alert("에러" + xhr.status)
