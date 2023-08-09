@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.momo.exception.FindException;
 import com.momo.history.dto.History;
 import com.momo.history.service.HistoryService;
+import com.momo.util.PageBean;
 
 @WebServlet("/historylist")
 public class HisotryListServlet extends HttpServlet {
@@ -25,15 +26,21 @@ public class HisotryListServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		int currentPage = 1;
+		String cp = request.getParameter("cp");
 		HttpSession session = request.getSession();
 		String loginedId = (String)session.getAttribute("loginedId");
 		
+		if(cp != null && !cp.equals("")) {
+			currentPage = Integer.parseInt(cp);
+		}
+		
 		try {
-			List<History> h = service.SelectById(loginedId);
-			request.setAttribute("list", h);
+			PageBean pb = service.findAll(currentPage, loginedId);
+			request.setAttribute("pagebean", pb);
 		} catch (FindException e) {
 			e.printStackTrace();
+			request.setAttribute("msg", e.getMessage());
 		}
 		
 		String path = "/jsp/historylistresult.jsp";
