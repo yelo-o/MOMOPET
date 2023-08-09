@@ -15,7 +15,8 @@ public class Review {
 	private String reviewContent;
 	private String reviewWriter;
 	private String userId;
-	private String writingDate;
+	private String reviewDate;
+	private int rn;
 	
 	//LocalDate 사용을 위한 생성자
 //	public Review(String reviewNo, String reviewRating, String reviewContent, String reviewWriter, String userId, String writingDate) {
@@ -52,7 +53,7 @@ public class Review {
 	public String toString() {
 		return "Review{" + "reviewNo='" + reviewNo + '\'' + ", reviewRating='" + reviewRating + '\''
 				+ ", reviewContent='" + reviewContent + '\'' + ", reviewWriter='" + reviewWriter + '\'' + ", userId='"
-				+ userId + '\'' + ", writingDate='" + writingDate + '\'' + '}';
+				+ userId + '\'' + ", writingDate='" + reviewDate + '\'' + '}';
 	}
 
 }

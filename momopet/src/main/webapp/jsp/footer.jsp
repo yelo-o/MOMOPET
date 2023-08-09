@@ -1,4 +1,5 @@
 <%@page contentType="text/html;charset=UTF-8"%> 
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
     <head>

@@ -13,7 +13,7 @@ $(()=>{
 			//dataType:"text",
 			success:(responseData) =>{
 				if (responseData == 0) {
-					alert('조회된 시터가 없습니다.')
+					alert('로그인 해주세요')
 				} else { 
 				location.href=`${backURL}/recheck` //성공 시에, recheck로 주소 이동
 				alert('조회성공')
