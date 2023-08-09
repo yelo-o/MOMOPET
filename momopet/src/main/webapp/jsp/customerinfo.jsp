@@ -20,7 +20,9 @@
     <c:set var="c" value="${requestScope.customer}" />
     <%-- <c:set var="bir" value="${c.customer}" /> --%>
     <fmt:formatDate var="formattedDate" value="${c.birthDate}" pattern="yyyy-MM-dd" />
-    <h3>내 정보 확인</h3>
+   	<div class="customerinfo">
+    <h1>내 정보 확인</h1>
+    <br>
     <form>
         <table>
             <tr>
@@ -67,6 +69,7 @@
 
         </table>
     </form>
+    </div>
 </body>
 
 </html>
