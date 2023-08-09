@@ -1,6 +1,7 @@
 $(() => {
 	const infoChkBtn = $('.customerInfoChk') //내정보 확인 버튼 변수선언
 	const sectionObj = $('section#mypagenav>div') //ajax로 바뀌어질 섹션 선언
+	const histChkBtn = $('.historylistChk')  //history 누르면 섹션변경
 
 	infoChkBtn.click(() => {
 		$.ajax({
@@ -40,7 +41,7 @@ $(() => {
 	// 내가 쓴 리뷰 보기(이용자 입장)
 	const checkReviewsBtn2 = $("#checkReviewsLink2")
 	checkReviewsBtn2.click((e) => {
-		alert("클릭됨")
+		//alert("클릭됨")
 		e.preventDefault() // 링크 기본 동작(페이지 이동) 막기
 		// 서버로 리뷰 목록 가져오는 AJAX 요청
 		$.ajax({
@@ -55,4 +56,23 @@ $(() => {
 			}
 		})
 	})
+	
+		histChkBtn.click(()=>{
+		$.ajax({
+			url:'/momopet/historylist',
+			method:'post',
+			//data:infoChkBtn.serialize(),
+			success:(responseData)=>{
+				//customerinfo.jsp 파일의 내용을 sectionObj에 넣음
+				sectionObj.empty()
+				sectionObj.html(responseData)  
+			},
+			error:(xhr)=>{
+				alert("에러" + xhr.status)
+			}
+		})
+		return false //a 태그의 기본동작인 주소 이동 막음(ajax로 sectionObj에 내용을 넣을 것이기 때문에)
+	})
+
+	
 })

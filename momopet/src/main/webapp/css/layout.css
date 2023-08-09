@@ -140,3 +140,17 @@ footer>span {
 .contact-favorite-wrap fixed-contact-button {
 	display: block;
 }
+boby>div.parent{
+	border:1px solid;
+	text-align:center;
+}
+body>div.usepetsitter {
+	width:1900px;
+	height:500px;
+	background-color:#DAEBCA;
+	display:block;
+	position: absolute;  
+}
+
+
+
