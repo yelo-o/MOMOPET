@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <link rel="stylesheet" href="<c:out value=" ${contextPath}" />/css/info.css">-->
+	<link rel="stylesheet" href="<c:out value=" ${contextPath}" />/css/customerinfo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="<c:out value=" ${contextPath}" />/js/customerinfojq.js"></script>
 </head>
@@ -20,7 +20,9 @@
     <c:set var="c" value="${requestScope.customer}" />
     <%-- <c:set var="bir" value="${c.customer}" /> --%>
     <fmt:formatDate var="formattedDate" value="${c.birthDate}" pattern="yyyy-MM-dd" />
-    <h3>내 정보 확인</h3>
+   	<div class="customerinfo">
+    <h1>내 정보 확인</h1>
+    <br>
     <form>
         <table>
             <tr>
@@ -67,6 +69,7 @@
 
         </table>
     </form>
+    </div>
 </body>
 
 </html>

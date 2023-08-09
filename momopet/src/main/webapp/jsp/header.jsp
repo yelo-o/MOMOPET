@@ -27,15 +27,17 @@
           	 <li><a href="<c:out value="${contextPath}"/>/jsp/login.jsp">로그인</a></li>
             </c:when>
             <c:otherwise>
+            <ul class ="submain">
+        		<li><a href="<c:out value="${contextPath}"/>/jsp/mypage.jsp">마이페이지</a>
+		            <%-- <ul class="dropdown">
+		              <li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">히스토리</a></li>
+		              <li><a href="<c:out value="${contextPath}"/>/jsp/review.jsp">리뷰</a></li>
+		              <li><a href="<c:out value="${contextPath}"/>/customerinfocheck">내정보확인</a></li>
+		              <li><a href="<c:out value="${contextPath}"/>/jsp/member_update.jsp">내정보수정</a></li>
+		            </ul> --%>
+		            </li>
 	          	<li><a href="<c:out value="${contextPath}"/>/logout">로그아웃</a></li>
-        		<li><a href="<c:out value="${contextPath}"/>/jsp/mypage.jsp">마이페이지</a></li>
-	            <%-- <i class='bx bxs-chevron-down mypage arrow'></i>
-	            <ul class="mypage-sub-menu sub-menu">
-	              <li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">히스토리</a></li>
-	              <li><a href="<c:out value="${contextPath}"/>/jsp/review.jsp">리뷰</a></li>
-	              <li><a href="<c:out value="${contextPath}"/>/customerinfocheck">내정보확인</a></li>
-	              <li><a href="<c:out value="${contextPath}"/>/jsp/member_update.jsp">내정보수정</a></li>
-	            </ul> --%>
+	          	</ul>
         	</c:otherwise>
         </c:choose>
         </ul>

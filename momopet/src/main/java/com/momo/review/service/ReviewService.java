@@ -60,14 +60,14 @@ public class ReviewService {
 	// 회원들 유저타입이 제대로 입력되지 않아서 우선 조건문 쓰지 않고 sitterFindAll, customerFindAll로 나눠서 메서드 2개 선언
 //	public com.momo.util.PageBean<Review> findAll(int currentPage) throws FindException {
 	public com.momo.util.PageBean<Review> sitterFindAll(int currentPage, String loginedId) throws FindException {
-		int cntPerPage = 5;
+		int cntPerPage = 10; //페이지당 보여줄 리뷰수 조정
 		// ex) cp: 1, 2, 3
 		int endRow = currentPage * cntPerPage;
 		int startRow = endRow - cntPerPage + 1;
 
 //		List<Review> list = repository.selectAll(startRow, endRow);
 		List<Review> list = repository.sitterSelectAll(startRow, endRow, loginedId);
-		int totalCnt = repository.count(); // 총 상품수
+		int totalCnt = repository.sitterPageCount(loginedId); // 총 상품수
 
 		int cntPerPageGroup = 5;
 
@@ -78,14 +78,14 @@ public class ReviewService {
 	}
 	
 	public com.momo.util.PageBean<Review> customerFindAll(int currentPage, String loginedId) throws FindException {
-		int cntPerPage = 5;
+		int cntPerPage = 10; //페이지당 보여줄 리뷰수 조정
 		// ex) cp: 1, 2, 3
 		int endRow = currentPage * cntPerPage;
 		int startRow = endRow - cntPerPage + 1;
 
 //		List<Review> list = repository.selectAll(startRow, endRow);
 		List<Review> list = repository.customerSelectAll(startRow, endRow, loginedId);
-		int totalCnt = repository.count(); // 총 상품수
+		int totalCnt = repository.customerPageCount(loginedId); // 총 상품수
 
 		int cntPerPageGroup = 5;
 

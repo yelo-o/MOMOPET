@@ -1,15 +1,23 @@
-.reviewList-wrap {
-	background: white;
-	border: none;
+
+h1 {
+	text-align: center;
+	margin-bottom: 40px;
 }
-
-
+.reviewList-wrap {
+	display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
 /* 페이징 */
 .pagegroup {
     /* margin-top: 30px; */
     /* text-align: center; */
     font-size: 1.2rem;
     height:40px;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    display: flex;
+    margin-left:300px;
 }
 
 .pagegroup span {
@@ -18,13 +26,13 @@
     height: 40px; 
     box-sizing: border-box;
     /* vertical-align: middle; */
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
+    border: 0px;
     border-left: 0;
     line-height: 40px;
     border : 1px solid #ddd;
-    /* text-align: center; */
+    text-align: center; 
     cursor : pointer;
+    margin-left: 30px
 }
-.pagegroup {
-	margin-left:33%;
-}
+

@@ -56,8 +56,6 @@ $(() => {
 
 	})*/
 
-	})
-	
 		histChkBtn.click(()=>{
 		$.ajax({
 			url:'/momopet/historylist',
@@ -66,7 +64,7 @@ $(() => {
 			success:(responseData)=>{
 				//customerinfo.jsp 파일의 내용을 sectionObj에 넣음
 				sectionObj.empty()
-				sectionObj.html(responseData)  
+				sectionObj.html(responseData)
 			},
 			error:(xhr)=>{
 				alert("에러" + xhr.status)
@@ -74,7 +72,8 @@ $(() => {
 		})
 		return false //a 태그의 기본동작인 주소 이동 막음(ajax로 sectionObj에 내용을 넣을 것이기 때문에)
 	})
+})
+	
 
 	
 
-})

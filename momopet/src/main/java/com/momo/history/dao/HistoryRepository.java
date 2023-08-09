@@ -44,7 +44,7 @@ public class HistoryRepository {
 			map.put("userId", loginedId);
 			map.put("startDate", startDate);
 			map.put("endDate", endDate);
-			map.put("status", 1);
+			map.put("status", 0);
 			map.put("sitterId", sitterId);
 			session = sessionFactory.openSession();
 			System.out.println("마이바티스 연결직전");
@@ -66,6 +66,25 @@ public class HistoryRepository {
 		}
 
 	}
+	
+	public int count(String loginedId) throws FindException{
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+			int c = session.selectOne("com.momo.history.mapper.HistoryMapper.count", loginedId);
+			if (c==0) {
+				throw new FindException("조회된 데이터가 없습니다.");
+			}
+			return c;
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new FindException(e.getMessage());
+		} finally {
+			if(session!=null) {
+				session.close();
+			}
+		}
+	}
 	public List<History> SelectById(String loginedId) throws FindException{
 		List<History> list = new ArrayList<>();
 		SqlSession session = null;
@@ -80,16 +99,36 @@ public class HistoryRepository {
 			if(session!=null) {
 				session.close();
 			}
-
-			/*
-			 * try { session = sessionFactory.openSession(); History h =
-			 * session.selectOne("com.momo.history.mapper.HistoryMapper.selectById",
-			 * loginedId); if(h==null) { throw new FindException("로그인하세요"); }
-			 * System.out.println("로그인된 아이디 : "+loginedId); return h; }catch(Exception e) {
-			 * throw new FindException("히스토리 검색 실패:"+e.getMessage()); }finally { if(session
-			 * !=null) { session.close(); }
-			 */
 		}
-
+	}
+	
+	/**
+	 * 히스토리를 검색한다
+	 * @param startRow
+	 * @param endRow
+	 * @return
+	 * @throws FindException
+	 */
+	public List<History> selectAll(int startRow, int endRow, String loginedId) throws FindException{
+		List<History> list = new ArrayList<>();
+		
+		SqlSession session = null;
+		try {
+			session = sessionFactory.openSession();
+			Map<String, Object> map = new HashMap<>();
+			map.put("startRow", startRow);
+			map.put("endRow", endRow);
+			map.put("userId", loginedId);
+			
+			list = session.selectList("com.momo.history.mapper.HistoryMapper.selectAllById", map);
+			//System.out.println("히스토리번호 불러오기 : " + list.get(0).getHistoryNo());
+			return list;
+		} catch(Exception e) {
+			throw new FindException("히스토리 검색 실패 : " + e.getMessage());
+		} finally {
+			if(session!=null) {
+				session.close();
+			}
+		}
 	}
 }

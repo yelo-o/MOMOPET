@@ -49,8 +49,12 @@
 		#{startRow} AND #{endRow}
 	</select>
 
-	<select id="count" resultType="int">
-		SELECT COUNT(*) FROM review
+	<select id="sitterPageCount" resultType="int">
+		SELECT COUNT(*) FROM review WHERE user_id=#{loginedId}
+	</select>
+	
+	<select id="customerPageCount" resultType="int">
+		SELECT COUNT(*) FROM review WHERE review_writer=#{loginedId}
 	</select>
 
 </mapper>
