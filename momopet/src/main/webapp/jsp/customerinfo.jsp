@@ -24,51 +24,57 @@
     <h1>내 정보 확인</h1>
     <br>
     <form>
-        <table>
-            <tr>
-                <td>이름 : </td>
-                <td><c:out value="${customer.name}"/></td>
-            </tr>
-            <tr>
-                <td>아이디 : </td>
-                <td><c:out value="${customer.userId}"/></td>
-            </tr>
-<%--             <tr>
+			<table>
+				<tr>
+					<td>이름 :</td>
+					<td><c:out value="${customer.name}" /></td>
+				</tr>
+				<tr>
+					<td>아이디 :</td>
+					<td><c:out value="${customer.userId}" /></td>
+				</tr>
+				<%--             <tr>
                 <td>비밀번호 : </td>
                 <td><c:out value="${c.pwd}"/></td>
             </tr> --%>
-            <tr>
-				<td>휴대폰번호 : </td>
-				<td><c:out value="${c.phoneNumber}"/></td>
-			</tr>
-            <tr>
-                <td>이메일 : </td>
-                <td><c:out value="${c.email}"/></td>
-            </tr>
-            <tr>
-                <td>주소 : </td>
-                <td><c:out value="${c.address}"/></td>
-            </tr>
-            <tr>
-                <td>생년월일 : </td>
-                <%-- <td><c:out value="${c.birthDate}"/></td> --%>
-                <td><c:out value="${formattedDate}" /></td>
-            </tr>
-<%--             <tr>
-                <td>시급 : </td>
-                <td><c:out value="${c.pay}"/></td>
-            </tr>--%>
-            <tr>
-                <td>자기소개 : </td>
-                <td><c:out value="${c.introduce}"/></td>
-            </tr> 
+				<tr>
+					<td>휴대폰번호 :</td>
+					<td><c:out value="${c.phoneNumber}" /></td>
+				</tr>
+				<tr>
+					<td>이메일 :</td>
+					<td><c:out value="${c.email}" /></td>
+				</tr>
+				<tr>
+					<td>주소 :</td>
+					<td><c:out value="${c.address}" /></td>
+				</tr>
+				<tr>
+					<td>생년월일 :</td>
+					<td><c:out value="${formattedDate}" /></td>
+				</tr>
+				<tr>
+					<c:choose>
+						<c:when test="${c.userType == 0}">
+							<!-- type이 0인 경우에 보여질 내용 -->
+							<tr>
+								<td>자기소개 :</td>
+								<td><c:out value="${c.introduce}" /></td>
+							</tr>
+						</c:when>
+						<c:when test="${c.userType == 1}">
+							<!-- type이 1인 경우에 보여질 내용 -->
+						</c:when>
+					</c:choose>
+				</tr>
+				
+				<tr>
+					<td><input class="button" type="submit" value="회원수정하기"
+						onclick="return joinCheck()"></td>
+				</tr>
 
-            <tr>
-                <td><input class="button" type="submit" value="회원수정하기" onclick="return joinCheck()"></td>
-            </tr>
-
-        </table>
-    </form>
+			</table>
+		</form>
     </div>
 </body>
 
