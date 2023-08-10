@@ -11,6 +11,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="<c:out value="${contextPath}"/>/js/mypagejq.js"></script>
         <script src="<c:out value="${contextPath}"/>/js/historylistjq.js"></script>
+        <script src="<c:out value="${contextPath}"/>/js/checkreviewjq.js"></script>
+
     </head>
     <body>
 		<jsp:include page="./header.jsp"/>
@@ -23,13 +25,15 @@
 			        	<!-- <li><a href="sitterAvailability">내 시터 프로필 확인</a></li> -->
 			        	<li><a class="historylistChk" href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">히스토리</a></li>
 			        	<!-- <li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">거래 완료 내역</a></li> -->
-			        	<%-- <li><a href="<c:out value="${contextPath}"/>/checkReviews">내가 받은 리뷰 보기</a></li> --%>
-			        	<li><a href="<c:out value="${contextPath}"/>/reviewlist" id="checkReviewsLink">내가 받은 리뷰 보기</a></li>
-			        	<li><a href="<c:out value="${contextPath}"/>/reviewlist2" id="checkReviewsLink2">내가 쓴 리뷰 보기</a></li>
+			        	<%-- <li><a href="<c:out value="${contextPath}"/>/jsp/checkreview.jsp" id="checkReviewsLink">내가 받은 리뷰 보기</a></li> --%>
+			        	<li><a href="#" id="sitterReviewList">내가 받은 리뷰 보기</a></li> <!-- URL 변경하지 않고 페이지빈 사용 -->
+			        	<%-- <li><a href="<c:out value="${contextPath}"/>/jsp/checkreview2.jsp" id="checkReviewsLink2">내가 쓴 리뷰 보기</a></li> --%>
+			        	<li><a href="#" id="customerReviewList">내가 작성한 리뷰 보기</a></li>
+			        	<li><a href="#" id="customerReview">리뷰 등록</a></li>
 			        </ul>
 		        </nav>
 		    </aside>
-		    <div>
+		    <div class="aside-next">
 		    	정보 불러오기
 		    </div>
 		</section>

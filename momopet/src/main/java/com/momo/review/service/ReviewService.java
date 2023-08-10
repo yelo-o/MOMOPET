@@ -60,7 +60,7 @@ public class ReviewService {
 	// 회원들 유저타입이 제대로 입력되지 않아서 우선 조건문 쓰지 않고 sitterFindAll, customerFindAll로 나눠서 메서드 2개 선언
 //	public com.momo.util.PageBean<Review> findAll(int currentPage) throws FindException {
 	public com.momo.util.PageBean<Review> sitterFindAll(int currentPage, String loginedId) throws FindException {
-		int cntPerPage = 10; //페이지당 보여줄 리뷰수 조정
+		int cntPerPage = 5; //페이지당 보여줄 리뷰수 조정
 		// ex) cp: 1, 2, 3
 		int endRow = currentPage * cntPerPage;
 		int startRow = endRow - cntPerPage + 1;
@@ -78,7 +78,7 @@ public class ReviewService {
 	}
 	
 	public com.momo.util.PageBean<Review> customerFindAll(int currentPage, String loginedId) throws FindException {
-		int cntPerPage = 10; //페이지당 보여줄 리뷰수 조정
+		int cntPerPage = 5; //페이지당 보여줄 리뷰수 조정
 		// ex) cp: 1, 2, 3
 		int endRow = currentPage * cntPerPage;
 		int startRow = endRow - cntPerPage + 1;

@@ -1,4 +1,3 @@
-
 h1 {
 	text-align: center;
 	margin-bottom: 40px;
@@ -8,31 +7,27 @@ h1 {
     justify-content: center; /* 수평 가운데 정렬 */
     align-items: center; /* 수직 가운데 정렬 */
 }
+
 /* 페이징 */
 .pagegroup {
-    /* margin-top: 30px; */
-    /* text-align: center; */
-    font-size: 1.2rem;
-    height:40px;
+    display: flex;
     justify-content: center; /* 수평 가운데 정렬 */
     align-items: center; /* 수직 가운데 정렬 */
-    display: flex;
-    margin-left:300px;
+    font-size: 1.2rem;
+    height: 40px;
 }
 
+/* 페이지네이션 버튼에 일관된 스타일 적용 */
 .pagegroup span {
-    /* display: inline-block; */
     width: 40px;
-    height: 40px; 
+    height: 40px;
     box-sizing: border-box;
-    /* vertical-align: middle; */
-    /* border: 1px solid #ddd; */
-    border: 0px;
-    border-left: 0;
     line-height: 40px;
-    border : 1px solid #ddd;
-    text-align: center; 
-    cursor : pointer;
-    margin-left: 30px
+    border: 1px solid #ddd;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 1.2rem; /* 일관된 글꼴 크기 설정 */
 }
+
 

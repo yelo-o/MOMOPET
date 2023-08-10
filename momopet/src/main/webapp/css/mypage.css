@@ -7,6 +7,9 @@ section {
     top: 70px; */
     margin-top: 70px;
 }
+.aside-next {
+	 background-color: white;
+}
 section>div {
     background-color: rgb(244, 245, 246);
     height: 100%;

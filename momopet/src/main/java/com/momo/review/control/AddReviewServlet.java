@@ -30,7 +30,7 @@ public class AddReviewServlet extends HttpServlet {
 		
 //		String reviewNo = ""; //임의의 값
 		//String reviewRating = request.getParameter("reviewRating");
-//		String reviewRating = "2";
+//		String reviewRating = "0";
 		String reviewRating = request.getParameter("reviewRating");
 		String reviewContent = request.getParameter("reviewContent");
 		
@@ -64,7 +64,7 @@ public class AddReviewServlet extends HttpServlet {
 //	    request.setAttribute("reviewContent", reviewContent);
 ////		
 		request.setAttribute("status", status);
-		String path = "/jsp/review.jsp";
+		String path = "/jsp/reviewresult.jsp";
 //		RequestDispatcher rd = request.getRequestDispatcher(path);
 //		rd.forward(request, response);
 		request.getRequestDispatcher(path).forward(request, response);
