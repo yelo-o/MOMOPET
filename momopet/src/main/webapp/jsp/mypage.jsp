@@ -23,11 +23,10 @@
 			        <c:set var="loginedId" value="${sessionScope.loginedId}"/>
 			        <c:set var="userType" value="${sessionScope.userType}"/>
 			        	<li><a class="customerInfoChk" href="<c:out value="${contextPath}"/>/jsp/customerinfo.jsp">내 정보 확인</a></li>
-			        	<li><a class="historylistChk" href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">받은 요청 목록</a></li>
 			        	
 			        	<c:choose>
 			        	<c:when test="${userType eq 0}">
-			        	<%-- <c:when test="${empty loginedId}"> --%>
+			        		<li><a class="historylistChk" href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">받은 요청 목록</a></li>
 			        		<li><a href="#" id="sitterReviewList">내가 받은 리뷰 보기</a></li> <!-- URL 변경하지 않고 페이지빈 사용 -->
 			        	</c:when>
 			        	<c:otherwise>
@@ -35,16 +34,12 @@
 			        		<li><a href="#" id="customerReview">리뷰 등록</a></li>
 			        	</c:otherwise>
 			        	</c:choose>
-			        	<%-- <li><a href="<c:out value="${contextPath}"/>/jsp/customerinfo.jsp">내 정보 확인</a></li> --%>
-			        	<!-- <li><a href="sitterAvailability">내 시터 프로필 확인</a></li> -->
-			        	<!-- <li><a href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">거래 완료 내역</a></li> -->
-			        	<%-- <li><a href="<c:out value="${contextPath}"/>/jsp/checkreview.jsp" id="checkReviewsLink">내가 받은 리뷰 보기</a></li> --%>
-			        	<%-- <li><a href="<c:out value="${contextPath}"/>/jsp/checkreview2.jsp" id="checkReviewsLink2">내가 쓴 리뷰 보기</a></li> --%>
+			        	
 			        </ul>
 		        </nav>
 		    </aside>
 		    <div class="aside-next">
-		    	정보 불러오기
+		    	<img src="<c:out value="${contextPath}/images/puppy.jpg" />">
 		    </div>
 		</section>
 

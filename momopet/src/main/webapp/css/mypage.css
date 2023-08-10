@@ -34,7 +34,6 @@ section>aside>nav>ul>li{
 	padding : 5px;
 	}
 
-/* 
-section>aside>nav>ul>li:hover{
-	background-color: yellow;
-}  */
+img {
+	height: 500px;
+}
