@@ -39,7 +39,8 @@
 		        </nav>
 		    </aside>
 		    <div class="aside-next">
-		    	<img src="<c:out value="${contextPath}/images/puppy.jpg" />">
+		    	<img class="dog" src="<c:out value="${contextPath}/images/puppy.jpg" />">
+		    	<img class="cat" src="<c:out value="${contextPath}/images/cat.jpg" />">
 		    </div>
 		</section>
 

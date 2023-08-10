@@ -5,8 +5,10 @@ section {
     /* position: relative;
     left: 0;
     top: 70px; */
-    margin-top: 0;
 
+    margin-top: 70px;
+
+    overflow: hidden;
 }
 .aside-next {
 	 background-color: white;
@@ -34,6 +36,23 @@ section>aside>nav>ul>li{
 	padding : 5px;
 	}
 
+
+section>aside>nav>ul>li:hover{
+	background-color: yellow;
+} 
+
+img {
+/* 	height: 480px;
+	margin-top: px; */
+}
+img.dog {
+	width: 50%;	
+}
+img.cat {
+	width: 49%;
+}
+
 img {
 	height: 500px;
 }
+
