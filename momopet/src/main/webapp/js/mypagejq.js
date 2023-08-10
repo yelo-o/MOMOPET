@@ -100,7 +100,7 @@ $(() => {
 			method: 'post',
 			//data:infoChkBtn.serialize(),
 			success: (responseData) => {
-				//alert(responseData)
+				console.log(responseData)
 				sectionObj.empty()
 				sectionObj.html(responseData)
 			},
