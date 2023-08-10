@@ -16,7 +16,11 @@
 	
         <ul class="firstlink">
         <c:set var="loginedId" value="${sessionScope.loginedId}"/>
+
+          <li><a href="<c:out value="${contextPath}"/>/jsp/searchsitter.jsp">돌보미찾기</a></li>
+
           <li><a href="<c:out value="${contextPath}"/>/jsp/searchsitter.jsp">돌봄님찾기</a></li>
+
           <li><a href="<c:out value="${contextPath}"/>/boardlist">자랑하기</a></li>
         </ul>
         
