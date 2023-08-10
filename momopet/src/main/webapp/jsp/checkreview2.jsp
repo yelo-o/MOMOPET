@@ -28,6 +28,8 @@
 				<th>리뷰 작성일</th>
 				<th>평점</th>
 				<th>내가 작성한 리뷰</th>
+				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 			<c:forEach items="${list}" var="review">
 				<!-- c:set과 차이 공부 -->
@@ -42,6 +44,7 @@
 						</c:forEach></td>
 
 					<td style="width: 500px;">${review.reviewContent}</td>
+					<td style="width: 100px;"><a href="#">△</a></td>
 					<td style="width: 100px;"><a href="#">X</a></td>
 				</tr>
 			</c:forEach>
