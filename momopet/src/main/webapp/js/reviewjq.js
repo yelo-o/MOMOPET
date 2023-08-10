@@ -33,7 +33,6 @@ $(() => {
 			.attr('action', `${backURL}/review`)
 			.attr('method', 'post');
 		alert("작성하신 리뷰가 등록되었습니다.");
-
 		$.ajax({
 			url: $(e.target).attr('action'), //`${backURL}/review`
 			method: $(e.target).attr('method'), //post
@@ -42,7 +41,8 @@ $(() => {
 				if (responseData.trim() == '0') { //jsp status 값을 기준으로 0, 1 나뉨
 					alert('리뷰등록 실패');
 				} else {
-					location.href = `${frontURL}/jsp/review.jsp`;
+					/*console.log(`${frontURL}/jsp/mypage.jsp`);
+					location.href = `${frontURL}/jsp/mypage.jsp`;*/
 				}
 			},
 			error: (xhr) => {

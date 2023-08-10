@@ -15,27 +15,18 @@ import com.momo.review.service.ReviewService;
 import com.momo.exception.FindException;
 import com.momo.util.PageBean;
 
-@WebServlet("/reviewlist2")
+@WebServlet("/customerreviewlist")
 public class CustomerReviewListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ReviewService service;
 	public CustomerReviewListServlet() {
 		service = ReviewService.getInstance();
 	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 	    String loginedId = (String) session.getAttribute("loginedId");
 	    System.out.println("세션으로부터 가지고 오는 ID: " + loginedId);
 
-//		Review r = new Review(reviewWriter);
-//		List<Review> reviewList = new ArrayList<>();
-//		try {
-//			reviewList = service.checkReviews(r);
-//			System.out.println("ReviewRepository.java로 부터 가져오는 리스트: " + reviewList);
-//		} catch (Exception e) {
-//		}
-		//-------------------------- 
-		
 	    int currentPage = 1;
 		String cp = request.getParameter("cp");
 		if(cp != null && !cp.equals("")) {
