@@ -20,7 +20,7 @@
 
 	<c:set var="customerId" value="${list[0].reviewWriter}" />
 
-	<h1>"${customerId}"님이 작성한 리뷰 목록</h1>
+	<h1>'${customerId}'님이 작성한 리뷰 목록</h1>
 	<div class="reviewList-wrap">
 		<table style="border: 0px solid;">
 			<tr>
@@ -42,6 +42,7 @@
 						</c:forEach></td>
 
 					<td style="width: 500px;">${review.reviewContent}</td>
+					<td style="width: 100px;"><a href="#">X</a></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -65,7 +66,7 @@
 		</c:if>
 	</div>
 
-<%-- 	<div style="text-align: right;">
+	<%-- 	<div style="text-align: right;">
 		<a href="${contextPath}/jsp/review.jsp">
 			<button>리뷰 등록 테스트 버튼</button>
 		</a>
