@@ -18,15 +18,15 @@
     		<h1>회원가입</h1>
 	        <form class="signup">
 	       		<div class="txt_field">
-	       			<input name="id" id="id" required>
+	       			<input name="id" id="id"  maxlength="15" required>
 	       			<span></span>
-	       			<label>아이디</label>
+	       			<label>아이디 (최소 5자 최대 15자, 영문 혹은 숫자만 가능합니다)</label>
 	            </div>
 	            <button id="btIdDupchk" type="button" class="btIdDupchk" >아이디중복확인</button>
 	            <div class="txt_field">
 	       			<input name="pwd" id="pwd" type="password" required>
 	       			<span></span>
-	       			<label>비밀번호</label>
+	       			<label>비밀번호 (최소 8자 최대 15자, 숫자/영문자/특수문자를 모두 포함해야 합니다)</label>
 	       		</div>
 	       		<div class="txt_field">
 	       			<input name="pwd1" id="pwd1" type="password" required>
