@@ -24,12 +24,12 @@
 
 	<c:set var="sitterId" value="${list[0].userId}" />
 
-	<h1>"${sitterId}"님이 받은 리뷰 목록</h1>
+	<h1>'${sitterId}'님이 받은 리뷰 목록</h1>
 	<div class="reviewList-wrap">
 		<table style="border: 0px solid;">
 			<tr>
 				<th>리뷰 작성자 ID</th>
-				<th>리뷰 등록일</th>
+				<th>리뷰 작성일</th>
 				<th>평점</th>
 				<th>내가 받은 리뷰</th>
 			</tr>
@@ -48,26 +48,7 @@
 			</c:forEach>
 		</table>
 	</div>
-
-<%-- 	<div class="pagegroup">
-		<c:set var="currentPage" value="${pb.currentPage}" />
-		<c:set var="totalPage" value="${pb.totalPage}" />
-		<c:set var="startPage" value="${pb.startPage}" />
-		<c:set var="endPage" value="${pb.endPage}" />
-
-		<c:if test="${startPage > 1 }">
-			<span class="page<c:out value=" ${startPage-1}" />"><</span>
-		</c:if>
-
-		<c:forEach begin="${startPage}" end="${endPage}" var="i">
-			<span class="page<c:out value=" ${i}" />"><c:out value="${i}" /></span>
-		</c:forEach>
-
-		<c:if test="${totalPage > endPage}">
-			<span class="page<c:out value=" ${endPage+1}" />">></span>
-		</c:if>
-	</div> --%>
-		<div class="pagegroup">
+	<div class="pagegroup">
 		<c:set var="currentPage" value="${pb.currentPage}" />
 		<c:set var="totalPage" value="${pb.totalPage}" />
 		<c:set var="startPage" value="${pb.startPage}" />
@@ -84,8 +65,8 @@
 			<span class="page<c:out value=" ${endPage+1}" />">></span>
 		</c:if>
 	</div>
-	
-<%-- 	<div style="text-align: right;">
+
+	<%-- 	<div style="text-align: right;">
 		<a href="${contextPath}/jsp/review.jsp">
 			<button>리뷰 등록 테스트 버튼</button>
 		</a>
