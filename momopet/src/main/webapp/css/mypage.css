@@ -5,7 +5,13 @@ section {
     /* position: relative;
     left: 0;
     top: 70px; */
+<<<<<<< Updated upstream
     margin-top: 70px;
+=======
+    margin-top: 0;
+    overflow: hidden;
+
+>>>>>>> Stashed changes
 }
 .aside-next {
 	 background-color: white;
@@ -30,6 +36,19 @@ section>aside>nav>ul {
     text-align: center;
 }
 
+<<<<<<< Updated upstream
 section>aside>nav>ul>li:hover{
 	background-color: yellow;
 } 
+=======
+img {
+/* 	height: 480px;
+	margin-top: px; */
+}
+img.dog {
+	width: 50%;	
+}
+img.cat {
+	width: 49%;
+}
+>>>>>>> Stashed changes

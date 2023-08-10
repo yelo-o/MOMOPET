@@ -32,7 +32,12 @@
 		        </nav>
 		    </aside>
 		    <div class="aside-next">
+<<<<<<< Updated upstream
 		    	정보 불러오기
+=======
+		    	<img class="dog" src="<c:out value="${contextPath}/images/puppy.jpg" />">
+		    	<img class="cat" src="<c:out value="${contextPath}/images/cat.jpg" />">
+>>>>>>> Stashed changes
 		    </div>
 		</section>
 		        	

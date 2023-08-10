@@ -2,8 +2,10 @@ $(() => {
 	const infoChkBtn = $('.customerInfoChk') //내정보 확인 버튼 변수선언
 	const sectionObj = $('section#mypagenav>div') //ajax로 바뀌어질 섹션 선언
 	const histChkBtn = $('.historylistChk')  //history 누르면 섹션변경
-	const cusReviewListBtn = $('#sitterReviewList')
-	const sitReviewListBtn = $('#customerReviewList')
+/*	const cusReviewListBtn = $('#sitterReviewList')
+	const sitReviewListBtn = $('#customerReviewList')*/
+	const sitReviewListBtn = $('#sitterReviewList')
+	const cusReviewListBtn = $('#customerReviewList')
 	const cusReviewBtn = $('#customerReview')
 
 
@@ -77,7 +79,7 @@ $(() => {
 		return false //a 태그의 기본동작인 주소 이동 막음(ajax로 sectionObj에 내용을 넣을 것이기 때문에)
 	})
 
-	cusReviewListBtn.click(() => {
+	sitReviewListBtn.click(() => {
 		$.ajax({
 			url: '/momopet/sitterreviewlist',
 			method: 'post',
@@ -94,7 +96,7 @@ $(() => {
 		return false //<a> 기본 동작인 주소 이동 막음(ajax로 section에 전달받은 responseData 넣기 위해)
 	})
 
-	sitReviewListBtn.click(() => {
+	cusReviewListBtn.click(() => {
 		$.ajax({
 			url: '/momopet/customerreviewlist',
 			method: 'post',
