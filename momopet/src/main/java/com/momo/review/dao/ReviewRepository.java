@@ -14,6 +14,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.momo.exception.AddException;
 import com.momo.exception.FindException;
+import com.momo.exception.RemoveException;
 import com.momo.review.dto.Review;
 
 public class ReviewRepository {
@@ -51,6 +52,27 @@ public class ReviewRepository {
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new AddException(e.getMessage());
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	
+	// 리뷰 삭제하기
+	public void delete(String loginedId) throws RemoveException {
+		SqlSession session = null;
+
+		try {
+			session = sessionFactory.openSession();
+
+			Map<String, Object> map = new HashMap<>();
+			map.put("loginedId", loginedId);
+			session.delete("com.momo.review.mapper.ReviewMapper.delete", map);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RemoveException(e.getMessage());
 		} finally {
 			if (session != null) {
 				session.close();

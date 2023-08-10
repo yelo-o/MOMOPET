@@ -23,7 +23,6 @@ public class AddReviewServlet extends HttpServlet {
 		service = ReviewService.getInstance();
 	}
 	
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
@@ -46,8 +45,7 @@ public class AddReviewServlet extends HttpServlet {
 //		String writingDate = now.toString();
 //		Review r = new Review(reviewNo, reviewRating, reviewContent, reviewWriter, userId, writingDate); //Local Date 사용을 위한 생성자
 		
-//		Review r = new Review(reviewNo, reviewRating, reviewContent, reviewWriter, userId); //SYSDATE 사용을 위한 생성자
-		Review r = new Review(reviewRating, reviewContent, reviewWriter, userId); //SYSDATE 사용을 위한 생성자
+		Review r = new Review(reviewRating, reviewContent, reviewWriter, userId); 
 		System.out.println("review.jsp로부터 가져온 리뷰 내용: " + reviewContent);
 		System.out.println("review.jsp로부터 가져온 userId: " + userId);
 		System.out.println("review.jsp로부터 가져온 reviewWriter: " + reviewWriter);

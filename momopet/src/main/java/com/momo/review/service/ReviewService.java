@@ -5,6 +5,7 @@ import java.util.List;
 import com.momo.review.dto.Review;
 import com.momo.exception.AddException;
 import com.momo.exception.FindException;
+import com.momo.exception.RemoveException;
 import com.momo.review.dao.ReviewRepository;
 import com.momo.util.PageBean;
 
@@ -26,6 +27,15 @@ public class ReviewService {
 		try {
 			repository.insert(review);
 		} catch (AddException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// 리뷰 삭제
+	public void delete(String loginedId) throws RemoveException {
+		try {
+			repository.delete(loginedId);
+		} catch (RemoveException e) {
 			e.printStackTrace();
 		}
 	}
@@ -94,4 +104,5 @@ public class ReviewService {
 //		return repository.selectAll(startRow, endRow);
 		return pb;
 	}
+
 }
