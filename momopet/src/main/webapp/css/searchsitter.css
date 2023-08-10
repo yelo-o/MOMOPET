@@ -14,11 +14,13 @@ body {
 	min-height: 100vh;
 	align-items: center;
 	justify-content: center;
-	padding: 20px;
+	/* padding: 20px; */
 	background-color: rgb(244, 245, 246);
 }
 
 .center {
+	margin:0px 50px 50px 50px;
+	padding:50px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -43,6 +45,13 @@ body {
 	border-radius: 8px;
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 	margin: 100px auto;
+}
+
+.content {
+	font-size: 22px;
+	padding: 16px;
+	text-align: center;  
+	line-height: 35px;
 }
 
 .container header {

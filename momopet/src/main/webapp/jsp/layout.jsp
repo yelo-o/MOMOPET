@@ -10,10 +10,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>레이아웃</title>
-<link rel="stylesheet"
-	href="<c:out value="${contextPath}"/>/css/layout.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link rel="stylesheet" href="<c:out value="${contextPath}"/>/css/layout.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <%-- <script src="<c:out value="${contextPath}"/>/js/layoutjq.js"></script> --%>
 </head>
 <body>
