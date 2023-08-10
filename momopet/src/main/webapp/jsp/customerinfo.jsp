@@ -57,11 +57,11 @@
 <%--             <tr>
                 <td>시급 : </td>
                 <td><c:out value="${c.pay}"/></td>
-            </tr>
+            </tr>--%>
             <tr>
                 <td>자기소개 : </td>
                 <td><c:out value="${c.introduce}"/></td>
-            </tr> --%>
+            </tr> 
 
             <tr>
                 <td><input class="button" type="submit" value="회원수정하기" onclick="return joinCheck()"></td>
