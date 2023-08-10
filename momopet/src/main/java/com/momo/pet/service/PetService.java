@@ -16,9 +16,11 @@ public class PetService {
 		return service;
 	}
 	
-	public void signup(Pet p) throws AddException {
+	public void signup(String userId, String petType, String petName, 
+					   String petSex, String petBreed, String petBirth,
+					   String petRemarks) throws AddException {
 		try {
-			repository.insert(p);
+			repository.insert(userId, petType, petName, petSex, petBreed, petBirth, petRemarks);
 		} catch (AddException e) {
 			throw new AddException("펫등록 실패");
 		} 

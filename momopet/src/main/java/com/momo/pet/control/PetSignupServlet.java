@@ -24,19 +24,20 @@ public class PetSignupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//요청전달데이터 얻기
 		String userId = request.getParameter("id");
-		int petType = Integer.parseInt(request.getParameter("petType"));
+		String petType = request.getParameter("petType");
 		String petName = request.getParameter("petName");
 		String petSex = request.getParameter("petSex");
 		String petBreed = request.getParameter("petBreed");
 		String petBirth = (request.getParameter("petBirth")).toString();
 		String petRemarks = request.getParameter("petRemarks");
 	
-		Pet p = new Pet(userId, petType, petName, petSex, petBreed, petBirth, petRemarks);
+//		Pet p = new Pet(userId, petType, petName, petSex, petBreed, petBirth, petRemarks);
 		
 		//회원가입하기
 		int status = 0;
 		try {
-			service.signup(p);
+//			service.signup(p);
+			service.signup(userId, petType, petName, petSex, petBreed, petBirth, petRemarks);
 			status = 1;
 		} catch (AddException e) {
 			

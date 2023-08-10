@@ -53,12 +53,12 @@ $(()=>{
  
 	//--역할 선택시 할 일 START--
 	$(function() {
-	    $('#role').change(function(){
-	        if($('#role').val() == '0') {
+	    $('#userType').change(function(){
+	        if($('#userType').val() == '0') {
 	            divPetInfo.hide()	
 	            divTerms.show()
 	            btSignup.show()
-	        } else if($('#role').val() == '1') {
+	        } else if($('#userType').val() == '1') {
 	            divTerms.hide()
 	            divPetInfo.show()
 	            btSignup.show()
@@ -82,7 +82,6 @@ $(()=>{
 					alert('펫등록 실패')
 				}else{
 					alert('펫등록 성공')
-					btSignup.show()
 				}
 			},
 			error: (xhr)=>{

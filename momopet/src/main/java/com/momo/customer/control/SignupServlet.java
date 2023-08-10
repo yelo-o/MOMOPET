@@ -26,34 +26,32 @@ public class SignupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//요청전달데이터 얻기
 		String userId = request.getParameter("id");
-		String pwd = request.getParameter("pwd");
 		String name = request.getParameter("name");
-		String email = request.getParameter("email");
+		String pwd = request.getParameter("pwd");
 		String phoneNumber = request.getParameter("phoneNumber");
+		String email = request.getParameter("email");
 		String address = request.getParameter("address");
+		String birthDate = request.getParameter("birthdate");
+		String userSex = request.getParameter("gender");
+		String userType = request.getParameter("userType");
+		String userStatus = "0";
+		String introduce = request.getParameter("introduce");
 		//String userSex = Integer.parseInt(request.getParameter("gender"));
 		//String role = Integer.parseInt(request.getParameter("role"));
-		String userSex = request.getParameter("gender");
-		String role = request.getParameter("role");
 //		String birth = (request.getParameter("birthdate")).toString();	
-		String birthDate = request.getParameter("birthdate");
 		
-		String userStatus = "0";
-		        
 		LocalDate now = LocalDate.now();
 		String dateCreated = now.toString();
 		
-		
-		String introduce = null;
-		
-		String pay = "0";
+//		String pay = "0";
 	
 		//Customer c = new Customer(userId, name, pwd, phoneNumber, email, address, birthDate, pay, introduce, userSex, role, userStatus, dateCreated);
 		
 		//회원가입하기
 		int status = 0;
 		try {
-			service.signup(userId, name, pwd, phoneNumber, email, address, birthDate, pay, introduce, userSex, role, userStatus, dateCreated);
+			service.signup(userId, name, pwd, phoneNumber, email, address, birthDate, 
+						   userSex, userType, userStatus, introduce, dateCreated);
 			System.out.println("Signup Servlet : 회원가입 성공" + userId);
 			status = 1;
 		} catch (AddException e) {

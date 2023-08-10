@@ -67,12 +67,11 @@ public class CustomerService {
 	}
 	
 	public void signup(String userId, String name, String pwd, String phoneNumber, String email, 
-			String address, String birthDate, String pay, String introduce, String userSex, String role, 
-			String userStatus, String dateCreated) throws AddException {
+			String address, String birthDate, String userSex, String userType, 
+			String userStatus, String introduce, String dateCreated) throws AddException {
 		try {
-			repository.insert(userId, name, pwd, phoneNumber, email, 
-								address, birthDate, pay, introduce, userSex, 
-								role, userStatus, dateCreated);
+			repository.insert(userId, name, pwd, phoneNumber, email, address, birthDate, 
+					   		  userSex, userType, userStatus, introduce, dateCreated);
 		} catch (AddException e) {
 			throw new AddException("회원가입 실패");
 		} 
