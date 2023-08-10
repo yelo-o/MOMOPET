@@ -12,6 +12,5 @@ footer {
 body {
    position : relative;
    height: 100%;
-   weight: 100%;
-   
+   /* weight: 100%; */
 }

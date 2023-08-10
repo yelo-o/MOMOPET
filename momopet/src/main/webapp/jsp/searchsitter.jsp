@@ -7,12 +7,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="<c:out value="${contextPath}"/>/css/searchsitter.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="<c:out value="${contextPath}"/>/js/searchsitterjq.js"></script>
 <title>돌보미찾기</title>
 </head>
- <body>
+<body>
  <jsp:include page="./header.jsp"/>
  
     <section class="container">
@@ -60,7 +59,7 @@
           <h3>*장소</h3>
           <input type="text" placeholder="주소를 입력하세요" id="address" name="address" required/>
         </div><br>
- 		<div class="petqty">     
+ 		<div class="pet-qty">     
             <h3>몇 마리 인가요?</h3>
             <input type="number" id="petqty" name="petqty" min="0">
         </div>
@@ -69,5 +68,5 @@
       </form>
     </section>
      <%@include file="./footer.jsp" %>
-  </body>
+</body>
 </html>
