@@ -203,7 +203,7 @@ public class CustomerRepository {
 	}
 	
 	
-	public void infoupdate(String loginedId, String phoneNumber, String email, String address) throws AddException {
+	public void infoupdate(String loginedId, String phoneNumber, String email, String address, String introduce) throws AddException {
 		System.out.println("리포지토리에서 loginedId : "+ loginedId + ", email : " + email + ", address: " + address);
 		SqlSession session = null;
 		try {
@@ -214,6 +214,7 @@ public class CustomerRepository {
 			map.put("phoneNumber", phoneNumber);
 			map.put("email", email);
 			map.put("address", address);
+			map.put("introduce", introduce);
 			
 			int n = session.update("com.momo.customer.mapper.CustomerMapper.infoupdate", map); //성공하면 n = 1로 받고, 실패하면 n = 0으로 받음 
 			if (n == 0) {

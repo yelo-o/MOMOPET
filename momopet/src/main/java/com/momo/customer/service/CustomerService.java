@@ -46,8 +46,8 @@ public class CustomerService {
 		return c;
 	}
 	
-	public void infoModify(String loginedId, String phoneNumber, String email, String address) throws AddException {
-		repository.infoupdate(loginedId, phoneNumber, email, address);
+	public void infoModify(String loginedId, String phoneNumber, String email, String address, String introduce) throws AddException {
+		repository.infoupdate(loginedId, phoneNumber, email, address, introduce);
 	}
 	
 	

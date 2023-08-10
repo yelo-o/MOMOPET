@@ -19,6 +19,7 @@
     <c:set var="phone" value="${c.phoneNumber}" />
     <c:set var="em" value="${c.email}" />
     <c:set var="add" value="${c.address}" />
+    <c:set var="introduce" value="${c.introduce}" />
     
     <fmt:formatDate var="formattedDate" value="${c.birthDate}" pattern="yyyy-MM-dd" />
     
@@ -57,11 +58,11 @@
 		<%--<tr>
                 <td>시급 : </td>
                 <td><c:out value="${c.pay}"/></td>
-            </tr>
+            </tr> --%>
             <tr>
                 <td>자기소개 : </td>
-                <td><c:out value="${c.introduce}"/></td>
-            </tr> --%>
+                <td><input type="text" name="introduce" value="${introduce}"></td>
+            </tr>
 
             <tr>
                 <td><input class="buttonupdate" type="submit" value="수정하기" ></td>
