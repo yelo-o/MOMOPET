@@ -41,7 +41,7 @@
 					<td style="width: 250px;"><c:forEach begin="1"
 							end="${review.reviewRating}" var="star">
 							<img src="${contextPath}/images/star.png" alt="${star}점"
-								style="width: 20px;">
+								style="width: 20px; height:20px;">
 						</c:forEach></td>
 					<td style="width: 500px;">${review.reviewContent}</td>
 				</tr>
