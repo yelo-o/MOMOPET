@@ -26,10 +26,14 @@ section>aside {
 
 section>aside>nav>ul {
     width: 100%;
-    padding: 0;
+    padding: 10px;
     text-align: center;
 }
+section>aside>nav>ul>li{
+	padding : 5px;
+	}
 
+/* 
 section>aside>nav>ul>li:hover{
 	background-color: yellow;
-} 
+}  */

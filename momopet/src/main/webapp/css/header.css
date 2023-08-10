@@ -34,10 +34,10 @@ nav ul.firstlink{
 nav ul.firstlink li,
 nav ul.secondlink li{
 	display: inline-block;
+	position : relative;
 	line-height: 80px;
 	margin: 0 50px;
 }
-
 nav ul.secondlink{
 	float: right;
 	margin-right: 20px;

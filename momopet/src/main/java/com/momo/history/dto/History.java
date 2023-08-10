@@ -9,6 +9,7 @@ import lombok.Setter;
 
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class History {
+	private int rn;
 	private int historyNo;
 	private String sitterId;
 	private String userId;
