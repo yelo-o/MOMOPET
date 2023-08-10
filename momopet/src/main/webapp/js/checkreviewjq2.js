@@ -13,7 +13,7 @@ $(() => {
 		$.ajax({
 			url:'/momopet/customerreviewlist', // ★ 맵핑에 숫자 들어가면 cp 인식 안됨
 			method:'post',
-			data: 'cp='+ pageNo, //pageNo 전달
+			data: (e.target).serialize(), 
 			success:(responseData) => {
 				sectionObj.empty()
 				sectionObj.html(responseData) 
@@ -34,4 +34,20 @@ $(() => {
 		$(e.target).css("color", "black")
 	})
 	//--페이지 이동 hover END--
+	
+	//--삭제 버튼을 클릭할 때 할 일 START--
+	$('#delBtn').click((e) => {
+		alert('클릭 확인')
+		
+		$.ajax({
+			url:'/momopet/deletereview', // ★ 맵핑에 숫자 들어가면 cp 인식 안됨
+			method:'post',
+			success:(responseData) => {
+				alert(responseData)
+			},
+			error: (xhr) => {
+				alert("에러" + xhr.status)
+			}
+		})
+	}) 
 })

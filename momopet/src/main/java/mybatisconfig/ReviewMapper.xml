@@ -19,6 +19,11 @@
 		#{reviewContent},
 		#{reviewWriter}, #{userId}, SYSDATE)
 	</insert>
+	
+	<delete id="delete" parameterType="map">
+	    DELETE FROM review
+	    WHERE review_writer = #{loginedId}
+	</delete>
 
 	<!-- <select id="checkReviews" parameterType="map" resultType="Review"> 
 		SELECT * FROM review WHERE user_id = #{reviewWriter} </select> --> <!-- 위와 같이 SQL문 작성하면 리뷰 작성일을 출력 못함 -->

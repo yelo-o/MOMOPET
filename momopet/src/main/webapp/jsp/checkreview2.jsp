@@ -34,7 +34,7 @@
 			<c:forEach items="${list}" var="review">
 				<!-- c:set과 차이 공부 -->
 				<tr align="center" style="height: 50px;">
-					<td style="width: 250px;">${review.reviewWriter}</td>
+					<td style="width: 250px;">${review.userId}</td>
 					<td style="width: 250px;">${review.reviewDate}</td>
 					<%-- <td style="width: 100px;">${review.reviewRating}</td> --%>
 					<td style="width: 250px;"><c:forEach begin="1"
@@ -45,7 +45,7 @@
 
 					<td style="width: 500px;">${review.reviewContent}</td>
 					<td style="width: 100px;"><a href="#">△</a></td>
-					<td style="width: 100px;"><a href="#">X</a></td>
+					<td style="width: 100px;"><a href="#" id="delBtn">X</a></td>
 				</tr>
 			</c:forEach>
 		</table>
