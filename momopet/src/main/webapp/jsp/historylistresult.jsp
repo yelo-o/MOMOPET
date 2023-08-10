@@ -23,16 +23,18 @@
 	<c:set var="pb" value="${requestScope.pagebean}" />
 	<c:set var="list" value="${pb.list}" />
 
-	<h3>히스토리 조회 목록</h3>
+	<h2>내가 받은 요청 목록 조회</h2>
+	<!-- <h3>내가 받은 요청 목록 조회</h3> -->
 
 <%-- <c:set var="hList" value="${requestScope.list}"/> --%>
-	<hr>
+	<hr><br>
 
 	<table class="historylist" style="border: 1px solid;">
 	<tr><th>히스토리번호</th><th>돌보미ID(내 ID)</th><th>요청하신 보호자 ID</th><th>돌봄시작날짜</th><th>돌봄종료날짜</th><th>현황</th><th>승인버튼</th></tr>
 	
 	<c:forEach items="${list}" var="h">
 		<c:set var="stat" value="${h.status}" />
+		<c:set var="hNo" value="${h.historyNo}" />
 		<fmt:formatDate var="formattedStartDate" value="${h.startDate}" pattern="yyyy-MM-dd" />
 		<fmt:formatDate var="formattedEndDate" value="${h.endDate}" pattern="yyyy-MM-dd" />
 		<tr>
@@ -45,13 +47,20 @@
 			<td><c:out value="${formattedEndDate}" /></td>
 			<td>
 				<c:choose>
-					<c:when test="${stat==0}">&nbsp;대기중&nbsp;
+					<c:when test="${stat == 0}">&nbsp;대기중&nbsp;
 					</c:when>
 					<c:otherwise>&nbsp;수락&nbsp;
 					</c:otherwise>
 				</c:choose>
 			</td>
-			<td><button>승인</button>	<button>거절</button></td>
+			<td>
+				<c:if test="${stat == 0}">
+					<button class="<c:out value="${stat}" /> <c:out value="${hNo}" />">승인</button>
+				</c:if>
+				<c:if test="${stat == 1}">
+					<button class="<c:out value="${stat}" /> <c:out value="${hNo}" />">취소</button>
+				</c:if>
+			</td>
 		</tr>
 	</c:forEach>
 	</table>

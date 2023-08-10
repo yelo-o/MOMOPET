@@ -23,7 +23,7 @@
 			        <c:set var="loginedId" value="${sessionScope.loginedId}"/>
 			        <c:set var="userType" value="${sessionScope.userType}"/>
 			        	<li><a class="customerInfoChk" href="<c:out value="${contextPath}"/>/jsp/customerinfo.jsp">내 정보 확인</a></li>
-			        	<li><a class="historylistChk" href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">히스토리</a></li>
+			        	<li><a class="historylistChk" href="<c:out value="${contextPath}"/>/jsp/historylist.jsp">받은 요청 목록</a></li>
 			        	
 			        	<c:choose>
 			        	<c:when test="${userType eq 0}">

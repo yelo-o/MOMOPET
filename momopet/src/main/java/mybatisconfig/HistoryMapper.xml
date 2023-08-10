@@ -26,4 +26,11 @@ FROM (SELECT * FROM history WHERE sitter_id = #{userId} ORDER BY start_date DESC
 WHERE rn BETWEEN #{startRow} AND #{endRow}
 </select>
 
+<update id="update" parameterType="map" >
+UPDATE history
+SET status=#{hstat}
+WHERE history_no=#{historyNo}
+</update>
+
+
 </mapper>

@@ -40,7 +40,7 @@ public class HistoryRepository {
 			}
 
 			Map<String, Object> map = new HashMap<>();
-			System.out.println("MAP에 왔다" + loginedId+startDate+endDate+sitterId);
+			//System.out.println("MAP에 왔다" + loginedId+startDate+endDate+sitterId);
 			map.put("userId", loginedId);
 			map.put("startDate", startDate);
 			map.put("endDate", endDate);
@@ -52,7 +52,7 @@ public class HistoryRepository {
 			if(n == 0) {
 				throw new AddException("DB추가 실패");
 			} else {
-				System.out.println("DB 추가 성공했습니다");
+				System.out.println("DB에 히스토리 추가 성공했습니다");
 				session.commit();
 			}
 			//System.out.println(h.getUserId()+h.getStartDate()+h.getEndDate()+h.getSitterId());	
@@ -64,8 +64,40 @@ public class HistoryRepository {
 				session.close();
 			}
 		}
-
 	}
+	
+	public void update(String historyNo, String hstat) throws AddException{
+		SqlSession session = null;
+		
+		if (hstat.equals("0")) {
+			hstat = "1";
+		} else if(hstat.equals("1")) {
+			hstat = "0";
+		}
+
+		try {
+			Map<String, Object> map = new HashMap<>();
+			map.put("historyNo", historyNo);
+			map.put("hstat", hstat);
+			session = sessionFactory.openSession();
+			System.out.println("마이바티스 연결직전");
+			int n = session.update("com.momo.history.mapper.HistoryMapper.update", map);
+			if(n == 0) {
+				throw new AddException("DB추가 실패");
+			} else {
+				System.out.println("DB 추가 성공했습니다");
+				session.commit();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			throw new AddException(e.getMessage());
+		}finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+	}
+	
 	
 	public int count(String loginedId) throws FindException{
 		SqlSession session = null;

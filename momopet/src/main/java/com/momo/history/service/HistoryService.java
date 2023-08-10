@@ -26,6 +26,12 @@ public class HistoryService {
 	public void addHistory(String sitterId, String loginedId, String startDate, String endDate) throws AddException{
 		repository.insert(sitterId, loginedId, startDate, endDate);
 	}
+	
+	public void updateHistoryStatus(String historyNo, String hstat) throws AddException{
+		repository.update(historyNo, hstat);
+	}
+	
+	
 	public List<History> SelectById(String loginedId) throws FindException{
 		List<History> list = new ArrayList<>();
 		list = repository.SelectById(loginedId);
