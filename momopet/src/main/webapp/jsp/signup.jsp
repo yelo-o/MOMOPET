@@ -68,7 +68,7 @@
 	       			<label>주소 예)서울시 강남구</label>
 	       		</div>
 	            <div class="txt_field">
-	       			<select id="role" name="role" required>
+	       			<select id="userType" name="userType" required>
 	       					<option value="none">선택하세요</option>
 	       					<option value="0">돌보미</option>
 	       					<option value="1">보호자</option>
@@ -121,6 +121,11 @@
 	       		</div>
 	       		
 	       		<div class="terms" id="terms">
+	       			<div class="txt_field">
+	            		<input name="introduce" id="introduce" type="text">
+	                	<span></span>
+	       				<label>자기소개</label>
+	       			</div>
 	       			<h3>필수약관</h3>
 	       			<p>이 웹사이트의 서비스를 이용하시려면 아래의 약관에 동의해야 합니다.
 		            <br>

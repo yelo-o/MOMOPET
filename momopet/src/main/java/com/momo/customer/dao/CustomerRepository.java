@@ -115,24 +115,25 @@ public class CustomerRepository {
 			throw new AddException(e.getMessage());
 		}
 	}
-	public void insert(String userId, String name, String pwd, String phoneNumber, String email,
-						String address, String birthDate, String pay, String introduce, String userSex, 
-						String role, String userStatus, String dateCreated) throws AddException {
+	public void insert(String userId, String name, String pwd, String phoneNumber, String email, 
+					   String address, String birthDate, String userSex, String userType, 
+					   String userStatus, String introduce, String dateCreated) throws AddException {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
 			Map<String, Object> map = new HashMap<>();
-			map.put("i", userId);
-			map.put("p", pwd);
-			map.put("n", name);
-			map.put("e", email);
-			map.put("pn", phoneNumber);
-			map.put("a", address);
-			map.put("s", userSex);
-			map.put("r", role);
-			map.put("b", birthDate);
-			map.put("d", dateCreated);
-			map.put("u", userStatus);
+			map.put("userId", userId);
+			map.put("name", name);
+			map.put("pwd", pwd);
+			map.put("phoneNumber", phoneNumber);
+			map.put("email", email);
+			map.put("address", address);
+			map.put("birthDate", birthDate);
+			map.put("userSex", userSex);
+			map.put("userType", userType);
+			map.put("userStatus", userStatus);
+			map.put("introduce", introduce);
+			map.put("dateCreated", dateCreated);
 			
 			session.insert("com.momo.customer.mapper.CustomerMapper.signup", map);
 			session.commit();

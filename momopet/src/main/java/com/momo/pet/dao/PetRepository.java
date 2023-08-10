@@ -32,18 +32,20 @@ public class PetRepository {
 		}
 
 	}
-	public void insert(Pet p) throws AddException {
+	public void insert(String userId, String petType, String petName, 
+			   		   String petSex, String petBreed, String petBirth,
+			   		   String petRemarks) throws AddException {
 		SqlSession session = null;
 		try {
 			session = sessionFactory.openSession();
 			Map<String, Object> map = new HashMap<>();
-			map.put("i", p.getUserId());
-			map.put("t", p.getPetType());
-			map.put("n", p.getPetName());
-			map.put("s", p.getPetSex());
-			map.put("b", p.getPetBreed());
-			map.put("bi", p.getPetBirth());
-			map.put("r", p.getPetRemarks());
+			map.put("userId", userId);
+			map.put("petType", petType);
+			map.put("petName", petName);
+			map.put("petSex", petSex);
+			map.put("petBreed", petBreed);
+			map.put("petBirth", petBirth);
+			map.put("petRemarks", petRemarks);
 			
 			session.insert("com.momo.pet.mapper.PetMapper.signup", map);
 			session.commit();
