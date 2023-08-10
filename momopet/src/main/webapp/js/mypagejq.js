@@ -110,7 +110,7 @@ $(() => {
 				alert("에러" + xhr.status)
 			}
 		})
-		return false //<a> 기본 동작인 주소 이동 막음(ajax로 section에 전달받은 responseData 넣기 위해)
+		return false //a 태그의 기본동작인 주소 이동 막음(ajax로 sectionObj에 내용을 넣을 것이기 때문에)
 	})
 
 

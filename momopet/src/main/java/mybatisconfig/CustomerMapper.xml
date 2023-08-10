@@ -21,7 +21,8 @@
   </insert>
   
   <insert id="signup" parameterType="map">
-  	INSERT INTO customer(user_id, pwd, name, email, phone_number, address, user_sex, user_type, birth_date, date_created, status) VALUES (#{i}, #{p}, #{n}, #{e}, #{pn}, #{a}, #{s}, #{r}, #{b}, #{d}, #{u})
+  	INSERT INTO customer(user_id, name, pwd, phone_number, email, address, birth_date, user_sex, user_type, user_status, introduce, date_created) 
+  	VALUES (#{userId}, #{name}, #{pwd}, #{phoneNumber}, #{email}, #{address}, #{birthDate}, #{userSex}, #{userType}, #{userStatus}, #{introduce}, #{dateCreated})
   </insert>
   
   <select id="countSitters" resultType="int">
@@ -29,7 +30,7 @@
   </select>
 
   <select id="selectSitters" parameterType="map" resultType="Customer">
-	SELECT * FROM customer WHERE user_type=0 AND address=#{a}
+	SELECT * FROM customer WHERE user_type=0 AND address LIKE '%'||#{a}||'%'
   </select>
   
   <update id="infoupdate" parameterType="map">
@@ -37,7 +38,8 @@
     SET
     	email = #{email},
     	phone_number = #{phoneNumber},
-    	address = #{address}
+    	address = #{address},
+    	introduce = #{introduce}
     WHERE user_id = #{id}
    </update>
   

@@ -4,17 +4,33 @@
    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.momo.history.mapper.HistoryMapper"> 
   
-  <insert id = "insert" parameterType="map">
-  INSERT INTO history
-  	<!-- (history_no, user_id, start_date, end_date, status, sitter_id)  -->
-  	VALUES (history_seq.NEXTVAL, #{userId}, #{startDate}, #{endDate},#{status},#{sitterId})
-  </insert>
+ <insert id = "insert" parameterType="map">
+ INSERT INTO history
+<!-- (history_no, user_id, start_date, end_date, status, sitter_id)  -->
+VALUES (history_seq.NEXTVAL, #{userId}, #{startDate}, #{endDate},#{status},#{sitterId})
+ </insert>
   
-  <select id="selectById" resultType="History" parameterType="map">
-  SELECT * FROM history WHERE user_id=#{loginedId}
-  </select>
+<select id="selectById" resultType="History" parameterType="map">
+SELECT * FROM history WHERE sitter_id=#{loginedId}
+</select>
+  
+<select id="count" resultType="int">
+SELECT COUNT(*) FROM history
+WHERE sitter_id=#{id}
+</select>  
+ 
+<select id="selectAllById" parameterType="map" resultType="History">
+SELECT * FROM 
+(SELECT rownum rn, a.* 
+FROM (SELECT * FROM history WHERE sitter_id = #{userId} ORDER BY start_date DESC) a)
+WHERE rn BETWEEN #{startRow} AND #{endRow}
+</select>
+
+<update id="update" parameterType="map" >
+UPDATE history
+SET status=#{hstat}
+WHERE history_no=#{historyNo}
+</update>
+
+
 </mapper>
-
-
-
-

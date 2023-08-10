@@ -37,6 +37,7 @@ public class LoginServlet extends HttpServlet {
 			Customer c = service.login(id, pwd);
 			status = 1;
 			session.setAttribute("loginedId", id);
+			session.setAttribute("userType", c.getUserType());
 		}catch(FindException e) {
 			
 		}

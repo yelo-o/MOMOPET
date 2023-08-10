@@ -5,13 +5,10 @@ section {
     /* position: relative;
     left: 0;
     top: 70px; */
-<<<<<<< Updated upstream
-    margin-top: 70px;
-=======
-    margin-top: 0;
-    overflow: hidden;
 
->>>>>>> Stashed changes
+    margin-top: 70px;
+
+    overflow: hidden;
 }
 .aside-next {
 	 background-color: white;
@@ -32,15 +29,18 @@ section>aside {
 
 section>aside>nav>ul {
     width: 100%;
-    padding: 0;
+    padding: 10px;
     text-align: center;
 }
+section>aside>nav>ul>li{
+	padding : 5px;
+	}
 
-<<<<<<< Updated upstream
+
 section>aside>nav>ul>li:hover{
 	background-color: yellow;
 } 
-=======
+
 img {
 /* 	height: 480px;
 	margin-top: px; */
@@ -51,4 +51,8 @@ img.dog {
 img.cat {
 	width: 49%;
 }
->>>>>>> Stashed changes
+
+img {
+	height: 500px;
+}
+

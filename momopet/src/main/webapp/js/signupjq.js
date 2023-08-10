@@ -32,14 +32,23 @@ $(()=>{
 	
 	//--아이디중복확인 클릭시 할 일 START--
     btIdDupchk.click(()=>{
-	    $.ajax({
+			
+		const idObj = $('#id')
+		var reg = /^[A-Za-z0-9]{5,15}$/; 
+		
+		$.ajax({
 			url: 'http://localhost:8888/momopet/iddupchk',
 			method: 'get',
 			data: `id=${inputIdObj.val()}`,
 			success: (responseData)=>{
 				if(responseData.trim() == '0'){
 					alert('이미 사용중인 아이디입니다')
-				}else{
+				} else if (idObj.val().length < 5){ 
+					alert('아이디는 최소 5자 최대 15자, 영문자 혹은 숫자만 가능합니다')
+				//} else if (!(".*[a-z|0-9]+.*").test(idObj.val())) {
+				} else if (false === reg.test(idObj.val())) {
+					alert('아이디는 최소 5자 최대 15자, 영문자 혹은 숫자만 가능합니다')
+				} else {
 					alert('사용가능한 아이디입니다')
 				}
 			},
@@ -47,18 +56,36 @@ $(()=>{
 				alert("에러:" +xhr.status)
 			}
 		})  
+		
+
+
+	    /*$.ajax({
+			url: 'http://localhost:8888/momopet/iddupchk',
+			method: 'get',
+			data: `id=${inputIdObj.val()}`,
+			success: (responseData)=>{
+				if(responseData.trim() == '0'){
+					alert('이미 사용중인 아이디입니다')
+				}else {
+					alert('사용가능한 아이디입니다')
+				}
+			},
+			error: (xhr)=>{
+				alert("에러:" +xhr.status)
+			}
+		})  */
     })
     //--아이디중복확인 클릭시 할 일 END--
 
  
 	//--역할 선택시 할 일 START--
 	$(function() {
-	    $('#role').change(function(){
-	        if($('#role').val() == '0') {
+	    $('#userType').change(function(){
+	        if($('#userType').val() == '0') {
 	            divPetInfo.hide()	
 	            divTerms.show()
 	            btSignup.show()
-	        } else if($('#role').val() == '1') {
+	        } else if($('#userType').val() == '1') {
 	            divTerms.hide()
 	            divPetInfo.show()
 	            btSignup.show()
@@ -82,7 +109,6 @@ $(()=>{
 					alert('펫등록 실패')
 				}else{
 					alert('펫등록 성공')
-					btSignup.show()
 				}
 			},
 			error: (xhr)=>{
@@ -99,13 +125,22 @@ $(()=>{
         const pwdObj = $('#pwd')
         const pwd1Obj = $('#pwd1')
         
+        /*let reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/; //대문자 포함*/
+        let reg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
+        
+		
+		if (false === reg.test(pwdObj.val())) {
+            alert('비밀번호는 8자 이상, 15자 이하여야 하며, 숫자/영문자/특수문자를 모두 포함해야 합니다');
+            return false;
+        } 
+        
         if(pwdObj.val() != pwd1Obj.val()) {
             alert('비밀번호가 일치하지 않습니다')
             pwdObj.focus()
             return false
         } 
 
-        if($('#role').val() == '0' && chkbxTerms.prop('checked') == false) {
+        if($('#userType').val() == '0' && chkbxTerms.prop('checked') == false) {
 	        alert('필수약관 동의는 필수입니다')
 	        return false
 	    }

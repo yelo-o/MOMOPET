@@ -28,12 +28,14 @@ public class CustomerInfoUpdateServlet extends HttpServlet {
 		String phoneNumber = request.getParameter("phoneNumber");
 		String email = request.getParameter("email");
 		String address = request.getParameter("address");
+		String introduce = request.getParameter("introduce");
+		
 		
 		if (loginedId == null) {
 			request.setAttribute("status", 0);
 		} else {
 			try {
-				service.infoModify(loginedId, phoneNumber, email, address); //파라미터로 받은 값들 service로 전달
+				service.infoModify(loginedId, phoneNumber, email, address, introduce); //파라미터로 받은 값들 service로 전달
 				request.setAttribute("status", 1);
 				
 			} catch(AddException e) {

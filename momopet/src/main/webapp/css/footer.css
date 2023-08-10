@@ -1,25 +1,16 @@
 footer {
-	position : relative;
+   position : relative;
     background-color: #2c2a29; 
     color: #fff;
- 	text-align: center;
- 	top:30px;
- 	height : 40%;
- 	
-}
-
-footer>ul {
     text-align: center;
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0 auto;
-	width: 50%;
+    bottom : 0px;
+    left : 0px;    
+    width: 100%;
+    margin-top: 50px;
 }
 
-footer>span {
-    display: inline-block;
-    margin-top: 40px;
-    margin: 0 auto;
-    width: 80%;
- 
+body {
+   position : relative;
+   height: 100%;
+   /* weight: 100%; */
 }

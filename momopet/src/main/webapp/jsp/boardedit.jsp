@@ -52,7 +52,7 @@
                 </div>
                 <div class="cont">
                     <%-- <textarea type="text" id="boardContent" name="boardContent" placeholder="${fn:replace(con, LF, '<br>')}"></textarea> --%> <!-- 값 대신 placeholder로 사용하고 싶을 때  -->
-                    <textarea id="boardContent" >${fn:replace(con, LF, '<br>')}</textarea>
+                    <textarea id="boardContent" name="boardContent" >${fn:replace(con, LF, '<br>')}</textarea>
                 </div>
             </div>
         </div>
