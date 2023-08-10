@@ -5,7 +5,8 @@
 <mapper namespace="com.momo.pet.mapper.PetMapper"> 
 
   <insert id="signup" parameterType="map">
-  	INSERT INTO pet(user_id, pet_type, pet_name, pet_sex, pet_breed, pet_birth, pet_remarks) VALUES (#{i}, #{t}, #{n}, #{s}, #{b}, #{bi}, #{r})
+  	INSERT INTO pet(user_id, pet_type, pet_name, pet_sex, pet_breed, pet_birth, pet_remarks)
+  	VALUES (#{userId}, #{petType}, #{petName}, #{petSex}, #{petBreed}, #{petBirth}, #{petRemarks})
   </insert>
   
 </mapper>

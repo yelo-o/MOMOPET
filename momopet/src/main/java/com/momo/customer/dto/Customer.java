@@ -20,7 +20,7 @@ public class Customer {
 	private String pay;
 	private String introduce;
 	private int userSex;
-	private int role;
+	private int userType;
 	private int userStatus;
 	private String dateCreated;
 	
