@@ -41,6 +41,7 @@ public class ConfirmRequestServlet extends HttpServlet {
 			session.setAttribute("sitterId", sitterId);
 			session.setAttribute("name", c.getName());
 			session.setAttribute("gender", c.getUserSex());
+			session.setAttribute("introduce", c.getIntroduce());
 		} catch (FindException e) {
 			e.printStackTrace();
 		}
