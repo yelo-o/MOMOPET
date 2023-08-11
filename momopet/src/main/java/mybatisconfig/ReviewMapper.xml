@@ -22,7 +22,7 @@
 	
 	<delete id="delete" parameterType="map">
 	    DELETE FROM review
-	    WHERE review_writer = #{loginedId}
+	    WHERE review_no = #{reviewNo}
 	</delete>
 
 	<!-- <select id="checkReviews" parameterType="map" resultType="Review"> 

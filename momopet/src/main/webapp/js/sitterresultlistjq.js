@@ -15,7 +15,7 @@ $(()=>{
 				if (responseData == 0) {
 					alert('로그인 해주세요')
 				} else { 
-				location.href=`${backURL}/recheck` //성공 시에, recheck로 주소 이동
+				location.href=`${backURL}/recheck` //성공 시에, recheck 서블릿으로 주소 이동
 				alert('조회성공')
 				}
 			},
