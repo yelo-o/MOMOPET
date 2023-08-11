@@ -30,7 +30,7 @@
 				<th>리뷰 작성일</th>
 				<th>평점</th>
 				<th>내가 작성한 리뷰</th>
-				<th>수정</th>
+				<!-- <th>수정</th> -->
 				<th>삭제</th>
 			</tr>
 			<c:forEach items="${list}" var="review">
@@ -48,7 +48,7 @@
 						</c:forEach></td>
 
 					<td style="width: 500px;">${review.reviewContent}</td>
-					<td style="width: 100px;"><button class="update">△</button></td>
+					<!-- <td style="width: 100px;"><button class="update">△</button></td> -->
 					<td style="width: 100px;"><button class="${review.reviewNo}">X</button></td>
 				</tr>
 			</c:forEach>
