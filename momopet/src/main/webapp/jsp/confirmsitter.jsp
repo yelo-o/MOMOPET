@@ -24,6 +24,7 @@
                     <c:set var="sitterId" value="${requestScope.sitterId}" />
     				<c:set var="name" value="${requestScope.name}" />
     				<c:set var="gender" value="${requestScope.gender}" />
+    				<c:set var="introduce" value="${requestScope.introduce}" />
                         <h1>돌보미정보</h1>
                         이름 : <span class="sitterName"><c:out value="${name}"/></span>
                         <br>
@@ -38,7 +39,7 @@
 							       </c:otherwise>
 							    </c:choose>		
                               </span>
-                        자기소개 : <br>
+                        자기소개 : <span class="introduce"><c:out value="${introduce}"/><br></span>
                     </div>
                     <br>
                    <div class="datepicker-to-from">
