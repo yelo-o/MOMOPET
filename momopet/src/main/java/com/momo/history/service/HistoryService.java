@@ -45,7 +45,7 @@ public class HistoryService {
 	 * @throws FindException
 	 */
 	public com.momo.util.PageBean<History> findAll(int currentPage, String loginedId) throws FindException{
-		int cntPerPage = 10; //5개까지 보여줄거임
+		int cntPerPage = 5; //5개까지 보여줄거임
 		//ex) cp: 1, 2, 3
 		int endRow = currentPage*cntPerPage;
 		int startRow = endRow - cntPerPage + 1;
