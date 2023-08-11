@@ -37,7 +37,7 @@ $(()=>{
 		var reg = /^[A-Za-z0-9]{5,15}$/; 
 		
 		$.ajax({
-			url: 'http://localhost:8888/momopet/iddupchk',
+			url: '/momopet/iddupchk',
 			method: 'get',
 			data: `id=${inputIdObj.val()}`,
 			success: (responseData)=>{
@@ -101,7 +101,7 @@ $(()=>{
 	//--펫등록 클릭시 할 일 START--
 	btPetSignup.click(()=>{
 	    $.ajax({
-			url: 'http://localhost:8888/momopet/petsignup',
+			url: '/momopet/petsignup',
 			method: 'post',
 			data: formObj.serialize(),
 			success: (responseData)=>{
@@ -146,7 +146,7 @@ $(()=>{
 	    }
         
         $(e.target)
-        .attr('action', 'http://localhost:8888/momopet/signup')
+        .attr('action', '/momopet/signup')
         .attr('method', 'post')
 
         $.ajax({
