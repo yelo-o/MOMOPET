@@ -14,7 +14,7 @@ $(() => {
 		$.ajax({
 			url:'/momopet/customerreviewlist', // ★ 맵핑에 숫자 들어가면 cp 인식 안됨
 			method:'post',
-			data: (e.target).serialize(), 
+			data: 'cp='+ pageNo, 
 			success:(responseData) => {
 				sectionObj.empty()
 				sectionObj.html(responseData) 
@@ -59,14 +59,13 @@ $(() => {
 	}) */
 	
 /*	const deleteBtn = $('.delete')
-	const updateBtn = $('.update')*/
-	
-	const reviewNo = $('#reviewNo').html()
+	const updateBtn = $('.update')
+	const reviewNo = $('#reviewNo').html()*/
 	
 	
 	$('button').click((e)=>{
 		const btnObj = $(e.currentTarget).attr('class')
-		alert(btnObj)
+		/*alert(btnObj)*/
 	
 		$.ajax({
 			url: '/momopet/deletereview',
