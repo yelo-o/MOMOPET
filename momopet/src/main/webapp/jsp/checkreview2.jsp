@@ -25,7 +25,7 @@
 	<div class="reviewList-wrap">
 		<table style="border: 0px solid;">
 			<tr>
-				<th>리뷰 번호</th>
+				<!-- <th>리뷰 번호</th> -->
 				<th>내 리뷰를 받은 시터 ID</th>
 				<th>리뷰 작성일</th>
 				<th>평점</th>
@@ -37,7 +37,7 @@
 				<!-- c:set과 차이 공부 -->
 				<%-- <c:set id="reviewNo" value="${review.reviewNo}"/> --%>
 				<tr align="center" style="height: 50px;">
-					<td style="width: 250px;" id="reviewNo">${review.reviewNo}</td>
+					<td style="display: none;" id="reviewNo">${review.reviewNo}</td>
 					<td style="width: 250px;">${review.userId}</td>
 					<td style="width: 250px;">${review.reviewDate}</td>
 					<%-- <td style="width: 100px;">${review.reviewRating}</td> --%>
