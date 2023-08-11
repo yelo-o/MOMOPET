@@ -60,16 +60,17 @@ public class ReviewRepository {
 	}
 	
 	// 리뷰 삭제하기
-	public void delete(String loginedId) throws RemoveException {
+	public void delete(String reviewNo) throws RemoveException {
 		SqlSession session = null;
 
 		try {
 			session = sessionFactory.openSession();
 
 			Map<String, Object> map = new HashMap<>();
-			map.put("loginedId", loginedId);
+			map.put("reviewNo", reviewNo);
 			session.delete("com.momo.review.mapper.ReviewMapper.delete", map);
 			session.commit();
+			System.out.println("ReviewRepository: reviewNo  " + reviewNo);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RemoveException(e.getMessage());

@@ -26,14 +26,16 @@ public class DeleteReviewServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		HttpSession session  =  request.getSession();
-		String loginedId = (String)session.getAttribute("loginedId");
-		
+//		HttpSession session  =  request.getSession();
+//		String loginedId = (String)session.getAttribute("loginedId");
+		String reviewNo = request.getParameter("reviewNo");
 		
 		
 		int status = 0;
 		try {
-			service.delete(loginedId);
+//			service.delete(loginedId);
+			System.out.println("DeleteReviewServlet: reviewNo  " + reviewNo);
+			service.delete(reviewNo);
 		} catch (RemoveException e) {
 			e.printStackTrace();
 		}

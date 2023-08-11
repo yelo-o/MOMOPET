@@ -32,9 +32,10 @@ public class ReviewService {
 	}
 	
 	// 리뷰 삭제
-	public void delete(String loginedId) throws RemoveException {
+	public void delete(String reviewNo) throws RemoveException {
 		try {
-			repository.delete(loginedId);
+			System.out.println("Service: reviewNo  " + reviewNo);
+			repository.delete(reviewNo);
 		} catch (RemoveException e) {
 			e.printStackTrace();
 		}

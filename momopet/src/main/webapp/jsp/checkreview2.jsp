@@ -19,11 +19,13 @@
 	<c:set var="list" value="${pb.list}" />
 
 	<c:set var="customerId" value="${list[0].reviewWriter}" />
+	
 
 	<h1>'${customerId}'님이 작성한 리뷰 목록</h1>
 	<div class="reviewList-wrap">
 		<table style="border: 0px solid;">
 			<tr>
+				<th>리뷰 번호</th>
 				<th>내 리뷰를 받은 시터 ID</th>
 				<th>리뷰 작성일</th>
 				<th>평점</th>
@@ -33,7 +35,9 @@
 			</tr>
 			<c:forEach items="${list}" var="review">
 				<!-- c:set과 차이 공부 -->
+				<%-- <c:set id="reviewNo" value="${review.reviewNo}"/> --%>
 				<tr align="center" style="height: 50px;">
+					<td style="width: 250px;" id="reviewNo">${review.reviewNo}</td>
 					<td style="width: 250px;">${review.userId}</td>
 					<td style="width: 250px;">${review.reviewDate}</td>
 					<%-- <td style="width: 100px;">${review.reviewRating}</td> --%>
@@ -44,8 +48,8 @@
 						</c:forEach></td>
 
 					<td style="width: 500px;">${review.reviewContent}</td>
-					<td style="width: 100px;"><a href="#">△</a></td>
-					<td style="width: 100px;"><a href="#" id="delBtn">X</a></td>
+					<td style="width: 100px;"><button class="update">△</button></td>
+					<td style="width: 100px;"><button class="${review.reviewNo}">X</button></td>
 				</tr>
 			</c:forEach>
 		</table>
